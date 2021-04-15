@@ -44,7 +44,6 @@ const SpinnerComponent = styled.ul`
     height: 300px;
     border: 1px solid #3c3c58;
     position: relative;
-    margin: 1rem auto;
     border-radius: 50%;
     overflow: hidden;
     background: transparent;
