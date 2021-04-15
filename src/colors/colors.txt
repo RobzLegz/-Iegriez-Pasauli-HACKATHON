@@ -1,5 +1,15 @@
-Gaiši zaļš: #36D63A
-Izplūdušāks zaļš: #6EE038
-Pamatkrāsa: #9ACA3C
-Dzeltens: #E0E038
-Tumši Dzeltens: #D6C536
+###Pamatkrāsa: 
+    #9ACA3C
+
+###Spinner:
+    Gaiši zaļš: #6EE038 
+    Izplūdušāks zaļš: #36D63A
+    Pamatkrāsa: #9ACA3C
+    Dzeltens: #E0E038
+    Tumši Dzeltens: #D6C536
+    
+###Papildus Krāsas:
+    Tumši Zils: #3c3c58
+    Gaišs: #ebe1d1
+    Aqua: #2c85a4
+    Gaiši zils: 2c85a4
