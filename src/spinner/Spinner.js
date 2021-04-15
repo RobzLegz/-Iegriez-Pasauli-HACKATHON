@@ -11,27 +11,27 @@ function Spinner() {
         <SpinnerComponent>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                    1
+                    <img src={Banana} alt="banana"/>
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                    2
+                    <img src={Burger} alt="Burger"/>
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                    3
+                    <img src={Headphones} alt="Headphones"/>
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                    4
+                    <img src={Longboard} alt="Longboard"/>
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                    5
+                    <img src={Shirt} alt="Shirt"/>
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
         </SpinnerComponent>
@@ -44,8 +44,19 @@ const SpinnerComponent = styled.ul`
     border: 1px solid #3c3c58;
     position: relative;
     margin: 1rem auto;
+    border-radius: 50%;
+    list-style: none;
+    overflow: hidden;
+    background: #c4e0c0;
 `;
 const SpinnerOption = styled.li`
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    transform-origin: 0% 100%;
     :first-child{
         transform: rotate(0deg) skewY(-60deg);
         >div{
@@ -79,7 +90,14 @@ const SpinnerOption = styled.li`
 `;
 
 const SpinnerOptionInnerEl = styled.div`
-    
+    position: absolute;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    text-align: center;
+    display: block;
+    transform: skewY(60deg) rotate(15deg);
+    padding-top: 20px;
 `;
 
 export default Spinner
