@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
+import Spinner from '../spinner/Spinner';
 
 function Home() {
     return (
         <HomePage>
-            <h1>Home</h1>
+            <Spinner />
         </HomePage>
     )
 }
