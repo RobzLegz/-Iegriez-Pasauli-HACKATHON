@@ -1,0 +1,5 @@
+Gaiši zaļš: #36D63A
+Izplūdušāks zaļš: #6EE038
+Pamatkrāsa: #9ACA3C
+Dzeltens: #E0E038
+Tumši Dzeltens: #D6C536

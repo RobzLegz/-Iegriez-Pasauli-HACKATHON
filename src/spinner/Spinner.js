@@ -85,7 +85,7 @@ const SpinnerOption = styled.li`
             transform: rotate(100deg)
         }
         >div{
-            background: #495f41;
+            background: #c4e0c0;
         }
     }
     :nth-child(3){
@@ -95,7 +95,7 @@ const SpinnerOption = styled.li`
             transform: rotate(160deg)
         }
         >div{
-            background: #c4e0c0;
+            background: #D6C536;
         }
     }
     :nth-child(4){
