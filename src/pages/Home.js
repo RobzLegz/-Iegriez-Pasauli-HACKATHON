@@ -1,4 +1,3 @@
-import { Button } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
 import Spinner from "../spinner/Spinner";
@@ -15,10 +14,10 @@ function Home({ SpinTheWheel, wheelRef, spinAgain }) {
       <SpinnerContainer>
         <SpinnerArrow></SpinnerArrow>
         <Spinner wheelRef={wheelRef} />
-        <Button disabled={!spinAgain} onClick={SpinTheWheel}>
+        <button disabled={!spinAgain} onClick={SpinTheWheel}>
           <img src={FortuneWheel} alt="Fortune wheel" />
           <p>Iegriezt</p>
-        </Button>
+        </button>
       </SpinnerContainer>
       <div
         className={`question__popup ${
@@ -37,6 +36,7 @@ const HomePage = styled.div`
   flex-direction: column;
   overflow: hidden;
   height: 100vh;
+  background: #ebe1d1;
   width: 100%;
   > .question__popup {
     position: absolute;
@@ -51,7 +51,8 @@ const HomePage = styled.div`
     background: #ebe1d1;
     transform: translateY(50%);
     opacity: 0;
-    transition: all 0.3s ease;
+    overflow: hidden;
+    transition: all 1s ease;
   }
   > .open__question--popup {
     transform: translateY(0%);
