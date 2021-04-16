@@ -6,9 +6,9 @@ import Headphones from "../resources/headphone-symbol.svg";
 import Longboard from "../resources/longboard.svg";
 import Shirt from "../resources/shirt.svg";
 
-function Spinner() {
+function Spinner({ wheelRef }) {
   return (
-    <SpinnerComponent>
+    <SpinnerComponent ref={wheelRef}>
       <SpinnerOption>
         <SpinnerOptionInnerEl>
           <img src={Banana} alt="banana" />
@@ -46,6 +46,7 @@ const SpinnerComponent = styled.ul`
   border-radius: 50%;
   overflow: hidden;
   background: transparent;
+  transition: transform 5s ease;
 `;
 const SpinnerOption = styled.li`
   position: absolute;

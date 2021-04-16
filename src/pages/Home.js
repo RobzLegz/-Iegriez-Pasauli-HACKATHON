@@ -4,12 +4,13 @@ import styled from 'styled-components';
 import Spinner from '../spinner/Spinner';
 import FortuneWheel from "../resources/fortune-wheel.svg";
 
-function Home({SpinTheWheel}) {
+function Home({SpinTheWheel, wheelRef}) {
     return (
         <HomePage>
             <SpinnerContainer>
-                <Spinner />
-                <Button>
+                <SpinnerArrow></SpinnerArrow>
+                <Spinner wheelRef={wheelRef} />
+                <Button onClick={SpinTheWheel}>
                     <img src={FortuneWheel} alt="Fortune wheel"/>
                     <p>Iegriezt</p>
                 </Button>
@@ -38,6 +39,15 @@ const SpinnerContainer = styled.div`
             margin-left: 5px;
         }
     }
+`;
+const SpinnerArrow = styled.div`
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #3c3c58;
+    margin-bottom: -10px;
+    z-index: 10;
 `;
 
 export default Home
