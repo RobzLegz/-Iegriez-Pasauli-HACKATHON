@@ -7,7 +7,7 @@ import {
   selectQuestions,
 } from "./features/gameSlice";
 import { checkSecondStage, startSecondStage } from "./features/secondStageSlice";
-import { addPoints  } from "./features/userSlice";
+import { addPoints } from "./features/userSlice";
 import Home from "./pages/Home";
 import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
