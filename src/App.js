@@ -31,7 +31,7 @@ function App() {
   const SpinTheWheel = () => {
     setSpinAgain(false); //Ja rats griežas, neļaut iegriezt vēlreiz
     wheelRef.current.style.transform = `rotate(${randomStop.deg}deg)`;
-    dispatch(startGame(firstStageTheme));
+    dispatch(startGame(firstStageTheme)); //Aizsūta jautājumu tēmu uz Redux
     setTimeout(() => {
       setSpinAgain(true);//Kad rats beidz griezties, atļaut iegriezt velreiz
     }, 6000);
