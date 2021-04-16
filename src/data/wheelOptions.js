@@ -23,6 +23,78 @@ export const wheelStops = [
         a: true,
       },
     ],
+    secondStageQuestions: [
+      {
+        transport: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        energy: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        food: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        tourism: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        waste: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+    ],
   },
   {
     deg: 725,
@@ -45,6 +117,78 @@ export const wheelStops = [
         q:
           "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
         a: true,
+      },
+    ],
+    secondStageQuestions: [
+      {
+        transport: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        energy: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        food: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        tourism: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        waste: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
       },
     ],
   },
@@ -71,6 +215,78 @@ export const wheelStops = [
         a: true,
       },
     ],
+    secondStageQuestions: [
+      {
+        transport: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        energy: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        food: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        tourism: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        waste: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+    ],
   },
   {
     deg: 1620,
@@ -95,6 +311,78 @@ export const wheelStops = [
         a: true,
       },
     ],
+    secondStageQuestions: [
+      {
+        transport: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        energy: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        food: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        tourism: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        waste: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+    ],
   },
   {
     deg: 1700,
@@ -117,6 +405,78 @@ export const wheelStops = [
         q:
           "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
         a: true,
+      },
+    ],
+    secondStageQuestions: [
+      {
+        transport: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        energy: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        food: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        tourism: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
+      },
+      {
+        waste: [
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+          {
+            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
+            answerOptions: ["1000", "2000", "3000"],
+            correctAnswer: "3000",
+          },
+        ],
       },
     ],
   },

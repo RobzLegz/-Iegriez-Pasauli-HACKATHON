@@ -23,7 +23,7 @@ function App() {
   const dispatch = useDispatch();
   const wheelRef = useRef();
 
-  //Izvēlas nejaušu grādu skaitli (par cik grādiem pagriezīsies ritenis)
+  //Izvēlas nejaušu opciju, uz kuras rats uzgriezīsies
   let randomStop = wheelStops[Math.floor(Math.random() * 5) + 0];
 
   //Iegriež ratu
