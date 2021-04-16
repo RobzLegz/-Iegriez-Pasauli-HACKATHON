@@ -7,9 +7,11 @@ import {
   selectQuestions,
 } from "./features/gameSlice";
 import { checkSecondStage, startSecondStage } from "./features/secondStageSlice";
-import { addPoints, selectPoints  } from "./features/userSlice";
+import { addPoints  } from "./features/userSlice";
 import Home from "./pages/Home";
+import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
+import {wheelStops} from "./data/wheelOptions";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
@@ -20,130 +22,6 @@ function App() {
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
-
-  //Grādu piemēri, bildes un objektu jautājumi
-  let wheelStops = [
-    {
-      deg: 685,
-      value: "Banana",
-      image: "firstStageResources/banana.svg",
-      questions: [
-        { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
-        { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
-        {
-          q:
-            "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
-          a: true,
-        },
-      ],
-    },
-    {
-      deg: 725,
-      value: "Shirt",
-      image: "firstStageResources/shirt.svg",
-      questions: [
-        { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
-        { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
-        {
-          q:
-            "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
-          a: true,
-        },
-      ],
-    },
-    {
-      deg: 1550,
-      value: "Longboard",
-      image: "firstStageResources/longboard.svg",
-      questions: [
-        { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
-        { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
-        {
-          q:
-            "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
-          a: true,
-        },
-      ],
-    },
-    {
-      deg: 1620,
-      value: "Headphones",
-      image: "firstStageResources/headphone-symbol.svg",
-      questions: [
-        { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
-        { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
-        {
-          q:
-            "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
-          a: true,
-        },
-      ],
-    },
-    {
-      deg: 1700,
-      value: "Burger",
-      image: "firstStageResources/burger.svg",
-      questions: [
-        { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
-        { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
-        {
-          q:
-            "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
-          a: true,
-        },
-        {
-          q:
-            "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
-          a: true,
-        },
-      ],
-    },
-  ];
 
   //Izvēlas nejaušu grādu skaitli (par cik grādiem pagriezīsies ritenis)
   let randomStop = wheelStops[Math.floor(Math.random() * 5) + 0];
@@ -162,29 +40,32 @@ function App() {
 
   //atbild uz pirmās daļas jautājumu
   const firstPartAnswer = (value) => {
-    if(activeQuestions[answerCounter].a === value) {
-      //ja atbild pareizi, palielina punktu skaitu
-      dispatch(addPoints());
-    }
     if (answerCounter > 3) {
       //kad atbild uz visiem jautājumiem, sāk otro spēles daļu
       dispatch(startSecondStage());
       return;
-    }else{
-      setAnswerCounter(answerCounter + 1);
+    }
+    setAnswerCounter(answerCounter + 1);
+    if(activeQuestions[answerCounter].a === value) {
+      //ja atbild pareizi, palielina punktu skaitu
+      dispatch(addPoints());
     }
   };
 
   return (
     <div>
       <GlobalStyles />
-      <Home
-        answerCounter={answerCounter}
-        firstPartAnswer={firstPartAnswer}
-        spinAgain={spinAgain}
-        wheelRef={wheelRef}
-        SpinTheWheel={SpinTheWheel}
-      />
+      {secondStageStarted ? (
+        <SecondStage />
+      ) : (
+        <Home
+          answerCounter={answerCounter}
+          firstPartAnswer={firstPartAnswer}
+          spinAgain={spinAgain}
+          wheelRef={wheelRef}
+          SpinTheWheel={SpinTheWheel}
+        />
+      )}
     </div>
   );
 }
