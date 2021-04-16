@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import Spinner from '../spinner/Spinner';
 import FortuneWheel from "../resources/fortune-wheel.svg";
 
-function Home({SpinTheWheel, wheelRef}) {
+function Home({SpinTheWheel, wheelRef, spinAgain}) {
     return (
         <HomePage>
             <SpinnerContainer>
                 <SpinnerArrow></SpinnerArrow>
                 <Spinner wheelRef={wheelRef} />
-                <Button onClick={SpinTheWheel}>
+                <Button disabled={!spinAgain} onClick={SpinTheWheel}>
                     <img src={FortuneWheel} alt="Fortune wheel"/>
                     <p>Iegriezt</p>
                 </Button>

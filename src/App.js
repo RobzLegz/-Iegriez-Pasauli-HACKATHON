@@ -4,22 +4,26 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   const [spinCounter, setSpinCounter] = useState(0);
+  const [spinAgain, setSpinAgain] = useState(true);
 
   const wheelRef = useRef();
 
-  let randDegrees = Math.ceil(Math.random() * 5000);
+  //Ģenerē nejaušu grādu skaitli (par cik grādiem pagriezīsies ritenis)
+  let randDegrees = Math.random() * 5000;
 
   const SpinTheWheel = () => {
+    setSpinAgain(false);
     setSpinCounter(spinCounter + 1);
-    wheelRef.current.style.transform = `rotate(${
-      randDegrees < 0 ? randDegrees * -1 : randDegrees
-    }deg)`;
+    wheelRef.current.style.transform = `rotate(${randDegrees}deg)`;
+    setTimeout(() => {
+      setSpinAgain(true);
+    }, 5000);
   };
 
   return (
     <div>
       <GlobalStyles />
-      <Home wheelRef={wheelRef} SpinTheWheel={SpinTheWheel} />
+      <Home spinAgain={spinAgain} wheelRef={wheelRef} SpinTheWheel={SpinTheWheel} />
     </div>
   );
 }
