@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { startGame, findImage, addThemeQuestions } from "./features/gameSlice";
 import Home from "./pages/Home";
@@ -6,6 +6,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
+  const [answerCounter, setAnswerCounter] = useState(0);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
@@ -149,10 +150,20 @@ function App() {
     }, 6000);
   };
 
+  const firstPartAnswer = () => {
+    if (answerCounter > 3) {
+      return;
+    } else {
+      setAnswerCounter(answerCounter + 1);
+    }
+  };
+
   return (
     <div>
       <GlobalStyles />
       <Home
+        answerCounter={answerCounter}
+        firstPartAnswer={firstPartAnswer}
         spinAgain={spinAgain}
         wheelRef={wheelRef}
         SpinTheWheel={SpinTheWheel}

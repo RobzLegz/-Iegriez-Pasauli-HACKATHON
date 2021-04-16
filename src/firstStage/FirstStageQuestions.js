@@ -7,15 +7,23 @@ import {
   selectQuestions,
 } from "../features/gameSlice";
 
-function FirstStageQuestions() {
+function FirstStageQuestions({firstPartAnswer, answerCounter}) {
   const activeImage = useSelector(selectThemeImage);
   const activeTheme = useSelector(selectTheme);
   const activeQuestions = useSelector(selectQuestions);
 
   return (
     <FirstStageQPopup>
-      <img src={activeImage} alt={activeTheme} />
-      <p>{activeQuestions[0].q}</p>
+      {activeTheme !== "" && (
+        <>
+          <img src={activeImage} alt={activeTheme} />
+          <p>{activeQuestions[answerCounter].q}</p>
+          <div className="true__false--container">
+            <button className="true__button" onClick={firstPartAnswer}>Patiess</button>
+            <button className="false__button" onClick={firstPartAnswer}>Aplams</button>
+          </div>
+        </>
+      )}
     </FirstStageQPopup>
   );
 }
@@ -34,6 +42,14 @@ const FirstStageQPopup = styled.div`
   }
   > p {
     z-index: 10;
+  }
+  >.true__false--container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >button{
+      margin-left: 10px;
+    }
   }
 `;
 

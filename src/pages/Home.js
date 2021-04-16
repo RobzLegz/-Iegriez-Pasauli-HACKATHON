@@ -6,7 +6,13 @@ import FirstStageQuestions from "../firstStage/FirstStageQuestions";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../features/gameSlice";
 
-function Home({ SpinTheWheel, wheelRef, spinAgain }) {
+function Home({
+  SpinTheWheel,
+  wheelRef,
+  spinAgain,
+  firstPartAnswer,
+  answerCounter,
+}) {
   const ThemeName = useSelector(selectTheme);
 
   return (
@@ -24,7 +30,10 @@ function Home({ SpinTheWheel, wheelRef, spinAgain }) {
           ThemeName !== "" && spinAgain ? "open__question--popup" : ""
         }`}
       >
-        <FirstStageQuestions />
+        <FirstStageQuestions
+          answerCounter={answerCounter}
+          firstPartAnswer={firstPartAnswer}
+        />
       </div>
     </HomePage>
   );
