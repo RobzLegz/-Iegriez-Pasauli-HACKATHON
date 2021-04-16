@@ -9,7 +9,12 @@ function SecondStage() {
 
   return (
         <StyledSecondStage>
-            <img src={MapImage} alt="europe map"/>
+            <div className="map__container">
+                <img src={MapImage} alt="europe map"/>
+                <div className="random__image--container">
+                    
+                </div>
+            </div>
         </StyledSecondStage>
     )
 }
@@ -21,6 +26,13 @@ const StyledSecondStage = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    >.map__container{
+        height: 100%;
+        >img{
+            height: 90%;
+        }
+    }
+    
 `;
 
 export default SecondStage
