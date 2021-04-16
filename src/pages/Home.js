@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components';
 import Spinner from '../spinner/Spinner';
 import FortuneWheel from "../resources/fortune-wheel.svg";
+import FirstStageQuestions from '../firstStage/FirstStageQuestions';
 
 function Home({SpinTheWheel, wheelRef, spinAgain}) {
     return (
@@ -15,6 +16,7 @@ function Home({SpinTheWheel, wheelRef, spinAgain}) {
                     <p>Iegriezt</p>
                 </Button>
             </SpinnerContainer>
+            <FirstStageQuestions />
         </HomePage>
     )
 }
