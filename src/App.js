@@ -1,12 +1,21 @@
 import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
-import { startGame, findImage, addThemeQuestions } from "./features/gameSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  startGame,
+  findImage,
+  addThemeQuestions,
+  selectQuestions,
+} from "./features/gameSlice";
+import { addPoints, selectPoints  } from "./features/userSlice";
 import Home from "./pages/Home";
 import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
   const [answerCounter, setAnswerCounter] = useState(0);
+
+  const activeQuestions = useSelector(selectQuestions);
+  const userPoints = useSelector(selectPoints);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
@@ -150,9 +159,17 @@ function App() {
     }, 6000);
   };
 
-  const firstPartAnswer = () => {
+  //atbild uz pirmās daļas jautājumu
+  const firstPartAnswer = (value) => {
+    if (activeQuestions[answerCounter].a === value) {
+      //ja atbild pareizi, palielina punktu skaitu
+      dispatch(addPoints());
+    }
+    console.log(userPoints);
     if (answerCounter > 3) {
       return;
+    }else if(answerCounter === 4){
+      
     } else {
       setAnswerCounter(answerCounter + 1);
     }

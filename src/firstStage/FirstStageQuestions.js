@@ -19,8 +19,12 @@ function FirstStageQuestions({firstPartAnswer, answerCounter}) {
           <img src={activeImage} alt={activeTheme} />
           <p>{activeQuestions[answerCounter].q}</p>
           <div className="true__false--container">
-            <button className="true__button" onClick={firstPartAnswer}>Patiess</button>
-            <button className="false__button" onClick={firstPartAnswer}>Aplams</button>
+            <button className="true__button" onClick={() => {
+              firstPartAnswer(true);
+            }}>Patiess</button>
+            <button className="false__button" onClick={() => {
+              firstPartAnswer(false);
+            }}>Aplams</button>
           </div>
         </>
       )}
