@@ -135,7 +135,7 @@ function App() {
   ];
 
   //Izvēlas nejaušu grādu skaitli (par cik grādiem pagriezīsies ritenis)
-  let randomStop = wheelStops[Math.floor(Math.random() * 4) + 0];
+  let randomStop = wheelStops[Math.floor(Math.random() * 5) + 0];
 
   //Iegriež ratu
   const SpinTheWheel = () => {
