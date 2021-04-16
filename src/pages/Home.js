@@ -4,8 +4,13 @@ import styled from 'styled-components';
 import Spinner from '../spinner/Spinner';
 import FortuneWheel from "../resources/fortune-wheel.svg";
 import FirstStageQuestions from '../firstStage/FirstStageQuestions';
+import { useSelector } from 'react-redux';
+import { questionPopup } from '../features/gameSlice';
 
 function Home({SpinTheWheel, wheelRef, spinAgain}) {
+
+    const firstStagequestionPopup = useSelector(questionPopup);
+
     return (
         <HomePage>
             <SpinnerContainer>
@@ -16,7 +21,9 @@ function Home({SpinTheWheel, wheelRef, spinAgain}) {
                     <p>Iegriezt</p>
                 </Button>
             </SpinnerContainer>
-            <FirstStageQuestions />
+            <div className={`question__popup ${firstStagequestionPopup ? "open__question--popup" : ""}`}>
+                <FirstStageQuestions />
+            </div>
         </HomePage>
     )
 }
@@ -25,6 +32,9 @@ const HomePage = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    >.question__popup{
+
+    }
 `;
 const SpinnerContainer = styled.div`
     display: flex;

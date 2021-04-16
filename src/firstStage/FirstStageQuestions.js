@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectTheme, selectThemeImage } from "../features/gameSlice";
 
 function FirstStageQuestions() {
-    return (
-        <div>
-            <h1>asdsd</h1>
-        </div>
-    )
+  const activeImage = useSelector(selectThemeImage);
+  const activeTheme = useSelector(selectTheme);
+
+  return (
+    <div>
+      <img src={activeImage} alt={activeTheme} />
+    </div>
+  );
 }
 
-export default FirstStageQuestions
+export default FirstStageQuestions;

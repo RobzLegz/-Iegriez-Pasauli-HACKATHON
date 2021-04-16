@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { startGame } from "./features/gameSlice";
+import { popupQuestions, startGame, findImage } from "./features/gameSlice";
 import Home from "./pages/Home";
 import GlobalStyles from "./styles/GlobalStyles";
 
@@ -13,11 +13,11 @@ function App() {
 
   //Grādu piemēri
   let wheelStops = [
-    {deg: 685, value: "banana"},
-    {deg: 725, value: "shirt"},
-    {deg: 1550, value: "longboard"},
-    {deg: 1620, value: "headphones"},
-    {deg: 1700, value: "burger"}
+    {deg: 685, value: "Banana", image: "firstStageResources/banana.svg"},
+    {deg: 725, value: "Shirt", image: "firstStageResources/shirt.svg"},
+    {deg: 1550, value: "Longboard", image: "firstStageResources/longboard.svg"},
+    {deg: 1620, value: "Headphones", image: "firstStageResources/headphone-symbol.svg"},
+    {deg: 1700, value: "Burger", image: "firstStageResources/burger.svg"}
   ]
 
   //Izvēlas nejaušu grādu skaitli (par cik grādiem pagriezīsies ritenis)
@@ -32,8 +32,10 @@ function App() {
     setSpinAgain(false); //Ja rats griežas, neļaut iegriezt vēlreiz
     wheelRef.current.style.transform = `rotate(${randomStop.deg}deg)`;
     dispatch(startGame(firstStageTheme)); //Aizsūta jautājumu tēmu uz Redux
+    dispatch(findImage(randomStop.image));
     setTimeout(() => {
       setSpinAgain(true);//Kad rats beidz griezties, atļaut iegriezt velreiz
+      dispatch(popupQuestions(true))
     }, 6000);
   };
 
