@@ -30,7 +30,6 @@ function Home({ SpinTheWheel, wheelRef, spinAgain }) {
   );
 }
 const HomePage = styled.div`
-  padding: 100px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -38,6 +37,7 @@ const HomePage = styled.div`
   height: 100vh;
   background: #ebe1d1;
   width: 100%;
+  justify-content: center;
   > .question__popup {
     position: absolute;
     top: 0;
@@ -47,7 +47,6 @@ const HomePage = styled.div`
     z-index: -1;
     display: flex;
     flex-direction: column;
-    padding: 100px 200px;
     background: #ebe1d1;
     transform: translateY(50%);
     opacity: 0;
@@ -64,6 +63,7 @@ const SpinnerContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
   > button {
     margin-top: 20px;
     display: flex;
