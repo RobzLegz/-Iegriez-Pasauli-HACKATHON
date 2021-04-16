@@ -15,6 +15,7 @@ function FirstStageQuestions() {
   return (
     <FirstStageQPopup>
       <img src={activeImage} alt={activeTheme} />
+      <p>{activeQuestions[0].q}</p>
     </FirstStageQPopup>
   );
 }
@@ -30,6 +31,9 @@ const FirstStageQPopup = styled.div`
   > img {
     width: 100px;
     height: 100px;
+  }
+  > p {
+    z-index: 10;
   }
 `;
 
