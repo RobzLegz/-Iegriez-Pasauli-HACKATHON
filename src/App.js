@@ -6,6 +6,7 @@ import {
   addThemeQuestions,
   selectQuestions,
 } from "./features/gameSlice";
+import { checkSecondStage, startSecondStage } from "./features/secondStageSlice";
 import { addPoints, selectPoints  } from "./features/userSlice";
 import Home from "./pages/Home";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -15,7 +16,7 @@ function App() {
   const [answerCounter, setAnswerCounter] = useState(0);
 
   const activeQuestions = useSelector(selectQuestions);
-  const userPoints = useSelector(selectPoints);
+  const secondStageStarted = useSelector(checkSecondStage);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
@@ -161,16 +162,15 @@ function App() {
 
   //atbild uz pirmās daļas jautājumu
   const firstPartAnswer = (value) => {
-    if (activeQuestions[answerCounter].a === value) {
+    if(activeQuestions[answerCounter].a === value) {
       //ja atbild pareizi, palielina punktu skaitu
       dispatch(addPoints());
     }
-    console.log(userPoints);
     if (answerCounter > 3) {
+      //kad atbild uz visiem jautājumiem, sāk otro spēles daļu
+      dispatch(startSecondStage());
       return;
-    }else if(answerCounter === 4){
-      
-    } else {
+    }else{
       setAnswerCounter(answerCounter + 1);
     }
   };
