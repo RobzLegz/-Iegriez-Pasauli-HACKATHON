@@ -1,37 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import Banana from "../resources/banana.svg";
-import Burger from "../resources/burger.svg";
-import Headphones from "../resources/headphone-symbol.svg";
-import Longboard from "../resources/longboard.svg";
-import Shirt from "../resources/shirt.svg";
 
 function Spinner({ wheelRef }) {
   return (
     <SpinnerComponent ref={wheelRef}>
       <SpinnerOption>
         <SpinnerOptionInnerEl>
-          <img src={Banana} alt="banana" />
+          <img src="/firstStageResources/banana.svg" alt="banana" />
         </SpinnerOptionInnerEl>
       </SpinnerOption>
       <SpinnerOption>
         <SpinnerOptionInnerEl>
-          <img src={Burger} alt="Burger" />
+          <img src="/firstStageResources/burger.svg" alt="Burger" />
         </SpinnerOptionInnerEl>
       </SpinnerOption>
       <SpinnerOption>
         <SpinnerOptionInnerEl>
-          <img src={Headphones} alt="Headphones" />
+          <img src="/firstStageResources/headphone-symbol.svg" alt="Headphones" />
         </SpinnerOptionInnerEl>
       </SpinnerOption>
       <SpinnerOption>
         <SpinnerOptionInnerEl>
-          <img src={Longboard} alt="Longboard" />
+          <img src="/firstStageResources/longboard.svg" alt="Longboard" />
         </SpinnerOptionInnerEl>
       </SpinnerOption>
       <SpinnerOption>
         <SpinnerOptionInnerEl>
-          <img src={Shirt} alt="Shirt" />
+          <img src="/firstStageResources/shirt.svg" alt="Shirt" />
         </SpinnerOptionInnerEl>
       </SpinnerOption>
     </SpinnerComponent>

@@ -5,11 +5,11 @@ import Spinner from '../spinner/Spinner';
 import FortuneWheel from "../resources/fortune-wheel.svg";
 import FirstStageQuestions from '../firstStage/FirstStageQuestions';
 import { useSelector } from 'react-redux';
-import { questionPopup } from '../features/gameSlice';
+import { selectTheme } from '../features/gameSlice';
 
 function Home({SpinTheWheel, wheelRef, spinAgain}) {
 
-    const firstStagequestionPopup = useSelector(questionPopup);
+    const ThemeName = useSelector(selectTheme);
 
     return (
         <HomePage>
@@ -21,7 +21,7 @@ function Home({SpinTheWheel, wheelRef, spinAgain}) {
                     <p>Iegriezt</p>
                 </Button>
             </SpinnerContainer>
-            <div className={`question__popup ${firstStagequestionPopup ? "open__question--popup" : ""}`}>
+            <div className={`question__popup ${ThemeName !== "" && spinAgain ? "open__question--popup" : ""}`}>
                 <FirstStageQuestions />
             </div>
         </HomePage>
@@ -33,7 +33,24 @@ const HomePage = styled.div`
     align-items: center;
     flex-direction: column;
     >.question__popup{
-
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        display: flex;
+        flex-direction: column;
+        padding: 100px 200px;
+        background: #ebe1d1;
+        transform: translateY(50%);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    >.open__question--popup{
+        transform: translateY(0%);
+        opacity: 1;
+        z-index: 10;
     }
 `;
 const SpinnerContainer = styled.div`
