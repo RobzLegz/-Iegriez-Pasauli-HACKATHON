@@ -6,7 +6,7 @@ import {
   addThemeQuestions,
   selectQuestions,
 } from "./features/gameSlice";
-import { checkSecondStage, startSecondStage } from "./features/secondStageSlice";
+import { checkSecondStage, findSecondStageQuestions, startSecondStage } from "./features/secondStageSlice";
 import { addPoints } from "./features/userSlice";
 import Home from "./pages/Home";
 import SecondStage from "./pages/SecondStage";
@@ -39,14 +39,16 @@ function App() {
   };
 
   //atbild uz pirmās daļas jautājumu
-  const firstPartAnswer = (value) => {
+  const firstPartAnswer = (answer) => {
     if (answerCounter > 3) {
       //kad atbild uz visiem jautājumiem, sāk otro spēles daļu
       dispatch(startSecondStage());
+      //Aizsūta otrās daļas jautājumus uz Redux
+      dispatch(findSecondStageQuestions(randomStop.secondStageQuestions))
       return;
     }
     setAnswerCounter(answerCounter + 1);
-    if(activeQuestions[answerCounter].a === value) {
+    if(activeQuestions[answerCounter].a === answer) {
       //ja atbild pareizi, palielina punktu skaitu
       dispatch(addPoints());
     }

@@ -1,11 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { selectQuestions } from '../features/gameSlice';
 import MapImage from "../resources/europe-map.png";
 
 function SecondStage() {
-  const activeQuestions = useSelector(selectQuestions);
 
   return (
         <StyledSecondStage>
@@ -28,8 +26,14 @@ const StyledSecondStage = styled.div`
     justify-content: center;
     >.map__container{
         height: 100%;
+        width: 100%;
+            display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         >img{
-            height: 90%;
+            width: 90%;
+            max-width: 900px;
         }
     }
     
