@@ -17,6 +17,7 @@ function App() {
   const [spinAgain, setSpinAgain] = useState(true);
   const [answerCounter, setAnswerCounter] = useState(0);
   const [ssQuestionState, setSsQuestionState] = useState(false);
+  const [ssAnswer, setSsAnswer] = useState("");
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
@@ -63,8 +64,14 @@ function App() {
     setSsQuestionState(true);
   }
 
-  //aizver jautājuma popupu
-  const closeSecondStageQuestion = () => {
+  //pārbauda otrās daļas atbildi
+  const closeSecondStageQuestion = (e, correct) => {
+    e.preventDefault();
+    if(ssAnswer === correct){
+      //Ja atbild pareizi, palielina punktu skaitu
+      dispatch(addPoints());
+    }
+    //aizver jautājuma popupu
     setSsQuestionState(false);
   }
 
@@ -73,6 +80,8 @@ function App() {
       <GlobalStyles />
       {secondStageStarted ? (
         <SecondStage
+          ssAnswer={ssAnswer}
+          setSsAnswer={setSsAnswer}
           ssQuestionState={ssQuestionState}
           openSecondStageQuestion={openSecondStageQuestion}
           closeSecondStageQuestion={closeSecondStageQuestion}

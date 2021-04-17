@@ -2,9 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { selectAllQuestions } from '../features/secondStageSlice';
+import SSQuestionPopup from './popups/SSQuestionPopup';
 import QuestionSection from './QuestionSection';
 
-function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, closeSecondStageQuestion}) {
+function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAnswer, ssAnswer, closeSecondStageQuestion}) {
     const secondStageQs = useSelector(selectAllQuestions);
     
     return (
@@ -149,7 +150,11 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, closeSec
                 />
             </li>
             {ssQuestionState && (
-                <h1 onClick={closeSecondStageQuestion}>sssssssssss</h1>
+                <SSQuestionPopup 
+                    ssAnswer={ssAnswer}
+                    setSsAnswer={setSsAnswer}
+                    closeSecondStageQuestion={closeSecondStageQuestion} 
+                />
             )}
         </StyledRandomQs>
     )
