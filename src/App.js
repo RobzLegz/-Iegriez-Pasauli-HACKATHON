@@ -16,6 +16,7 @@ import {wheelStops} from "./data/wheelOptions";
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
   const [answerCounter, setAnswerCounter] = useState(0);
+  const [ssQuestionState, setSsQuestionState] = useState(false);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
@@ -54,11 +55,25 @@ function App() {
     }
   };
 
+  //atver jautājuma popupu
+  const openSecondStageQuestion = () => {
+    setSsQuestionState(true);
+  }
+
+  //aizver jautājuma popupu
+  const closeSecondStageQuestion = () => {
+    setSsQuestionState(false);
+  }
+
   return (
     <div>
       <GlobalStyles />
       {secondStageStarted ? (
-        <SecondStage />
+        <SecondStage
+          ssQuestionState={ssQuestionState}
+          openSecondStageQuestion={openSecondStageQuestion}
+          closeSecondStageQuestion={closeSecondStageQuestion}
+        />
       ) : (
         <Home
           answerCounter={answerCounter}

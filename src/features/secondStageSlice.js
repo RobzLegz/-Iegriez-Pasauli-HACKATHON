@@ -20,4 +20,5 @@ export const { startSecondStage, setAllQs } = secondStageSlice.actions;
 
 export const checkSecondStage = (state) => state.secondStage.started;
 export const selectAllQuestions = (state) => state.secondStage.allQuestions;
+
 export default secondStageSlice.reducer;

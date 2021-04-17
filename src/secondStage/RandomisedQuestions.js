@@ -140,6 +140,7 @@ const StyledRandomQs = styled.ul`
     >li{
         list-style: none;
         position: absolute;
+        cursor: pointer;
         :first-child{
             top: 50%;
             right: 25%;
@@ -154,7 +155,51 @@ const StyledRandomQs = styled.ul`
         }
         :nth-child(4){
             top: 10%;
+            right: 30%;
+        }
+        :nth-child(5){
+            top: 7%;
+            left: 25%;
+        }
+        :nth-child(6){
+            bottom: 10%;
+            right: 30%;
+        }
+        :nth-child(7){
+            top: 60%;
+            right: 5%;
+        }
+        :nth-child(8){
+            top: 40%;
+            left: 33%;
+        }
+        :nth-child(9){
+            bottom: 17%;
+            left: 18%;
+        }
+        :nth-child(10){
+            top: 60%;
+            right: 30%;
+        }
+        :nth-child(11){
+            top: 70%;
+            right: 10%;
+        }
+        :nth-child(12){
+            top: 34%;
+            right: 18%;
+        }
+        :nth-child(13){
+            top: 20%;
+            right: 35%;
+        }
+        :nth-child(14){
+            top: 50%;
             right: 40%;
+        }
+        :nth-child(15){
+            top: 45%;
+            right: 10%;
         }
     }
 `;
