@@ -4,21 +4,20 @@ export const secondStageSlice = createSlice({
   name: "secondStage",
   initialState: {
     started: false,
-    secondStageQuestions: [],
+    allQuestions: [],    
   },
   reducers: {
     startSecondStage: (state) => {
       state.started = true;
     },
-    findSecondStageQuestions: (state, action) => {
-      state.secondStageQuestions = action.payload;
-    }
+    setAllQs: (state, action) => {
+      state.allQuestions = action.payload;
+    },
   },
 });
 
-export const { startSecondStage, findSecondStageQuestions } = secondStageSlice.actions;
+export const { startSecondStage, setAllQs } = secondStageSlice.actions;
 
 export const checkSecondStage = (state) => state.secondStage.started;
-export const selectSecondStageQuestions = (state) => state.secondStage.secondStageQuestions;
-
+export const selectAllQuestions = (state) => state.secondStage.allQuestions;
 export default secondStageSlice.reducer;

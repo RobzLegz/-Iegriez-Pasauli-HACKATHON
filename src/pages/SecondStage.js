@@ -1,16 +1,33 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { selectAllQuestions } from '../features/secondStageSlice';
 import MapImage from "../resources/europe-map.png";
+import QuestionSection from '../secondStage/QuestionSection';
 
 function SecondStage() {
+    const secondStageQs = useSelector(selectAllQuestions);
 
-  return (
+    return (
         <StyledSecondStage>
             <div className="map__container">
                 <img src={MapImage} alt="europe map"/>
                 <div className="random__image--container">
-                    
+                    {secondStageQs[0].transport.map((transportQ) => (
+                        <QuestionSection transportQ={transportQ} />
+                    ))}
+                    {secondStageQs[1].energy.map((energyQ) => (
+                        <QuestionSection energyQ={energyQ} />
+                    ))}
+                    {secondStageQs[2].food.map((foodQ) => (
+                        <QuestionSection foodQ={foodQ} />
+                    ))}
+                    {secondStageQs[3].tourism.map((tourismQ) => (
+                        <QuestionSection tourismQ={tourismQ} />
+                    ))}
+                    {secondStageQs[4].waste.map((wasteQ) => (
+                        <QuestionSection wasteQ={wasteQ} />
+                    ))}
                 </div>
             </div>
         </StyledSecondStage>

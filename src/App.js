@@ -6,7 +6,7 @@ import {
   addThemeQuestions,
   selectQuestions,
 } from "./features/gameSlice";
-import { checkSecondStage, findSecondStageQuestions, startSecondStage } from "./features/secondStageSlice";
+import { checkSecondStage,startSecondStage, setAllQs } from "./features/secondStageSlice";
 import { addPoints } from "./features/userSlice";
 import Home from "./pages/Home";
 import SecondStage from "./pages/SecondStage";
@@ -44,7 +44,7 @@ function App() {
       //kad atbild uz visiem jautājumiem, sāk otro spēles daļu
       dispatch(startSecondStage());
       //Aizsūta otrās daļas jautājumus uz Redux
-      dispatch(findSecondStageQuestions(randomStop.secondStageQuestions))
+      dispatch(setAllQs(randomStop.secondStageQuestions));
       return;
     }
     setAnswerCounter(answerCounter + 1);
