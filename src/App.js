@@ -69,10 +69,13 @@ function App() {
   //pārbauda otrās daļas atbildi
   const closeSecondStageQuestion = (e, correct) => {
     e.preventDefault();
-    if(ssAnswer === correct){
+    if(ssAnswer === ""){
+      return;
+    }else if(ssAnswer === correct){
       //Ja atbild pareizi, palielina punktu skaitu
       dispatch(addPoints());
-    }
+    }    
+    setSsAnswer("");
     //aizver jautājuma popupu
     setSsQuestionState(false);
   }
