@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { selectAllQuestions } from '../features/secondStageSlice';
 import QuestionSection from './QuestionSection';
 
-function RandomisedQuestions() {
+function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, closeSecondStageQuestion}) {
     const secondStageQs = useSelector(selectAllQuestions);
     
     return (

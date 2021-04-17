@@ -3,12 +3,16 @@ import styled from 'styled-components';
 import MapImage from "../resources/europe-map.png";
 import RandomisedQuestions from '../secondStage/RandomisedQuestions';
 
-function SecondStage() {
+function SecondStage({ssQuestionState, openSecondStageQuestion, closeSecondStageQuestion}) {
     return (
         <StyledSecondStage>
             <div className="game__container">
                 <img src={MapImage} alt="europe map"/>
-                <RandomisedQuestions />      
+                <RandomisedQuestions
+                    ssQuestionState={ssQuestionState}
+                    openSecondStageQuestion={openSecondStageQuestion}
+                    closeSecondStageQuestion={closeSecondStageQuestion}
+                />      
             </div>  
         </StyledSecondStage>
     )
