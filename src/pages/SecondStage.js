@@ -25,6 +25,9 @@ const StyledSecondStage = styled.div`
         position: relative;
         width: 90%;
         max-width: 900px; 
+        >img{
+            width: 100%;
+        }
     }    
 `;
 

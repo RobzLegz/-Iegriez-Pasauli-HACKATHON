@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function QuestionSection({image}) {
     return (
         <StyledQuestionSection>
-            <img src={image} alt="khouyg"/>
+            <img src={image} alt="object"/>
         </StyledQuestionSection>
     )
 }
