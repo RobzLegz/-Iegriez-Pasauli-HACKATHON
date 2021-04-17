@@ -18,6 +18,26 @@ function App() {
   const [answerCounter, setAnswerCounter] = useState(0);
   const [ssQuestionState, setSsQuestionState] = useState(false);
   const [ssAnswer, setSsAnswer] = useState("");
+  const [ssCheckingId, setSsCheckingId] = useState(null);
+  const [ssQuestionVisible, setSsQuestionVisible] = useState({
+    0: true,
+    1: true,
+    2: true,
+    3: true,
+    4: true,
+    5: true,
+    6: true,
+    7: true,
+    8: true,
+    9: true,
+    10: true,
+    11: true,
+    12: true,
+    13: true,
+    14: true,
+  });
+
+  console.log(ssQuestionVisible);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
@@ -57,13 +77,36 @@ function App() {
   };
 
   //atver jautājuma popupu
-  const openSecondStageQuestion = (question, answerOptions, correctAnswer) => {
+  const openSecondStageQuestion = (question, answerOptions, correctAnswer, id) => {
+    //atrod bildītes id
+    setSsCheckingId(id);
     //nosūta jautājuma info uz Redux
     dispatch(setActiveQuestion(question));
     dispatch(setActiveAnswers(answerOptions));
     dispatch(setActiveCorrectAnswer(correctAnswer));
     //atver jautājuma popupu
     setSsQuestionState(true);
+  }
+
+  const hideAnsweredQuestions = () => {
+    setSsQuestionVisible({
+      0: ssQuestionVisible[0], 
+      1: ssQuestionVisible[1],
+      2: ssQuestionVisible[2],
+      3: ssQuestionVisible[3],
+      4: ssQuestionVisible[4],
+      5: ssQuestionVisible[5],
+      6: ssQuestionVisible[6],
+      7: ssQuestionVisible[7],
+      8: ssQuestionVisible[8],
+      9: ssQuestionVisible[9],
+      10: ssQuestionVisible[10],
+      11: ssQuestionVisible[11],
+      12: ssQuestionVisible[12],
+      13: ssQuestionVisible[13],
+      14: ssQuestionVisible[14],
+      [ssCheckingId]: false
+    });
   }
 
   //pārbauda otrās daļas atbildi
@@ -74,7 +117,8 @@ function App() {
     }else if(ssAnswer === correct){
       //Ja atbild pareizi, palielina punktu skaitu
       dispatch(addPoints());
-    }    
+    }
+    hideAnsweredQuestions();
     setSsAnswer("");
     //aizver jautājuma popupu
     setSsQuestionState(false);

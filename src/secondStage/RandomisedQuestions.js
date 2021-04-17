@@ -12,6 +12,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
         <StyledRandomQs>
             <li>
                 <QuestionSection
+                    id={0}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[0].transport[0].q} 
                     answerOptions={secondStageQs[0].transport[0].answerOptions} 
@@ -21,6 +22,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={1}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[0].transport[1].q} 
                     answerOptions={secondStageQs[0].transport[1].answerOptions} 
@@ -30,6 +32,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={2}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[0].transport[2].q} 
                     answerOptions={secondStageQs[0].transport[2].answerOptions} 
@@ -40,6 +43,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
 
             <li>
                 <QuestionSection
+                    id={3}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[1].energy[0].q} 
                     answerOptions={secondStageQs[1].energy[0].answerOptions} 
@@ -49,6 +53,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={4}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[1].energy[1].q} 
                     answerOptions={secondStageQs[1].energy[1].answerOptions} 
@@ -58,6 +63,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={5}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[1].energy[2].q} 
                     answerOptions={secondStageQs[1].energy[2].answerOptions} 
@@ -68,6 +74,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
 
             <li>
                 <QuestionSection
+                    id={6}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[2].food[0].q} 
                     answerOptions={secondStageQs[2].food[0].answerOptions} 
@@ -77,6 +84,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={7}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[2].food[1].q} 
                     answerOptions={secondStageQs[2].food[1].answerOptions} 
@@ -86,6 +94,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={8}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[2].food[2].q} 
                     answerOptions={secondStageQs[2].food[2].answerOptions} 
@@ -96,6 +105,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             
             <li>
                 <QuestionSection
+                    id={9}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[3].tourism[0].q} 
                     answerOptions={secondStageQs[3].tourism[0].answerOptions} 
@@ -105,6 +115,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={10}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[3].tourism[1].q} 
                     answerOptions={secondStageQs[3].tourism[1].answerOptions} 
@@ -114,6 +125,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={11}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[3].tourism[2].q} 
                     answerOptions={secondStageQs[3].tourism[2].answerOptions} 
@@ -124,6 +136,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
 
             <li>
                 <QuestionSection
+                    id={12}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[4].waste[0].q} 
                     answerOptions={secondStageQs[4].waste[0].answerOptions} 
@@ -133,6 +146,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={13}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[4].waste[1].q} 
                     answerOptions={secondStageQs[4].waste[1].answerOptions} 
@@ -142,6 +156,7 @@ function RandomisedQuestions({ssQuestionState, openSecondStageQuestion, setSsAns
             </li>
             <li>
                 <QuestionSection
+                    id={14}
                     openSecondStageQuestion={openSecondStageQuestion}
                     question={secondStageQs[4].waste[2].q} 
                     answerOptions={secondStageQs[4].waste[2].answerOptions} 

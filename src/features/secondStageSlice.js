@@ -25,10 +25,17 @@ export const secondStageSlice = createSlice({
     setActiveCorrectAnswer: (state, action) => {
       state.activeCorrectAnswer = action.payload;
     },
+    
   },
 });
 
-export const { startSecondStage, setAllQs, setActiveQuestion, setActiveAnswers, setActiveCorrectAnswer } = secondStageSlice.actions;
+export const { 
+  startSecondStage, 
+  setAllQs, 
+  setActiveQuestion, 
+  setActiveAnswers, 
+  setActiveCorrectAnswer 
+} = secondStageSlice.actions;
 
 export const checkSecondStage = (state) => state.secondStage.started;
 export const selectAllQuestions = (state) => state.secondStage.allQuestions;
