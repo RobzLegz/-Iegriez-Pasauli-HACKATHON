@@ -58,9 +58,11 @@ function App() {
 
   //atver jautājuma popupu
   const openSecondStageQuestion = (question, answerOptions, correctAnswer) => {
+    //nosūta jautājuma info uz Redux
     dispatch(setActiveQuestion(question));
     dispatch(setActiveAnswers(answerOptions));
     dispatch(setActiveCorrectAnswer(correctAnswer));
+    //atver jautājuma popupu
     setSsQuestionState(true);
   }
 
