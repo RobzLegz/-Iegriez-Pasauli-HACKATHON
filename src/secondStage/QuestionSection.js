@@ -1,11 +1,18 @@
 import React from 'react'
+import styled from 'styled-components';
 
-function QuestionSection({transportQ,energyQ,foodQ,tourismQ,wasteQ}) {
+function QuestionSection({image}) {
     return (
-        <div>
-            <p>asdsad</p>
-        </div>
+        <StyledQuestionSection>
+            <img src={image} alt="khouyg"/>
+        </StyledQuestionSection>
     )
 }
+const StyledQuestionSection = styled.div`
+    >img{
+        width: 50px;
+        height: 50px;
+    }
+`;
 
 export default QuestionSection

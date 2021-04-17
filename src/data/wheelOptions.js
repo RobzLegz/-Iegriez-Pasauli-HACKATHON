@@ -33,13 +33,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -55,13 +53,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -77,13 +73,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -99,13 +93,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -121,13 +113,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -169,13 +159,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -191,13 +179,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -213,13 +199,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -235,13 +219,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -257,13 +239,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -305,13 +285,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -327,13 +305,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -349,13 +325,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -371,13 +345,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -393,13 +365,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -441,13 +411,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -463,13 +431,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -485,13 +451,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -507,13 +471,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -529,13 +491,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -577,13 +537,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/airplane.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -599,13 +557,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/wind-turbine.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -621,13 +577,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/restaurant.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -643,13 +597,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/backpack.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
@@ -665,13 +617,11 @@ export const wheelStops = [
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
           },
           {
-            image: "secondStageImages/delete.svg",
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
             answerOptions: ["1000", "2000", "3000"],
             correctAnswer: "3000",
