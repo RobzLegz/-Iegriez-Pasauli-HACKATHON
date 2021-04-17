@@ -6,7 +6,7 @@ import {
   addThemeQuestions,
   selectQuestions,
 } from "./features/gameSlice";
-import { checkSecondStage,startSecondStage, setAllQs } from "./features/secondStageSlice";
+import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion } from "./features/secondStageSlice";
 import { addPoints } from "./features/userSlice";
 import Home from "./pages/Home";
 import SecondStage from "./pages/SecondStage";
@@ -56,7 +56,10 @@ function App() {
   };
 
   //atver jautājuma popupu
-  const openSecondStageQuestion = () => {
+  const openSecondStageQuestion = (question, answerOptions, correctAnswer) => {
+    dispatch(setActiveQuestion(question));
+    dispatch(setActiveAnswers(answerOptions));
+    dispatch(setActiveCorrectAnswer(correctAnswer));
     setSsQuestionState(true);
   }
 
