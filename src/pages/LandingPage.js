@@ -245,7 +245,6 @@ const StyledLandingPage = styled.div`
         }
         .pogas{
             display:inline-block;
-            bottom:50px;
         }
         #instrukcija{
             margin-top:50px;
@@ -341,11 +340,13 @@ const StyledLandingPage = styled.div`
                 }
             }
         }
-
+        h1{
+            margin-top:0px;
+        } 
+        .pogas{
+            margin-top: 10px;
+        }
     }
-    h1{
-        margin-top:40px;
-    } 
 
 
     @media (max-width:393px){
@@ -436,9 +437,9 @@ const StyledIntsructions = styled.div`
         }
     }
     h1{
-    align-items: center;
-    margin-top:auto;
-    margin-bottom:auto;
+        align-items: center;
+        margin-top:auto;
+        margin-bottom:auto;
     }
 `;
 

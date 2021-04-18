@@ -60,7 +60,7 @@ function App() {
   ])
   const [tsCountdownTimer, setTsCountdownTimer] = useState(4);
   const [startWordFlow, setStartWordFlow] = useState(false);
-  const [finishCountDown, setFinishCountDown] = useState(19);
+  const [finishCountDown, setFinishCountDown] = useState(15);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);

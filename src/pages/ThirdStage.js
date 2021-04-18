@@ -11,7 +11,9 @@ function ThirdStage({tsCorrectWords,clickWord, thirdStageFoundWords, tsIncorrect
 
     return (
         <StyledThirdStagePage>
-            {!hasFinished ? (
+            {hasFinished ? (
+                <FinishPage />
+            ) : (
                 <>
                     {startWordFlow ? (
                         <WordFlow 
@@ -24,8 +26,6 @@ function ThirdStage({tsCorrectWords,clickWord, thirdStageFoundWords, tsIncorrect
                         <h3>{tsCountdownTimer > 1 ? tsCountdownTimer - 1 : "Aiziet!"}</h3>
                     )}
                 </>
-            ) : (
-                <FinishPage />
             )}
             
         </StyledThirdStagePage>

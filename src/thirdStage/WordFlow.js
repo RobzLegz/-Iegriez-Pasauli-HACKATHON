@@ -17,10 +17,12 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
             </div>            
             <div className="incorrect__container">
                 {tsIncorrectWords.map((incorrect) => (
-                    <h3 style={{
-                        bottom: `${Math.floor((Math.random() * 80) + 15)}%`, 
-                        right: `${Math.floor((Math.random() * 80) + 15)}%`
-                    }}>{incorrect}</h3>
+                    <h3 
+                        style={{
+                            bottom: `${Math.floor((Math.random() * 80) + 15)}%`, 
+                            right: `${Math.floor((Math.random() * 80) + 15)}%`
+                        }}
+                    >{incorrect}</h3>
                 ))}
             </div>            
             <div className="answered__container">
