@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   startGame,
@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
 import {wheelStops} from "./data/wheelOptions";
+import ThirdStage from "./pages/ThirdStage";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
@@ -19,12 +20,59 @@ function App() {
   const [ssQuestionState, setSsQuestionState] = useState(false);
   const [ssAnswer, setSsAnswer] = useState("");
   const [ssCheckingId, setSsCheckingId] = useState(undefined);
+  const [ssAnswerCounter, setSsAnswerCounter] = useState(0);
+  const [thirdStageStarted, setThirdStageStarted] = useState(false);
+  const [thirdStageFoundWords, setThirdStageFoundWords] = useState([]);
+  //nepareizie trešās daļas jēdzieni
+  const [tsIncorrectWords, setTsIncorrectWords] = useState([
+    "nešķiro atkritumus",
+    "tērē ūdeni",
+    "pērc jaunu",
+    "izmanto ķīmiju",
+    "neremontē",
+    "nepērc vietējo",
+    "nepārstrādā",
+    "nelabo",
+    "nešķiro atkritumus",
+    "pērc jaunu",
+    "nešķiro",
+    "piesārņo",
+    "pērc vairāk"
+  ]);
+  //pareizie trešās daļas jēdzieni
+  const [tsCorrectWords, setTsCorrectWords] = useState([
+    "remontē", 
+    "salabo", 
+    "sašuj", 
+    "salāpi", 
+    "šķiro", 
+    "atdod", 
+    "aizņemies", 
+    "iestādi", 
+    "audzē", 
+    "pārstrādā", 
+    "ēd vietējo",
+    "samal"
+  ])
+  const [tsCountdownTimer, setTsCountdownTimer] = useState(3);
+  const [startWordFlow, setStartWordFlow] = useState(false);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
+
+  useEffect(() => {
+    if(tsCountdownTimer > 0 && thirdStageStarted){
+      setTimeout(() => {
+        setTsCountdownTimer(tsCountdownTimer - 1);
+      }, 1000);
+    }else if(tsCountdownTimer === 0){
+      setStartWordFlow(true);
+      return;
+    }
+  }, [thirdStageStarted, tsCountdownTimer])
 
   //Izvēlas nejaušu opciju, uz kuras rats uzgriezīsies
   let randomStop = wheelStops[Math.floor(Math.random() * 5) + 0];
@@ -78,31 +126,51 @@ function App() {
       //Ja atbild pareizi, palielina punktu skaitu
       dispatch(addPoints());
     }
+    setSsAnswerCounter(ssAnswerCounter + 1);
+    if(ssAnswerCounter === 14){
+      startThirdStage();
+    }
     document.getElementById(`visible${ssCheckingId}`).style.display = "none";
     setSsAnswer("");
     //aizver jautājuma popupu
     setSsQuestionState(false);
   }
 
+  //sāk trešo spēles daļu
+  const startThirdStage = () => {
+    setThirdStageStarted(true);    
+  }
+
   return (
     <div>
       <GlobalStyles />
-      {secondStageStarted ? (
-        <SecondStage
-          ssAnswer={ssAnswer}
-          setSsAnswer={setSsAnswer}
-          ssQuestionState={ssQuestionState}
-          openSecondStageQuestion={openSecondStageQuestion}
-          closeSecondStageQuestion={closeSecondStageQuestion}
+      {thirdStageStarted ? (
+        <ThirdStage
+          startWordFlow={startWordFlow}
+          tsCountdownTimer={tsCountdownTimer}
+          tsCorrectWords={tsCorrectWords}
+          tsIncorrectWords={tsIncorrectWords}
         />
       ) : (
-        <Home
-          answerCounter={answerCounter}
-          firstPartAnswer={firstPartAnswer}
-          spinAgain={spinAgain}
-          wheelRef={wheelRef}
-          SpinTheWheel={SpinTheWheel}
-        />
+        <>
+          {secondStageStarted ? (
+            <SecondStage
+              ssAnswer={ssAnswer}
+              setSsAnswer={setSsAnswer}
+              ssQuestionState={ssQuestionState}
+              openSecondStageQuestion={openSecondStageQuestion}
+              closeSecondStageQuestion={closeSecondStageQuestion}
+            />
+          ) : (
+            <Home
+              answerCounter={answerCounter}
+              firstPartAnswer={firstPartAnswer}
+              spinAgain={spinAgain}
+              wheelRef={wheelRef}
+              SpinTheWheel={SpinTheWheel}
+            />
+          )}
+        </>
       )}
     </div>
   );
