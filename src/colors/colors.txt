@@ -12,4 +12,4 @@
     Tumši Zils: #3c3c58
     Gaišs: #ebe1d1
     Aqua: #2c85a4
-    Gaiši zils: 2c85a4
+    Gaiši zils: #2c85a4

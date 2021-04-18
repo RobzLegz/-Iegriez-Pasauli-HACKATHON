@@ -141,11 +141,19 @@ function App() {
     setThirdStageStarted(true);    
   }
 
+  //kad noklikšķina uz pareizo vārdu izpildās:
+  const clickWord = (foundWord) => {
+    setThirdStageFoundWords([...thirdStageFoundWords, foundWord]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
+    setTsCorrectWords(tsCorrectWords.filter(name => name !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
+  }
+
   return (
     <div>
       <GlobalStyles />
       {thirdStageStarted ? (
         <ThirdStage
+          thirdStageFoundWords={thirdStageFoundWords}
+          clckWord={clickWord}
           startWordFlow={startWordFlow}
           tsCountdownTimer={tsCountdownTimer}
           tsCorrectWords={tsCorrectWords}
