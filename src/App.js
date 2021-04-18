@@ -13,6 +13,9 @@ import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
 import {wheelStops} from "./data/wheelOptions";
 import ThirdStage from "./pages/ThirdStage";
+import { finish, selecthasfinished } from "./features/finishSlice";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
@@ -23,6 +26,7 @@ function App() {
   const [ssAnswerCounter, setSsAnswerCounter] = useState(0);
   const [thirdStageStarted, setThirdStageStarted] = useState(false);
   const [thirdStageFoundWords, setThirdStageFoundWords] = useState([]);
+  const [instructionState, setInstructionState] = useState(false);
   //nepareizie trešās daļas jēdzieni
   const [tsIncorrectWords, setTsIncorrectWords] = useState([
     "nešķiro atkritumus",
@@ -54,25 +58,42 @@ function App() {
     "ēd vietējo",
     "samal"
   ])
-  const [tsCountdownTimer, setTsCountdownTimer] = useState(3);
+  const [tsCountdownTimer, setTsCountdownTimer] = useState(4);
   const [startWordFlow, setStartWordFlow] = useState(false);
+  const [finishCountDown, setFinishCountDown] = useState(19);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
+  const hasFinished = useSelector(selecthasfinished);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
 
   useEffect(() => {
-    if(tsCountdownTimer > 0 && thirdStageStarted){
-      setTimeout(() => {
-        setTsCountdownTimer(tsCountdownTimer - 1);
-      }, 1000);
-    }else if(tsCountdownTimer === 0){
-      setStartWordFlow(true);
+    if(!hasFinished){
+      //izpildīt, ja spēle nav beigusies
+      if(tsCountdownTimer > 0 && thirdStageStarted){
+        setTimeout(() => {
+          //atskaita sākuma laiku (3, 2, 1)
+          setTsCountdownTimer(tsCountdownTimer - 1);
+        }, 1000);
+      }else if(tsCountdownTimer === 0){
+        //kad (3, 2, 1) atskaites taimeris ir 0, tad izpildīt šo:  
+        setStartWordFlow(true); //sāk vārdu krišanas spēli
+        setTimeout(() => {
+          //atskaitīt dotās sekundes līdz finišam
+          setFinishCountDown(finishCountDown - 1);
+        }, 1000);
+        if(finishCountDown === 0){
+          //kad finiša laiks sasniedz 0 tad pasaka ka ir finišējis
+          dispatch(finish());
+          return;
+        }
+      }
+    }else{
       return;
-    }
-  }, [thirdStageStarted, tsCountdownTimer])
+    }    
+  }, [thirdStageStarted, tsCountdownTimer, finishCountDown]);
 
   //Izvēlas nejaušu opciju, uz kuras rats uzgriezīsies
   let randomStop = wheelStops[Math.floor(Math.random() * 5) + 0];
@@ -145,42 +166,53 @@ function App() {
   const clickWord = (foundWord) => {
     setThirdStageFoundWords([...thirdStageFoundWords, foundWord]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
     setTsCorrectWords(tsCorrectWords.filter(name => name !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
+    dispatch(addPoints()); //palielina punktu skaitu
   }
 
   return (
-    <div>
+    <BrowserRouter>
       <GlobalStyles />
-      {thirdStageStarted ? (
-        <ThirdStage
-          thirdStageFoundWords={thirdStageFoundWords}
-          clckWord={clickWord}
-          startWordFlow={startWordFlow}
-          tsCountdownTimer={tsCountdownTimer}
-          tsCorrectWords={tsCorrectWords}
-          tsIncorrectWords={tsIncorrectWords}
-        />
-      ) : (
-        <>
-          {secondStageStarted ? (
-            <SecondStage
-              ssAnswer={ssAnswer}
-              setSsAnswer={setSsAnswer}
-              ssQuestionState={ssQuestionState}
-              openSecondStageQuestion={openSecondStageQuestion}
-              closeSecondStageQuestion={closeSecondStageQuestion}
+      <Switch>
+        <Route path="/game">
+          {thirdStageStarted ? (
+            <ThirdStage
+              thirdStageFoundWords={thirdStageFoundWords}
+              clickWord={clickWord}
+              startWordFlow={startWordFlow}
+              tsCountdownTimer={tsCountdownTimer}
+              tsCorrectWords={tsCorrectWords}
+              tsIncorrectWords={tsIncorrectWords}
             />
           ) : (
-            <Home
-              answerCounter={answerCounter}
-              firstPartAnswer={firstPartAnswer}
-              spinAgain={spinAgain}
-              wheelRef={wheelRef}
-              SpinTheWheel={SpinTheWheel}
-            />
+            <>
+              {secondStageStarted ? (
+                <SecondStage
+                  ssAnswer={ssAnswer}
+                  setSsAnswer={setSsAnswer}
+                  ssQuestionState={ssQuestionState}
+                  openSecondStageQuestion={openSecondStageQuestion}
+                  closeSecondStageQuestion={closeSecondStageQuestion}
+                />
+              ) : (
+                <Home
+                  answerCounter={answerCounter}
+                  firstPartAnswer={firstPartAnswer}
+                  spinAgain={spinAgain}
+                  wheelRef={wheelRef}
+                  SpinTheWheel={SpinTheWheel}
+                />
+              )}
+            </>
           )}
-        </>
-      )}
-    </div>
+        </Route>
+        <Route path="/">
+          <LandingPage
+            instructionState={instructionState}
+            setInstructionState={setInstructionState}
+          />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

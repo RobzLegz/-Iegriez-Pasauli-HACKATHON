@@ -1,20 +1,33 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import styled from 'styled-components'
+import { selecthasfinished } from '../features/finishSlice';
 import WordFlow from "../thirdStage/WordFlow"
+import FinishPage from './FinishPage';
 
 function ThirdStage({tsCorrectWords,clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
+
+  const hasFinished = useSelector(selecthasfinished);
+
     return (
         <StyledThirdStagePage>
-            {startWordFlow ? (
-                <WordFlow 
-                    thirdStageFoundWords={thirdStageFoundWords}
-                    clickWord={clickWord}
-                    tsCorrectWords={tsCorrectWords} 
-                    tsIncorrectWords={tsIncorrectWords} 
-                />
+            {!hasFinished ? (
+                <>
+                    {startWordFlow ? (
+                        <WordFlow 
+                            thirdStageFoundWords={thirdStageFoundWords}
+                            clickWord={clickWord}
+                            tsCorrectWords={tsCorrectWords} 
+                            tsIncorrectWords={tsIncorrectWords} 
+                        />
+                    ) : (
+                        <h3>{tsCountdownTimer > 1 ? tsCountdownTimer - 1 : "Aiziet!"}</h3>
+                    )}
+                </>
             ) : (
-                <h3>{tsCountdownTimer}</h3>
+                <FinishPage />
             )}
+            
         </StyledThirdStagePage>
     )
 }
