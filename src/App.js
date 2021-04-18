@@ -78,7 +78,7 @@ function App() {
       //Ja atbild pareizi, palielina punktu skaitu
       dispatch(addPoints());
     }
-    document.getElementById(`visible${ssCheckingId}`).classList.add("invisible");
+    document.getElementById(`visible${ssCheckingId}`).style.display = "none";
     setSsAnswer("");
     //aizver jautājuma popupu
     setSsQuestionState(false);

@@ -190,11 +190,13 @@ function RandomisedQuestions({ssQuestionState, ssQuestionVisible, openSecondStag
                     />
                 </li>
 
-                <SSQuestionPopup 
-                    ssAnswer={ssAnswer}
-                    setSsAnswer={setSsAnswer}
-                    closeSecondStageQuestion={closeSecondStageQuestion} 
-                />
+                {ssQuestionState && (
+                    <SSQuestionPopup 
+                        ssAnswer={ssAnswer}
+                        setSsAnswer={setSsAnswer}
+                        closeSecondStageQuestion={closeSecondStageQuestion} 
+                    />
+                )}
 
         </StyledRandomQs>
     )
@@ -264,9 +266,6 @@ const StyledRandomQs = styled.ul`
             top: 45%;
             right: 10%;
         }
-    }
-    >.invisible{
-        display: none;
     }
 `;
 
