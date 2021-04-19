@@ -13,9 +13,10 @@ import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
 import {wheelStops} from "./data/wheelOptions";
 import ThirdStage from "./pages/ThirdStage";
-import { finish, selecthasfinished } from "./features/finishSlice";
+import { finish, selecthasfinished, setPreviousTheme } from "./features/finishSlice";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
+import {selectTheme} from "./features/gameSlice";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
@@ -171,6 +172,11 @@ function App() {
     dispatch(addPoints()); //palielina punktu skaitu
   }
 
+  //Spēlēt vēlreiz
+  const playAgain = () => {
+    dispatch(setPreviousTheme(selectTheme))
+  }
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -178,6 +184,7 @@ function App() {
         <Route path="/game">
           {thirdStageStarted ? (
             <ThirdStage
+              playAgain={playAgain}
               finishCountDown={finishCountDown}
               thirdStageFoundWords={thirdStageFoundWords}
               clickWord={clickWord}

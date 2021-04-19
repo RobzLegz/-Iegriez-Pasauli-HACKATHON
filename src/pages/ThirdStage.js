@@ -5,14 +5,14 @@ import { selecthasfinished } from '../features/finishSlice';
 import WordFlow from "../thirdStage/WordFlow"
 import FinishPage from './FinishPage';
 
-function ThirdStage({tsCorrectWords, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
+function ThirdStage({tsCorrectWords, playAgain, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
 
   const hasFinished = useSelector(selecthasfinished);
 
     return (
         <StyledThirdStagePage>
             {hasFinished ? (
-                <FinishPage />
+                <FinishPage playAgain={playAgain} />
             ) : (
                 <>
                     {startWordFlow ? (
