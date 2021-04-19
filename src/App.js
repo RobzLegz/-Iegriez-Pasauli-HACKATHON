@@ -91,7 +91,6 @@ function App() {
           return;
         }
       }
-      setThirdStageFoundWords([...thirdStageFoundWords, foundWordObject]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
     }else{
       return;
     }    
@@ -167,7 +166,8 @@ function App() {
   //kad noklikšķina uz pareizo vārdu izpildās:
   const clickWord = (foundWord) => {
     setFoundWordObject([foundWord.text, foundWord.bottom, foundWord.right])
-    setTsCorrectWords(tsCorrectWords.filter(txt => txt !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
+      setThirdStageFoundWords([...thirdStageFoundWords, foundWordObject]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
+      setTsCorrectWords(tsCorrectWords.filter(txt => txt !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
     dispatch(addPoints()); //palielina punktu skaitu
   }
 

@@ -11,7 +11,7 @@ function ThirdStage({tsCorrectWords, finishCountDown, clickWord, thirdStageFound
 
     return (
         <StyledThirdStagePage>
-            {!hasFinished ? (
+            {hasFinished ? (
                 <FinishPage />
             ) : (
                 <>
