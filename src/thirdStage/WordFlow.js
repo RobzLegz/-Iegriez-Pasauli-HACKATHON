@@ -5,7 +5,7 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
     return (
         <StyledWordFlowStage>
             <div className="time__counter">
-                <h4>{finishCountDown}</h4>
+                <h4>0.{finishCountDown < 10 ? "0" + finishCountDown : finishCountDown}</h4>
             </div>
             <div className="correct__container">
                 {tsCorrectWords.map((correct) => (
@@ -116,10 +116,10 @@ const StyledWordFlowStage = styled.div`
 
         }
         @keyframes floatWords{
-            0%{
+            from{
                 transform: scale(0.5);
             }
-            100%{
+            to{
                 transform: scale(1.3);
             }
         }
@@ -197,10 +197,10 @@ const StyledWordFlowStage = styled.div`
 
         }
         @keyframes floatWords{
-            0%{
+            from{
                 transform: scale(0.5);
             }
-            100%{
+            to{
                 transform: scale(1.3);
             }
         }
@@ -232,6 +232,20 @@ const StyledWordFlowStage = styled.div`
         top: 0;
         right: 0;
         font-size: 2rem;
+        >h4{
+            animation: animateCountDown 1s ease infinite;
+        }
+        @keyframes animateCountDown{
+            0%{
+                color: red;
+            }
+            50%{
+                color: #4fb61f;
+            }
+            100%{
+                color: red;
+            }
+        }
     }
 
 `;

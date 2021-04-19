@@ -33,7 +33,7 @@ function ThirdStage({tsCorrectWords, finishCountDown, clickWord, thirdStageFound
     )
 }
 const StyledThirdStagePage = styled.div`
-    background:linear-gradient(#c3e5ed 65%,#2c85a4);
+    background:linear-gradient(#c3e5ed 65%, #2c85a4);
     height: 100vh;
     width: 100%;
     display: flex;
