@@ -11,6 +11,7 @@ export const finishSlice = createSlice({
       state.hasfinished = true;
     },
     setPreviousTheme: (state, action) => {
+      state.hasfinished = false;
       state.lastTheme = action.payload;
     }
   },

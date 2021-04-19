@@ -12,10 +12,13 @@ export const userSlice = createSlice({
     addPoint: (state) => {
       state.points += 1;
     },
+    resetPoints: (state) => {
+      state.points = 0;
+    }
   },
 });
 
-export const { addPoints, addPoint } = userSlice.actions;
+export const { addPoints, addPoint, resetPoints } = userSlice.actions;
 
 export const selectPoints = (state) => state.user.points;
 

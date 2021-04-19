@@ -7,7 +7,7 @@ import {
   selectQuestions,
 } from "./features/gameSlice";
 import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion } from "./features/secondStageSlice";
-import { addPoint, addPoints } from "./features/userSlice";
+import { addPoint, addPoints, resetPoints } from "./features/userSlice";
 import Home from "./pages/Home";
 import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -159,6 +159,39 @@ function App() {
     setSsQuestionState(false);
   }
 
+  const resetTSState = () => {
+    setTsIncorrectWords([
+      {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "tērē ūdeni", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "pērc jaunu", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "izmanto ķīmiju", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "neremontē", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "nepērc vietējo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "nepārstrādā", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "nelabo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "pērc jaunu", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "nešķiro", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "piesārņo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+      {text: "pērc vairāk", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    ]);
+    //pareizie trešās daļas jēdzieni
+    setTsCorrectWords([
+      {text: "remontē", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "salabo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "sašuj", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "salāpi", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "šķiro", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "atdod", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "aizņemies", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "iestādi", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "audzē", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "pārstrādā", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "ēd vietējo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+      {text: "samal", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    ])
+  }
+
   //sāk trešo spēles daļu
   const startThirdStage = () => {
     setThirdStageStarted(true);    
@@ -174,7 +207,23 @@ function App() {
 
   //Spēlēt vēlreiz
   const playAgain = () => {
-    dispatch(setPreviousTheme(selectTheme))
+    dispatch(setPreviousTheme(selectTheme)); //aizsūta iepriekšējo tēmu uz Redux
+    //Restartē state:
+    dispatch(resetPoints());
+    resetTSState();
+    setSpinAgain (true);
+    setAnswerCounter (0);
+    setSsQuestionState (false);
+    setSsAnswer ("");
+    setSsCheckingId (undefined);
+    setSsAnswerCounter (0);
+    setThirdStageStarted (false);
+    setThirdStageFoundWords ([]);
+    setInstructionState (false);
+    setTsCountdownTimer(4);
+    setStartWordFlow(false);
+    setFinishCountDown(15);
+    setFoundWordObject([]);
   }
 
   return (
