@@ -7,7 +7,7 @@ import {
   selectQuestions,
 } from "./features/gameSlice";
 import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion } from "./features/secondStageSlice";
-import { addPoints } from "./features/userSlice";
+import { addPoint, addPoints } from "./features/userSlice";
 import Home from "./pages/Home";
 import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -29,34 +29,34 @@ function App() {
   const [instructionState, setInstructionState] = useState(false);
   //nepareizie trešās daļas jēdzieni
   const [tsIncorrectWords, setTsIncorrectWords] = useState([
-    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "tērē ūdeni", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "pērc jaunu", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "izmanto ķīmiju", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "neremontē", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "nepērc vietējo", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "nepārstrādā", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "nelabo", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "pērc jaunu", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "nešķiro", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "piesārņo", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
-    {text: "pērc vairāk", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "tērē ūdeni", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "pērc jaunu", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "izmanto ķīmiju", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "neremontē", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "nepērc vietējo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "nepārstrādā", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "nelabo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "pērc jaunu", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "nešķiro", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "piesārņo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
+    {text: "pērc vairāk", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20)},
   ]);
   //pareizie trešās daļas jēdzieni
   const [tsCorrectWords, setTsCorrectWords] = useState([
-    {text: "remontē", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "salabo", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "sašuj", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "salāpi", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "šķiro", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "atdod", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "aizņemies", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "iestādi", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "audzē", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "pārstrādā", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "ēd vietējo", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "samal", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "remontē", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "salabo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "sašuj", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "salāpi", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "šķiro", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "atdod", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "aizņemies", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "iestādi", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "audzē", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "pārstrādā", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "ēd vietējo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
+    {text: "samal", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
   ])
   const [tsCountdownTimer, setTsCountdownTimer] = useState(4);
   const [startWordFlow, setStartWordFlow] = useState(false);
@@ -123,7 +123,7 @@ function App() {
     setAnswerCounter(answerCounter + 1);
     if(activeQuestions[answerCounter].a === answer) {
       //ja atbild pareizi, palielina punktu skaitu
-      dispatch(addPoints());
+      dispatch(addPoint());
     }
   };
 
@@ -146,7 +146,7 @@ function App() {
       return;
     }else if(ssAnswer === correct){
       //Ja atbild pareizi, palielina punktu skaitu
-      dispatch(addPoints());
+      dispatch(addPoint());
     }
     setSsAnswerCounter(ssAnswerCounter + 1);
     if(ssAnswerCounter === 14){
