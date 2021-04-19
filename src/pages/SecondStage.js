@@ -21,7 +21,7 @@ function SecondStage({ssQuestionState, openSecondStageQuestion,ssQuestionVisible
     )
 }
 const StyledSecondStage = styled.div`
-    background: #ebe1d1;
+    background:linear-gradient(#c3e5ed 65%,#2c85a4);
     width: 100%;
     height: 100vh;
     display: flex;

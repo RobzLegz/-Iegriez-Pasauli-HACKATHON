@@ -1,13 +1,16 @@
 import React from 'react'
 import styled from 'styled-components';
 
-function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectWords}) {
+function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectWords, finishCountDown}) {
     return (
         <StyledWordFlowStage>
+            <div className="time__counter">
+                <h4>{finishCountDown}</h4>
+            </div>
             <div className="correct__container">
                 {tsCorrectWords.map((correct) => (
                     <h3 
-                        key={correct.top}
+                        key={correct.text}
                         onClick={() => clickWord(correct)} 
                         style={{
                             bottom: `${correct.bottom}%`, 
@@ -19,7 +22,7 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
             <div className="incorrect__container">
                 {tsIncorrectWords.map((incorrect) => (
                     <h3 
-                        key={incorrect.top}
+                        key={incorrect.top + incorrect.left}
                         style={{
                             top: `${incorrect.top}%`, 
                             left: `${incorrect.left}%`
@@ -32,7 +35,7 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
                     <h4>Atrastie Vārdi({thirdStageFoundWords.length}):</h4>
                 )}
                 {thirdStageFoundWords.map((found) => (
-                    <h3 key={found + Math.random()}>{found}</h3>
+                    <h3 key={found}>{found}</h3>
                 ))}
             </div>
         </StyledWordFlowStage>
@@ -204,9 +207,13 @@ const StyledWordFlowStage = styled.div`
     >.answered__container{
         h4{
             font-size: 2rem;
+            
         }
         h3{
             font-size: 2rem;
+            :nth-child(2){
+                color: #e63131;
+            }
         }
     }
 

@@ -56,12 +56,12 @@ function App() {
     {text: "audzē", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
     {text: "pārstrādā", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
     {text: "ēd vietējo", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
-    {text: "piesārņo", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
     {text: "samal", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
   ])
   const [tsCountdownTimer, setTsCountdownTimer] = useState(4);
   const [startWordFlow, setStartWordFlow] = useState(false);
   const [finishCountDown, setFinishCountDown] = useState(15);
+  const [foundWordObject, setFoundWordObject] = useState([]);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
@@ -165,7 +165,8 @@ function App() {
 
   //kad noklikšķina uz pareizo vārdu izpildās:
   const clickWord = (foundWord) => {
-    setThirdStageFoundWords([...thirdStageFoundWords, foundWord.text]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
+    setFoundWordObject([foundWord.text, foundWord.bottom, foundWord.right])
+    setThirdStageFoundWords([...thirdStageFoundWords, foundWordObject]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
     setTsCorrectWords(tsCorrectWords.filter(txt => txt !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
     dispatch(addPoints()); //palielina punktu skaitu
   }
@@ -177,7 +178,7 @@ function App() {
         <Route path="/game">
           {thirdStageStarted ? (
             <ThirdStage
-            finishCountDown={finishCountDown}
+              finishCountDown={finishCountDown}
               thirdStageFoundWords={thirdStageFoundWords}
               clickWord={clickWord}
               startWordFlow={startWordFlow}

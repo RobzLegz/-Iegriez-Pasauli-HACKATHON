@@ -17,7 +17,7 @@ function ThirdStage({tsCorrectWords, finishCountDown, clickWord, thirdStageFound
                 <>
                     {startWordFlow ? (
                         <WordFlow 
-                        finishCountDown={finishCountDown}
+                            finishCountDown={finishCountDown}
                             thirdStageFoundWords={thirdStageFoundWords}
                             clickWord={clickWord}
                             tsCorrectWords={tsCorrectWords} 
@@ -33,7 +33,7 @@ function ThirdStage({tsCorrectWords, finishCountDown, clickWord, thirdStageFound
     )
 }
 const StyledThirdStagePage = styled.div`
-    background: #ebe1d1;
+    background:linear-gradient(#c3e5ed 65%,#2c85a4);
     height: 100vh;
     width: 100%;
     display: flex;
