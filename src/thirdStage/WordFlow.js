@@ -206,14 +206,11 @@ const StyledWordFlowStage = styled.div`
         }
     }
     >.answered__container{
-        h4{
-            font-size: 2rem;
-            
-        }
         h3{
             position: absolute;
             font-size: 2rem;
             animation: animateFoundWord 1s ease infinite;
+            pointer-events: none;
         }
         @keyframes animateFoundWord{
             0%{
