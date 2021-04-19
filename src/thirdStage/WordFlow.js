@@ -7,30 +7,32 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
             <div className="correct__container">
                 {tsCorrectWords.map((correct) => (
                     <h3 
+                        key={correct.top}
                         onClick={() => clickWord(correct)} 
                         style={{
-                            top: `${Math.floor((Math.random() * 80) + 15)}%`, 
-                            left: `${Math.floor((Math.random() * 80) + 15)}%`
+                            bottom: `${correct.bottom}%`, 
+                            right: `${correct.right}%`
                         }}
-                    >{correct}</h3>
+                    >{correct.text}</h3>
                 ))}
             </div>            
             <div className="incorrect__container">
                 {tsIncorrectWords.map((incorrect) => (
                     <h3 
+                        key={incorrect.top}
                         style={{
-                            bottom: `${Math.floor((Math.random() * 80) + 15)}%`, 
-                            right: `${Math.floor((Math.random() * 80) + 15)}%`
+                            top: `${incorrect.top}%`, 
+                            left: `${incorrect.left}%`
                         }}
-                    >{incorrect}</h3>
+                    >{incorrect.text}</h3>
                 ))}
             </div>            
             <div className="answered__container">
                 {thirdStageFoundWords.length >= 1 && (
-                    <h4>Atrastie Vārdi:</h4>
+                    <h4>Atrastie Vārdi({thirdStageFoundWords.length}):</h4>
                 )}
                 {thirdStageFoundWords.map((found) => (
-                    <h3>{found}</h3>
+                    <h3 key={found + Math.random()}>{found}</h3>
                 ))}
             </div>
         </StyledWordFlowStage>

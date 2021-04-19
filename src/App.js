@@ -29,34 +29,35 @@ function App() {
   const [instructionState, setInstructionState] = useState(false);
   //nepareizie trešās daļas jēdzieni
   const [tsIncorrectWords, setTsIncorrectWords] = useState([
-    "nešķiro atkritumus",
-    "tērē ūdeni",
-    "pērc jaunu",
-    "izmanto ķīmiju",
-    "neremontē",
-    "nepērc vietējo",
-    "nepārstrādā",
-    "nelabo",
-    "nešķiro atkritumus",
-    "pērc jaunu",
-    "nešķiro",
-    "piesārņo",
-    "pērc vairāk"
+    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "tērē ūdeni", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "pērc jaunu", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "izmanto ķīmiju", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "neremontē", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "nepērc vietējo", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "nepārstrādā", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "nelabo", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "pērc jaunu", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "nešķiro", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "piesārņo", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
+    {text: "pērc vairāk", top: Math.floor((Math.random() * 85) + 15), left: Math.floor((Math.random() * 85) + 15)},
   ]);
   //pareizie trešās daļas jēdzieni
   const [tsCorrectWords, setTsCorrectWords] = useState([
-    "remontē", 
-    "salabo", 
-    "sašuj", 
-    "salāpi", 
-    "šķiro", 
-    "atdod", 
-    "aizņemies", 
-    "iestādi", 
-    "audzē", 
-    "pārstrādā", 
-    "ēd vietējo",
-    "samal"
+    {text: "remontē", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "salabo", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "sašuj", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "salāpi", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "šķiro", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "atdod", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "aizņemies", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "iestādi", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "audzē", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "pārstrādā", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "ēd vietējo", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "piesārņo", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
+    {text: "samal", bottom: Math.floor((Math.random() * 85) + 15), right: Math.floor((Math.random() * 85) + 15)},
   ])
   const [tsCountdownTimer, setTsCountdownTimer] = useState(4);
   const [startWordFlow, setStartWordFlow] = useState(false);
@@ -93,7 +94,7 @@ function App() {
     }else{
       return;
     }    
-  }, [thirdStageStarted, tsCountdownTimer, finishCountDown]);
+  }, [thirdStageStarted, tsCountdownTimer, finishCountDown, dispatch, hasFinished]);
 
   //Izvēlas nejaušu opciju, uz kuras rats uzgriezīsies
   let randomStop = wheelStops[Math.floor(Math.random() * 5) + 0];
@@ -164,8 +165,8 @@ function App() {
 
   //kad noklikšķina uz pareizo vārdu izpildās:
   const clickWord = (foundWord) => {
-    setThirdStageFoundWords([...thirdStageFoundWords, foundWord]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
-    setTsCorrectWords(tsCorrectWords.filter(name => name !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
+    setThirdStageFoundWords([...thirdStageFoundWords, foundWord.text]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
+    setTsCorrectWords(tsCorrectWords.filter(txt => txt !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
     dispatch(addPoints()); //palielina punktu skaitu
   }
 
@@ -176,6 +177,7 @@ function App() {
         <Route path="/game">
           {thirdStageStarted ? (
             <ThirdStage
+            finishCountDown={finishCountDown}
               thirdStageFoundWords={thirdStageFoundWords}
               clickWord={clickWord}
               startWordFlow={startWordFlow}
