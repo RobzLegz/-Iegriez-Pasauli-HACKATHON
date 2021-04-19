@@ -31,11 +31,11 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
                 ))}
             </div>            
             <div className="answered__container">
-                {thirdStageFoundWords.length >= 1 && (
-                    <h4>Atrastie Vārdi({thirdStageFoundWords.length}):</h4>
-                )}
                 {thirdStageFoundWords.map((found) => (
-                    <h3 key={found}>{found}</h3>
+                    <h3 
+                        key={found}
+                        style={{bottom: `${found[1]}%`, right: `${found[2]}%`}}
+                    >{found[0]}</h3>
                 ))}
             </div>
         </StyledWordFlowStage>
@@ -47,6 +47,7 @@ const StyledWordFlowStage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     >.correct__container{
         >h3{
             cursor: pointer;
@@ -210,11 +211,27 @@ const StyledWordFlowStage = styled.div`
             
         }
         h3{
+            position: absolute;
             font-size: 2rem;
-            :nth-child(2){
-                color: #e63131;
+            animation: animateFoundWord 1s ease infinite;
+        }
+        @keyframes animateFoundWord{
+            0%{
+                color: #36D63A;
+            }
+            50%{
+                color: #3c3c58;
+            }
+            100%{
+                color: #36D63A;
             }
         }
+    }
+    >.time__counter{
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 2rem;
     }
 
 `;

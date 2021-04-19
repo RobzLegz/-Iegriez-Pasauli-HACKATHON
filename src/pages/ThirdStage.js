@@ -11,7 +11,7 @@ function ThirdStage({tsCorrectWords, finishCountDown, clickWord, thirdStageFound
 
     return (
         <StyledThirdStagePage>
-            {hasFinished ? (
+            {!hasFinished ? (
                 <FinishPage />
             ) : (
                 <>
@@ -39,6 +39,7 @@ const StyledThirdStagePage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     >h3{
         font-size: 7rem;
         animation: animateTimer 1s ease infinite;
