@@ -5,6 +5,7 @@ import {
   findImage,
   addThemeQuestions,
   selectQuestions,
+  resetGame,
 } from "./features/gameSlice";
 import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion, resetSecondStage } from "./features/secondStageSlice";
 import { addPoint, addPoints, resetPoints } from "./features/userSlice";
@@ -108,6 +109,7 @@ function App() {
     dispatch(startGame(randomStop.value)); //Aizsūta jautājumu tēmu uz Redux
     dispatch(findImage(randomStop.image));
     dispatch(addThemeQuestions(randomStop.questions));
+    dispatch(setAllQs(randomStop.secondStageQuestions));//Aizsūta otrās daļas jautājumus uz Redux
     setTimeout(() => {
       setSpinAgain(true); //Kad rats beidz griezties, atļaut iegriezt velreiz
     }, 6000);
@@ -118,8 +120,6 @@ function App() {
     if (answerCounter > 3) {
       //kad atbild uz visiem jautājumiem, sāk otro spēles daļu
       dispatch(startSecondStage());
-      //Aizsūta otrās daļas jautājumus uz Redux
-      dispatch(setAllQs(randomStop.secondStageQuestions));
       return;
     }
     setAnswerCounter(answerCounter + 1);
@@ -212,6 +212,7 @@ function App() {
     //Restartē state:
     dispatch(resetPoints());
     dispatch(resetSecondStage());
+    dispatch(resetGame());
     resetTSState();
     setSpinAgain (true);
     setAnswerCounter (0);

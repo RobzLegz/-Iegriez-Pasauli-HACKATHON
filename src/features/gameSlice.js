@@ -17,10 +17,15 @@ export const gameSlice = createSlice({
     addThemeQuestions: (state, action) => {
       state.themeQuestions = action.payload;
     },
+    resetGame: (state) => {
+      state.firstPartTheme = "";
+      state.activeThemeImage = "";
+      state.themeQuestions = [];
+    },
   },
 });
 
-export const { startGame, findImage, addThemeQuestions } = gameSlice.actions;
+export const { startGame, findImage, addThemeQuestions, resetGame } = gameSlice.actions;
 
 export const selectTheme = (state) => state.game.firstPartTheme;
 export const selectThemeImage = (state) => state.game.activeThemeImage;
