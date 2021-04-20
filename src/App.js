@@ -17,6 +17,7 @@ import { finish, selecthasfinished, setPreviousTheme } from "./features/finishSl
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import {selectTheme} from "./features/gameSlice";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
@@ -263,6 +264,9 @@ function App() {
               )}
             </>
           )}
+        </Route>
+        <Route path="/login">
+          <LoginPage />
         </Route>
         <Route path="/">
           <LandingPage
