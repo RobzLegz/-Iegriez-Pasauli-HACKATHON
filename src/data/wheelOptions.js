@@ -383,21 +383,21 @@ export const wheelStops = [
     value: "Headphones",
     image: "firstStageResources/headphone-symbol.svg",
     questions: [
-      { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
-      { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
+      { q: "Skaņu slāpējošā funkcija tika radīta zāles pļāvēja lielā trokšņa dēļ.", a: false },
+      { q: "Pasaules dārgākās austiņas maksā 30’000 euro.", a: false },
       {
         q:
-          "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
+          "Jūtīgākās austiņas ir 110 dB/mW.",
         a: true,
       },
       {
         q:
-          "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
+          "Pirmās mūsdienīgās austiņas tika radītas virtuvē.",
         a: true,
       },
       {
         q:
-          "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
+          "Pirmajām austiņām bija tikai viens austiņas uzgalis.",
         a: true,
       },
     ],
@@ -509,21 +509,21 @@ export const wheelStops = [
     value: "Burger",
     image: "firstStageResources/burger.svg",
     questions: [
-      { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
-      { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
+      { q: "Lielākais pasaules hamburgers sver 1164.2 kg", a: true },
+      { q: "Amerikāņi gada laikā apēd 13 miljardus hamburgeru.", a: true },
       {
         q:
-          "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
-        a: true,
+          "McDonalds ik sekundi pārdod 249 hamburgerus.",
+        a: false,
       },
       {
         q:
-          "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
-        a: true,
+          "Vidēji amerikānis apēd 5 burgerus nedēļā.",
+        a: false,
       },
       {
         q:
-          "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
+          "Hamburgeri savu nosaukumu ieguvuši no Hamburgas, Vācijā.",
         a: true,
       },
     ],
