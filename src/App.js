@@ -6,7 +6,7 @@ import {
   addThemeQuestions,
   selectQuestions,
 } from "./features/gameSlice";
-import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion } from "./features/secondStageSlice";
+import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion, resetSecondStage } from "./features/secondStageSlice";
 import { addPoint, addPoints, resetPoints } from "./features/userSlice";
 import Home from "./pages/Home";
 import SecondStage from "./pages/SecondStage";
@@ -201,8 +201,8 @@ function App() {
   //kad noklikšķina uz pareizo vārdu izpildās:
   const clickWord = (foundWord) => {
     setFoundWordObject([foundWord.text, foundWord.bottom, foundWord.right])
-      setThirdStageFoundWords([...thirdStageFoundWords, foundWordObject]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
-      setTsCorrectWords(tsCorrectWords.filter(txt => txt !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
+    setThirdStageFoundWords([...thirdStageFoundWords, foundWordObject]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
+    setTsCorrectWords(tsCorrectWords.filter(txt => txt !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
     dispatch(addPoints()); //palielina punktu skaitu
   }
 
@@ -211,6 +211,7 @@ function App() {
     dispatch(setPreviousTheme(selectTheme)); //aizsūta iepriekšējo tēmu uz Redux
     //Restartē state:
     dispatch(resetPoints());
+    dispatch(resetSecondStage());
     resetTSState();
     setSpinAgain (true);
     setAnswerCounter (0);

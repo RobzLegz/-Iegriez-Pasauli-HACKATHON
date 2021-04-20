@@ -25,6 +25,13 @@ export const secondStageSlice = createSlice({
     setActiveCorrectAnswer: (state, action) => {
       state.activeCorrectAnswer = action.payload;
     },
+    resetSecondStage: (state) => {
+      state.started = false;
+      state.allQuestions = [];
+      state.activeQ = "";
+      state.activeCorrectAnswer = "";
+      state.activeAnswers = [];
+    }
     
   },
 });
@@ -34,7 +41,8 @@ export const {
   setAllQs, 
   setActiveQuestion, 
   setActiveAnswers, 
-  setActiveCorrectAnswer 
+  setActiveCorrectAnswer,
+  resetSecondStage
 } = secondStageSlice.actions;
 
 export const checkSecondStage = (state) => state.secondStage.started;
