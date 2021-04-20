@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components'
 
-function LoginPage(){
+function LoginPage({setLoginUserName,loginPassword,login, setLoginPassword, loginUserName}){
 
     return(
         <StyledLoginPage>
@@ -12,13 +12,13 @@ function LoginPage(){
                             <h2 className="title">Ieiet</h2>
                             <div className="input-field">
                                 <i className="fas fa-user"/>
-                                <input type="text" placeholder="Lietotājvārds"/>
+                                <input type="text" value={loginUserName} onChange={(e) => setLoginUserName(e.target.value)} placeholder="Lietotājvārds"/>
                             </div>
                             <div className="input-field">
                                 <i className="fas fa-lock"/>
-                                <input type="password" placeholder="Parole"/>
+                                <input type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} placeholder="Parole"/>
                             </div>
-                            <input type="submit" value="Ieiet" className="btn solid"/>
+                            <button onClick={(e) => login(e)} type="submit" className="btn solid">Ieiet</button>
                         </form>
                     </div>
                 </div>
@@ -26,7 +26,7 @@ function LoginPage(){
                 <div className="panels-container">
                     <div className="panel left-panel">
                         <div className="content">
-                            <h3>Administratora panēlis</h3>
+                            <h3>Administratora panelis</h3>
                             <p>Šeit Tu vari mainīt spēles jautājumus</p>
                         </div>
                         <img src="loginPageResources/World.svg" className="image" alt="world"/>

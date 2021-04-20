@@ -65,6 +65,10 @@ function App() {
   const [startWordFlow, setStartWordFlow] = useState(false);
   const [finishCountDown, setFinishCountDown] = useState(15);
   const [foundWordObject, setFoundWordObject] = useState([]);
+  const [loginUserName, setLoginUserName] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
+  const [adminUserName, setAdminUserName] = useState("");
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
@@ -229,6 +233,10 @@ function App() {
     setFoundWordObject([]);
   }
 
+  const login = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -268,7 +276,13 @@ function App() {
           )}
         </Route>
         <Route path="/login">
-          <LoginPage />
+          <LoginPage
+            login={login}
+            loginPassword={loginPassword}
+            loginUserName={loginUserName}
+            setLoginUserName={setLoginUserName}
+            setLoginPassword={setLoginPassword}
+          />
         </Route>
         <Route path="/">
           <LandingPage

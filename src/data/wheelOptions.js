@@ -131,21 +131,21 @@ export const wheelStops = [
     value: "Shirt",
     image: "firstStageResources/shirt.svg",
     questions: [
-      { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
-      { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
+      { q: "Visbiežāk t-kreklus izgatavo no kokvilnas.", a: true },
+      { q: "Ik gadu tiek pārdots 1 miljards t-kreklu visā pasaulē.", a: false },
       {
         q:
-          "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
+          "Pasaules dārgākais t-krekls maksā 200’000 euro",
+        a: false,
+      },
+      {
+        q:
+          "Sākotnēji t-krekli skaitījās kā apakšveļa.",
         a: true,
       },
       {
         q:
-          "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
-        a: true,
-      },
-      {
-        q:
-          "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
+          "Lai izgatavot vienu T-kreklu nepieciešami 2700 litri ūdens.",
         a: true,
       },
     ],
@@ -257,22 +257,22 @@ export const wheelStops = [
     value: "Longboard",
     image: "firstStageResources/longboard.svg",
     questions: [
-      { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
-      { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
+      { q: "Garākais pasaules longboards ir aptuveni 2 metrus.", a: true },
+      { q: "Uzstādītais ātruma rekors ar longboardu ir 90km/h.", a: false },
       {
         q:
-          "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
+          "70-tajos gados longbordi vēl nebija 'modē'.",
         a: true,
       },
       {
         q:
-          "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
-        a: true,
+          "“Surf-style” longbordi ir vieni no mazākajiem longbordiem.",
+        a: false,
       },
       {
         q:
-          "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
-        a: true,
+          "Longbordi ir piemērotāki triku izpildei nekā skeitbordi.",
+        a: false,
       },
     ],
     secondStageQuestions: [
