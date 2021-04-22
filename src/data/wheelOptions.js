@@ -28,14 +28,15 @@ export const wheelStops = [
         transport: [
           {
             image: "secondStageImages/airplane.svg",
-            q: "Cik tonnas bannānu vidēji eksportē no Āfrikas uz Latviju gadā.",
-            answerOptions: ["7", "25", "16"],
-            correctAnswer: "16",
+            q: "No kuras valsts tiek vesti visvairāk banāni?",
+            answerOptions: ["Ekvadora", "Madagaskara", "Austrālija"],
+            correctAnswer: "Ekvadora",
+            xtraInfo: "Lielākās banānu eksportētājvalstis ir Ekvadora, Filipīnas, Kostarika un Kolumbija."
           },
           {
-            q: "Vai banānu eksportēšana rada ogļskābās gāzes izmešus?",
-            answerOptions: ["Jā", "Nē"],
-            correctAnswer: "Jā",
+            q: "Kā pasargāt vidi?",
+            answerOptions: ["Pārvadāt banānus tikai ar vilcienu", "Ēst vairāk vietējo augļu"],
+            correctAnswer: "Ēst vairāk vietējo augļu",
           },
           {
             q: "Kāds ir banānu eksportēšanai visbiežāk lietotais transports?",
@@ -53,9 +54,9 @@ export const wheelStops = [
             correctAnswer: "Jā",
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Lai banāns nonāktu Tavās mājās...",
+            answerOptions: ["ir nepieciešama elektroenerģija", "nav nepieciešama elektroenerģija"],
+            correctAnswer: "ir nepieciešama elektroenerģija",
           },
           {
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
@@ -73,14 +74,15 @@ export const wheelStops = [
             correctAnswer: "zaļš",
           },
           {
-            q: "Pēc cik dienām banāns nogatavojas?",
-            answerOptions: ["5", "12", "18"],
-            correctAnswer: "12",
+            q: "Izvēloties banānus ar Godīgās tirdzniecības marķējumu...",
+            answerOptions: ["tu ziedo naudu labdarībā.", "tu labvēlīgi ietekmē plantāciju strādnieku dzīvi."],
+            correctAnswer: "tu labvēlīgi ietekmē plantāciju strādnieku dzīvi.",
           },
           {
-            q: "Cik banānu vidēji tiek ražoti gadā?",
-            answerOptions: ["90 tonnas", "60 tonnas", "125 tonnas"],
-            correctAnswer: "125 tonnas",
+            q: "Katrs trešais ar Godīgās tirdzniecības uzlīmi marķētais banāns ir",
+            answerOptions: ["audzēts, izmantojot ķimikālijas.", "audzēts, izmantojot bioloģiskās lauksaimniecības metodes."],
+            correctAnswer: "audzēts, izmantojot bioloģiskās lauksaimniecības metodes.",
+            xtraInfo: "Katrs trešais ar Godīgās tirdzniecības uzlīmi marķētais banāns ir audzēts, izmantojot bioloģiskās lauksaimniecības metodes."
           },
         ],
       },
@@ -113,14 +115,16 @@ export const wheelStops = [
             correctAnswer: "30 dienās",
           },
           {
-            q: "Kā banānu tirdzniecība ietekmē atkritumu daudzumu?",
-            answerOptions: ["Banānu iepakojums piesārņo vidi", "Banānu iepakojums sapūst", "Banānu iepakojums gaisā sadalās"],
-            correctAnswer: "Banānu iepakojums piesārņo vidi",
+            q: "Banānu ražošana",
+            answerOptions: ["ir ceturtajā vietā pēc atkritumu daudzuma lauksaimniecības nozarē.", "saražo visvairāk atkritumu lauksaimniecības nozarē jaunattīstības valstīs."],
+            correctAnswer: "saražo visvairāk atkritumu lauksaimniecības nozarē jaunattīstības valstīs.",
+            xtraInfo: "Saskaņā ar Pasaules Dabas fonda datiem banānu nozare saražo vairāk atkritumu nekā jebkura cita lauksaimniecības nozare jaunattīstības valstīs."
           },
           {
-            q: "Vai banānu mizas kaitē dabai?",
-            answerOptions: ["Jā", "Nē"],
-            correctAnswer: "Nē",
+            q: "Ražojot banānus...",
+            answerOptions: ["tiek piesārņota augsne un ūdenstilpnes.", "netiek piesārņota apkārtējā vide."],
+            correctAnswer: "tiek piesārņota augsne un ūdenstilpnes.",
+            xtraInfo: "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju nekā jebkuras citas kultūras audzēšanā un tā kā tropos bieži līst, pesticīdi no augu lapām nepārtraukti tiek ieskaloti augsnē un ūdenstilpēs."
           },
         ],
       },
@@ -154,9 +158,10 @@ export const wheelStops = [
         transport: [
           {
             image: "secondStageImages/airplane.svg",
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "T-kreklu transports rada...",
+            answerOptions: ["10% no pasaules oglekļa emisijām.", "5.5% no pasaules oglekļa emisijām."],
+            correctAnswer: "10% no pasaules oglekļa emisijām.",
+            xtraInfo: "T-kreklu piegāde no ražotāja uz veikaliem un pēc tam pie pircēja rada lielu oglekļu emisiju daudzumu."
           },
           {
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
