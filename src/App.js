@@ -152,7 +152,7 @@ function App() {
       return;
     }else if(ssAnswer === correct){
       //Ja atbild pareizi, palielina punktu skaitu
-      dispatch(addPoint());
+      dispatch(addPoints());
     }
     setSsAnswerCounter(ssAnswerCounter + 1);
     if(ssAnswerCounter === 14){
