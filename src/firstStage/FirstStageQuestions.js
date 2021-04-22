@@ -213,8 +213,8 @@ const FirstStageQPopup = styled.div`
       display: inline-block;
       
       >button{
-      width: 79%;
-    }
+        width: 79%;
+      }
     }
   }
   @media(max-height: 671px){

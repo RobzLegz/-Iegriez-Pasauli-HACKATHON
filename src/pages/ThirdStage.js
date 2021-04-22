@@ -24,7 +24,7 @@ function ThirdStage({tsCorrectWords, playAgain, finishCountDown, clickWord, thir
                             tsIncorrectWords={tsIncorrectWords} 
                         />
                     ) : (
-                        <h3>{tsCountdownTimer > 1 ? tsCountdownTimer - 1 : "Aiziet!"}</h3>
+                        <h3>{tsCountdownTimer > 1 ? tsCountdownTimer > 4 ? "Uzklikšķini uz tiem vārdiem, kuri saistīti ar aprites ekonomiku" : tsCountdownTimer - 1 : "Aiziet!"}</h3>
                     )}
                 </>
             )}

@@ -61,7 +61,7 @@ function App() {
     {text: "ēd vietējo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
     {text: "samal", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20)},
   ])
-  const [tsCountdownTimer, setTsCountdownTimer] = useState(4);
+  const [tsCountdownTimer, setTsCountdownTimer] = useState(7);
   const [startWordFlow, setStartWordFlow] = useState(false);
   const [finishCountDown, setFinishCountDown] = useState(15);
   const [foundWordObject, setFoundWordObject] = useState([]);
