@@ -14,7 +14,9 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
                         onClick={() => clickWord(correct)} 
                         style={{
                             bottom: `${correct.bottom}%`, 
-                            right: `${correct.right}%`
+                            right: `${correct.right}%`,
+                            color: `${correct.color}`,
+                            fontSize: `${correct.fontSize}`
                         }}
                     >{correct.text}</h3>
                 ))}
@@ -25,7 +27,9 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
                         key={incorrect.top + incorrect.left}
                         style={{
                             top: `${incorrect.top}%`, 
-                            left: `${incorrect.left}%`
+                            left: `${incorrect.left}%`,
+                            color: `${incorrect.color}`,
+                            fontSize: `${incorrect.fontSize}`
                         }}
                     >{incorrect.text}</h3>
                 ))}
@@ -53,67 +57,6 @@ const StyledWordFlowStage = styled.div`
             cursor: pointer;
             position: absolute;
             animation: floatWords 15s ease infinite;
-
-            :first-child{
-                color: #e62222;
-                font-size: 3rem;
-            }
-
-            :nth-child(2){
-                color: #b4b413;                
-                font-size: 2.5rem;
-            }
-
-            :nth-child(3){
-                color: #f02e2e;                
-                font-size: 2rem;
-            }
-
-            :nth-child(4){
-                color: #74be12;
-                font-size: 1.8rem;
-            }
-
-            :nth-child(5){
-                color: #1fbcd8;
-                font-size: 2.5rem;
-            }
-
-            :nth-child(6){
-                color: #8d24ca;
-                font-size: 2.7rem;
-            }
-
-            :nth-child(7){
-                color: #f02eb6;
-                font-size: 2.7rem;
-            }
-
-            :nth-child(8){
-                color: #1a8e92;
-                font-size: 2.5rem;
-            }
-
-            :nth-child(9){
-                color: #f02e2e;
-                font-size: 1.6rem;
-            }
-
-            :nth-child(10){
-                color: #2032d4;
-                font-size: 3rem;
-            }
-
-            :nth-child(11){
-                color: #25bcd6;
-                font-size: 2rem;
-            }
-
-            :nth-child(12){
-                color: #51ca19;
-                font-size: 2.6rem;
-            }
-
         }
         @keyframes floatWords{
             from{
@@ -129,72 +72,6 @@ const StyledWordFlowStage = styled.div`
             cursor: pointer;
             position: absolute;
             animation: floatWords 15s ease-in infinite;
-
-            :first-child{
-                color: #e62222;
-                font-size: 2rem;
-            }
-
-            :nth-child(2){
-                color: #b4b413;                
-                font-size: 2.5rem;
-            }
-
-            :nth-child(3){
-                color: #f02e2e;                
-                font-size: 2rem;
-            }
-
-            :nth-child(4){
-                color: #74be12;
-                font-size: 1.8rem;
-            }
-
-            :nth-child(5){
-                color: #1fbcd8;
-                font-size: 2.5rem;
-            }
-
-            :nth-child(6){
-                color: #8d24ca;
-                font-size: 2.7rem;
-            }
-
-            :nth-child(7){
-                color: #f02eb6;
-                font-size: 2.7rem;
-            }
-
-            :nth-child(8){
-                color: #1a8e92;
-                font-size: 2.5rem;
-            }
-
-            :nth-child(9){
-                color: #f02e2e;
-                font-size: 1.6rem;
-            }
-
-            :nth-child(10){
-                color: #2032d4;
-                font-size: 3rem;
-            }
-
-            :nth-child(11){
-                color: #25bcd6;
-                font-size: 2rem;
-            }
-
-            :nth-child(12){
-                color: #51ca19;
-                font-size: 2.6rem;
-            }
-
-            :nth-child(13){
-                color: #51ca19;
-                font-size: 2.3rem;
-            }
-
         }
         @keyframes floatWords{
             from{
