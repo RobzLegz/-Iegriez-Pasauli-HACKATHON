@@ -1,0 +1,2 @@
+edit info: http://127.0.0.1:8000/api/options/?question={question_id}
+get info: info: http://127.0.0.1:8000/api/options/
