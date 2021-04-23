@@ -63,7 +63,7 @@ const StyledWordFlowStage = styled.div`
                 transform: scale(0.5);
             }
             to{
-                transform: scale(1.3);
+                transform: scale(1.5);
             }
         }
     }
@@ -78,7 +78,7 @@ const StyledWordFlowStage = styled.div`
                 transform: scale(0.5);
             }
             to{
-                transform: scale(1.3);
+                transform: scale(1.5);
             }
         }
     }

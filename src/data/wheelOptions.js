@@ -191,7 +191,7 @@ export const wheelStops = [
           },
           {
             q: "Lai saražotu vienu t-kreklu...",
-            answerOptions: ["tiek tērēta elektrība", "netiek tērēta elektrība", "3000"],
+            answerOptions: ["tiek tērēta elektrība", "netiek tērēta elektrība"],
             correctAnswer: "tiek tērēta elektrība",
           },
           {
