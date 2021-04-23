@@ -8,7 +8,7 @@ import {
   resetGame,
 } from "./features/gameSlice";
 import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion, resetSecondStage } from "./features/secondStageSlice";
-import { addPoint, addPoints, resetPoints } from "./features/userSlice";
+import { addPoint, addPoints, resetPoints, selectPoints } from "./features/userSlice";
 import Home from "./pages/Home";
 import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -76,12 +76,12 @@ function App() {
   const [token, setToken] = useState("");
   const [leaderboardUsername, setLeaderboardUsername] = useState("");
   const [leaderboardState, setLeaderboardState] = useState(false);
-  // const [adminPassword, setAdminPassword] = useState("");
-  // const [adminUserName, setAdminUserName] = useState("");
+  const [leaderboardUsers, setLeaderboardUsers] = useState([]);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
   const hasFinished = useSelector(selecthasfinished);
+  const points = useSelector(selectPoints);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
@@ -295,7 +295,14 @@ function App() {
 
   const addToLeaderboard = (e) => {
     e.preventDefault();
-    axios.post("localhost:8000/api/members")
+    if(leaderboardUsername !== ""){
+      axios.post("http://localhost:8000/api/members/", {"username": leaderboardUsername, "score": points});
+      axios.get("http://localhost:8000/api/members/").then((res) => {
+        setLeaderboardUsers(res.data);
+        console.log(leaderboardUsers);
+      })
+    }
+    
   }
 
   return (
