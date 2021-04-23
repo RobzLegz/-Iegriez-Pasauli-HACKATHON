@@ -21,6 +21,7 @@ import {selectTheme} from "./features/gameSlice";
 import LoginPage from "./pages/LoginPage";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import AdminPannel from "./pages/AdminPannel";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
@@ -69,6 +70,7 @@ function App() {
   const [foundWordObject, setFoundWordObject] = useState([]);
   const [showTreasureChest, setShowTreasureChest] = useState(false);
   const [openTreasureChest, setOpenTreasureChest] = useState(false);
+  const [adminQuestions, setAdminQuestions] = useState([]);
   const [loginUserName, setLoginUserName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [token, setToken] = useState("");
@@ -86,6 +88,12 @@ function App() {
   useEffect(() => {
     if (token) {
       cookies.set("token", token, { path: "/" });
+    }
+    if(cookies.get('token')){
+      axios.get("http://localhost:8000/api/options/")
+      .then((res) => {
+        setAdminQuestions(res.data);
+      })
     }
   }, [token]);
 
@@ -224,7 +232,9 @@ function App() {
   //kad noklikšķina uz pareizo vārdu izpildās:
   const clickWord = (foundWord) => {
     setFoundWordObject([foundWord.text, foundWord.bottom, foundWord.right])
-    setThirdStageFoundWords([...thirdStageFoundWords, foundWordObject]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
+    setTimeout(() => {
+      setThirdStageFoundWords([...thirdStageFoundWords, foundWordObject]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
+    }, 100);
     setTsCorrectWords(tsCorrectWords.filter(txt => txt !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
     dispatch(addPoints()); //palielina punktu skaitu
   }
@@ -256,7 +266,7 @@ function App() {
     setToken(tok);
   };
 
-  const login = (e, user) => {
+  const login = (e, user, history) => {
     e.preventDefault();
     fetch("http://localhost:8000/auth/", {
       method: "POST",
@@ -268,9 +278,17 @@ function App() {
       .then((data) => data.json())
       .then((data) => {
         userLogin(data.token);
+        if (data.token) {
+          history.push("/admin");
+          setAdminInfo();
+        }
       })
       .catch((error) => console.log(error));
   };
+
+  const setAdminInfo = () => {
+    window.location.reload();
+  }
 
   return (
     <BrowserRouter>
@@ -321,6 +339,13 @@ function App() {
             setLoginPassword={setLoginPassword}
           />
         </Route>
+        {cookies.get('token') && (
+          <Route path="/admin">
+            <AdminPannel
+              adminQuestions={adminQuestions}
+            />
+          </Route>
+        )}
         <Route path="/">
           <LandingPage
             instructionState={instructionState}

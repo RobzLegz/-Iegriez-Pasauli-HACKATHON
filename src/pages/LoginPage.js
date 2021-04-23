@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 
 function LoginPage({
@@ -8,6 +9,9 @@ function LoginPage({
   setLoginPassword,
   loginUserName,
 }) {
+
+  const history = useHistory()
+
   return (
     <StyledLoginPage>
       <div className="container">
@@ -35,7 +39,7 @@ function LoginPage({
               </div>
               <button
                 onClick={(e) =>
-                  login(e, { username: loginUserName, password: loginPassword })
+                  login(e, { username: loginUserName, password: loginPassword }, history)
                 }
                 type="submit"
                 className="btn solid"
