@@ -142,8 +142,6 @@ function App() {
     }, 8000);
     setTimeout(() => {
       setSpinAgain(true);
-      setShowTreasureChest(false);
-      setOpenTreasureChest(false);
     }, 8500)
   };
 
@@ -260,6 +258,8 @@ function App() {
     setStartWordFlow(false);
     setFinishCountDown(15);
     setFoundWordObject([]);
+    setShowTreasureChest(false);
+    setOpenTreasureChest(false);
   }
 
   const userLogin = (tok) => {
