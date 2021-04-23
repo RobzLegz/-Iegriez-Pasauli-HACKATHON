@@ -93,6 +93,7 @@ const SpinnerContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   > button {
+    font-family: "Josefin Sans", sans-serif;
     height: 80px;
     width:80px;
     margin-top: 210px;
@@ -130,7 +131,6 @@ const SpinnerContainer = styled.div`
     }
     > p {
       font-size: 18px;
-      font-family: "Josefin Sans", sans-serif;
       color: #2f2f2f;
       padding-left: 2px;
       padding-top: 5px;
