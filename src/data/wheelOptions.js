@@ -59,9 +59,10 @@ export const wheelStops = [
             correctAnswer: "ir nepieciešama elektroenerģija",
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Vai ar banānu palīdzību var ražot elektrību?",
+            answerOptions: ["Jā", "Nē"],
+            correctAnswer: "Jā",
+            xtraInfo: "Elektrības radīšanas ierīci savienojot ar banānu mizu var radīt lidz 5 voltu stipru eletrību."
           },
         ],
       },
@@ -90,19 +91,21 @@ export const wheelStops = [
         tourism: [
           {
             image: "secondStageImages/backpack.svg",
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Uz kuru valsti cilvēki dodas apskatīt banānu fermas?  ",
+            answerOptions: ["Kostarika", "Peru", "Mozambika"],
+            correctAnswer: "Kostarika",
+            xtraInfo: "Kostarika ir izveidojusi biznesa centru, ar kura palīdzību pelna naudu, veidojot ekskursijas tūristiem."
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Kādēļ tūristiem ir aizliegs apskatīt banānu plantācijas?",
+            answerOptions: ["Tūristi piesārņo bio vidi", "Tūristi zog banānus"],
+            correctAnswer: "Tūristi piesārņo bio vidi",
+            xtraInfo: "Banāni tiek audzēti speciālos apstākļos, lai tie būtu bioloģiski tīri, tiem ir speciāls gaisa sastāvs un jebkura detaļa var pasliktināt banānu augšanu"
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Kā tūristi var palīdzēt banānu augšanai?",
+            answerOptions: ["ēdot banānus", "atstājot savu urīnu komposta kaudzē"],
+            correctAnswer: "atstājot savu urīnu komposta kaudzē",
           },
         ],
       },
