@@ -1,53 +1,77 @@
 import React from "react";
-import styled from 'styled-components'
+import axios from "axios";
+import styled from "styled-components";
 
-function LoginPage({setLoginUserName,loginPassword,login, setLoginPassword, loginUserName}){
+function LoginPage({
+  setLoginUserName,
+  loginPassword,
+  login,
+  setLoginPassword,
+  loginUserName,
+}) {
+  return (
+    <StyledLoginPage>
+      <div className="container">
+        <div className="forms-container">
+          <div className="signin-signup">
+            <form action="#" className="sign-in-form">
+              <h2 className="title">Ieiet</h2>
+              <div className="input-field">
+                <i className="fas fa-user" />
+                <input
+                  type="text"
+                  value={loginUserName}
+                  onChange={(e) => setLoginUserName(e.target.value)}
+                  placeholder="Lietotājvārds"
+                />
+              </div>
+              <div className="input-field">
+                <i className="fas fa-lock" />
+                <input
+                  type="password"
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                  placeholder="Parole"
+                />
+              </div>
+              <button
+                onClick={(e) =>
+                  login(e, { username: loginUserName, password: loginPassword })
+                }
+                type="submit"
+                className="btn solid"
+              >
+                Ieiet
+              </button>
+            </form>
+          </div>
+        </div>
 
-    return(
-        <StyledLoginPage>
-            <div className="container">
-                <div className="forms-container">
-                    <div className="signin-signup">
-                        <form action="#" className="sign-in-form">
-                            <h2 className="title">Ieiet</h2>
-                            <div className="input-field">
-                                <i className="fas fa-user"/>
-                                <input type="text" value={loginUserName} onChange={(e) => setLoginUserName(e.target.value)} placeholder="Lietotājvārds"/>
-                            </div>
-                            <div className="input-field">
-                                <i className="fas fa-lock"/>
-                                <input type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} placeholder="Parole"/>
-                            </div>
-                            <button onClick={(e) => login(e)} type="submit" className="btn solid">Ieiet</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div className="panels-container">
-                    <div className="panel left-panel">
-                        <div className="content">
-                            <h3>Administratora panelis</h3>
-                            <p>Šeit Tu vari mainīt spēles jautājumus</p>
-                        </div>
-                        <img src="loginPageResources/World.svg" className="image" alt="world"/>
-                    </div>
-                </div>
+        <div className="panels-container">
+          <div className="panel left-panel">
+            <div className="content">
+              <h3>Administratora panelis</h3>
+              <p>Šeit Tu vari mainīt spēles jautājumus</p>
             </div>
-
-        </StyledLoginPage>
-    )
-
+            <img
+              src="loginPageResources/World.svg"
+              className="image"
+              alt="world"
+            />
+          </div>
+        </div>
+      </div>
+    </StyledLoginPage>
+  );
 }
 
 const StyledLoginPage = styled.div`
-
   font-family: "Poppins", sans-serif;
   position: relative;
   width: 100%;
   background-color: rgba(235, 225, 209, 0.7);
   min-height: 100vh;
   overflow: hidden;
-
 
   input {
     font-family: "Poppins", sans-serif;
@@ -112,7 +136,10 @@ const StyledLoginPage = styled.div`
     padding: 0 0.4rem;
     position: relative;
 
-    :enabled, :valid, :focus, :active {
+    :enabled,
+    :valid,
+    :focus,
+    :active {
       background-color: #e8e8e8;
       border: 2px solid #adadad;
       outline: none;
@@ -242,7 +269,6 @@ const StyledLoginPage = styled.div`
     transform: translateX(800px);
   }
 
-
   .container.sign-up-mode:before {
     transform: translate(100%, -50%);
     right: 52%;
@@ -348,7 +374,6 @@ const StyledLoginPage = styled.div`
       width: 110px;
       height: 35px;
       font-size: 0.7rem;
-
     }
 
     .container:before {
@@ -422,7 +447,6 @@ const StyledLoginPage = styled.div`
       margin-bottom: 220px;
     }
   }
-
 `;
 
 export default LoginPage;
