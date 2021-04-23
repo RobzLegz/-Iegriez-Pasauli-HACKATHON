@@ -1,22 +1,18 @@
 import django_filters.rest_framework
 from rest_framework import viewsets
-from django.contrib.auth.models import User
-from core.serializers import UserSerializer, QuestionSerializer, OptionSerializer
-from rest_framework import filters
+from core.serializers import QuestionSerializer, OptionSerializer, MemberSerializer
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from django_filters.rest_framework import DjangoFilterBackend
 
-from core.models import Question, Option
+from core.models import Question, Option, Member
 
-
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['username', 'email']
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     serializer_class = QuestionSerializer
 
@@ -26,3 +22,12 @@ class OptionViewSet(viewsets.ModelViewSet):
     serializer_class = OptionSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['question', 'correct']
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+
+class MemberViewSet(viewsets.ModelViewSet):
+    queryset = Member.objects.all()
+    serializer_class = MemberSerializer
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticatedOrReadOnly]

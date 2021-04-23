@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
+import Cookies from "universal-cookie";
+
 import {
   startGame,
   findImage,
@@ -459,10 +461,19 @@ function App() {
     setFinishCountDown(15);
     setFoundWordObject([]);
   };
+
+  const cookies = new Cookies();
+
   const [token, setToken] = useState("");
   const userLogin = (tok) => {
     setToken(tok);
   };
+
+  useEffect(() => {
+    if (token) {
+      cookies.set("token", token, { path: "/" });
+    }
+  }, [token]);
 
   const login = (e, user) => {
     e.preventDefault();
