@@ -167,14 +167,16 @@ export const wheelStops = [
             xtraInfo: "T-kreklu piegāde no ražotāja uz veikaliem un pēc tam pie pircēja rada lielu oglekļu emisiju daudzumu."
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "T-kreklu ražošana visbiežāk izmanto kokvilnu, ko piegādā no:",
+            answerOptions: ["Eiropas", "Ķīnas un Indijas", "Amerikas"],
+            correctAnswer: "Ķīnas un Indijas",
+            xtraInfo: "Ķīna un Indija ir lielākās kokvilnas ražotājas pasaulē."
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Ar kāda transportlīdzekļa palīdzību var nogādāt pēc iespējas vairāk T-kreklu?",
+            answerOptions: ["Ar kuģi", "Ar lidmašīnu", "Ar vilcienu"],
+            correctAnswer: "Ar kuģi",
+            xtraInfo: "Ar 1 lielā kuģa palīdzību, tiek piegādāts visvairāk apģērba nekā ar citiem transportiem."
           },
         ],
       },
@@ -182,9 +184,10 @@ export const wheelStops = [
         energy: [
           {
             image: "secondStageImages/wind-turbine.svg",
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Uz t-kreklu tiek patērēta enerģija arī pēc tā izgatavošanas?",
+            answerOptions: ["Jā", "Nē"],
+            correctAnswer: "Jā",
+            xtraInfo: "Uz t-kreklu tiek patērēta enerģija arī pēc tā izgatavošanas, jo tas ir jāmazgā (veļasmašīna patērē elektrību) un jāgludina (gludeklis patērē elektrību)."
           },
           {
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
@@ -202,19 +205,22 @@ export const wheelStops = [
         food: [
           {
             image: "secondStageImages/restaurant.svg",
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Viena t-krekla ražošanā patērētais ūdens var nodrošināt cilvēku ar ūdeni: ",
+            answerOptions: ["30 dienas", "60 dienas", "200 dienas"],
+            correctAnswer: "60 dienas",
+            xtraInfo: "Viena t-krekla radīšanai tiek izmantoti 120l ūdens, kas varētu nodrošināt cilvēku ar ūdeni 60 dienas."
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Kāds ēdiens visbiežāk tiek attēlos uz T-krekliem?",
+            answerOptions: ["Fast food", "Sušī", "Pelmeņi"],
+            correctAnswer: "Fast food",
+            xtraInfo: "Uz T-krekliem visbiežāk tiek attēlots fast food, jo tas ir lēts un cilvēkiem saistošs, cilvēka acis strādā, kā vēders, tas paēd ar bildēm."
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Cik procentu gadījumos cilvēki T-kreklu nosmērē ar ēdienu?",
+            answerOptions: ["18%", "32%", "100%"],
+            correctAnswer: "32%",
+            xtraInfo: "Veiktajā pētījumā atklājās, ka gandrīz katrs trešais nosmērē savu apģērbu ar ēdienu, galvenie iemesli ir ātra ēšana, steigšanas."
           },
         ],
       },
@@ -222,14 +228,14 @@ export const wheelStops = [
         tourism: [
           {
             image: "secondStageImages/backpack.svg",
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Kad ir T-krekla diena? ",
+            answerOptions: ["14. augustā", "21. jūnijā", "32. decembrī"],
+            correctAnswer: "21. jūnijā",
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Vai ir iespējamas ekskursijas T-kreklu ražotnēs?",
+            answerOptions: ["Jā", "Nē"],
+            correctAnswer: "Jā",
           },
           {
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
@@ -242,14 +248,14 @@ export const wheelStops = [
         waste: [
           {
             image: "secondStageImages/delete.svg",
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Cik daudz T-kreklu rada atkritumus 1kg svarā?",
+            answerOptions: ["6", "20", "1"],
+            correctAnswer: "6",
           },
           {
-            q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
-            answerOptions: ["1000", "2000", "3000"],
-            correctAnswer: "3000",
+            q: "Cik % no T-krekla ražošanā un patērēšanā radīto atkritumu rada tā uzkopšana? ",
+            answerOptions: ["40%", "60%", "5%"],
+            correctAnswer: "60%",
           },
           {
             q: "Cik tonnu ogļskābās gāzes saražo viena reize?",
