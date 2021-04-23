@@ -1,58 +1,79 @@
 import React from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 
-function LoginPage({setLoginUserName,loginPassword,login, setLoginPassword, loginUserName}){
+function LoginPage({
+  setLoginUserName,
+  loginPassword,
+  login,
+  setLoginPassword,
+  loginUserName,
+}) {
+  return (
+    <StyledLoginPage>
+      <div className="container">
+        <div className="forms-container">
+          <div className="signin-signup">
+            <form action="#" className="sign-in-form">
+              <h2 className="title">Ieiet</h2>
+              <div className="input-field">
+                <i className="fas fa-user" />
+                <input
+                  type="text"
+                  value={loginUserName}
+                  onChange={(e) => setLoginUserName(e.target.value)}
+                  placeholder="Lietotājvārds"
+                />
+              </div>
+              <div className="input-field">
+                <i className="fas fa-lock" />
+                <input
+                  type="password"
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                  placeholder="Parole"
+                />
+              </div>
+              <button
+                onClick={(e) =>
+                  login(e, { username: loginUserName, password: loginPassword })
+                }
+                type="submit"
+                className="btn solid"
+              >
+                Ieiet
+              </button>
+            </form>
+          </div>
+        </div>
 
-    return(
-        <StyledLoginPage>
-            <div className="container">
-                <div className="forms-container">
-                    <div className="signin-signup">
-                        <form action="#" className="sign-in-form">
-                            <h2 className="title">Ieiet</h2>
-                            <div className="input-field">
-                                <i className="fas fa-user"/>
-                                <input type="text" value={loginUserName} onChange={(e) => setLoginUserName(e.target.value)} placeholder="Lietotājvārds"/>
-                            </div>
-                            <div className="input-field">
-                                <i className="fas fa-lock"/>
-                                <input type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} placeholder="Parole"/>
-                            </div>
-                            <button onClick={(e) => login(e)} type="submit" className="btn solid">Ieiet</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div className="panels-container">
-                    <div className="panel left-panel">
-                        <div className="content">
-                            <h3>Administratora panelis</h3>
-                            <p>Šeit Tu vari mainīt spēles jautājumus</p>
-                        </div>
-                        <img src="loginPageResources/World.svg" className="image" alt="world"/>
-                    </div>
-                </div>
+        <div className="panels-container">
+          <div className="panel left-panel">
+            <div className="content">
+              <h3>Administratora panelis</h3>
+              <p>Šeit Tu vari mainīt spēles jautājumus</p>
             </div>
-
-        </StyledLoginPage>
-    )
-
+            <img
+              src="loginPageResources/World.svg"
+              className="image"
+              alt="world"
+            />
+          </div>
+        </div>
+      </div>
+    </StyledLoginPage>
+  );
 }
 
 const StyledLoginPage = styled.div`
-
   font-family: "Poppins", sans-serif;
   position: relative;
   width: 100%;
   background-color: rgba(235, 225, 209, 0.7);
   min-height: 100vh;
   overflow: hidden;
-
-
   input {
     font-family: "Poppins", sans-serif;
   }
-
   .forms-container {
     position: absolute;
     width: 100%;
@@ -60,7 +81,6 @@ const StyledLoginPage = styled.div`
     top: 0;
     left: 0;
   }
-
   .signin-signup {
     position: absolute;
     top: 50%;
@@ -72,7 +92,6 @@ const StyledLoginPage = styled.div`
     grid-template-columns: 1fr;
     z-index: 5;
   }
-
   form {
     display: flex;
     align-items: center;
@@ -84,22 +103,18 @@ const StyledLoginPage = styled.div`
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }
-
   form.sign-up-form {
     opacity: 0;
     z-index: 1;
   }
-
   form.sign-in-form {
     z-index: 2;
   }
-
   .title {
     font-size: 2.2rem;
     color: #444;
     margin-bottom: 10px;
   }
-
   .input-field {
     max-width: 380px;
     width: 100%;
@@ -111,14 +126,15 @@ const StyledLoginPage = styled.div`
     grid-template-columns: 15% 85%;
     padding: 0 0.4rem;
     position: relative;
-
-    :enabled, :valid, :focus, :active {
+    :enabled,
+    :valid,
+    :focus,
+    :active {
       background-color: #e8e8e8;
       border: 2px solid #adadad;
       outline: none;
     }
   }
-
   .input-field i {
     text-align: center;
     line-height: 55px;
@@ -126,7 +142,6 @@ const StyledLoginPage = styled.div`
     transition: 0.5s;
     font-size: 1.1rem;
   }
-
   .input-field input {
     background: none;
     outline: none;
@@ -136,7 +151,6 @@ const StyledLoginPage = styled.div`
     font-size: 1.1rem;
     color: #333;
   }
-
   .input-field input::placeholder {
     color: #aaa;
     font-weight: 500;
@@ -155,11 +169,9 @@ const StyledLoginPage = styled.div`
     cursor: pointer;
     transition: 0.5s;
   }
-
   .btn:hover {
     background-color: #85ab3c;
   }
-
   .panels-container {
     position: absolute;
     height: 100%;
@@ -169,7 +181,6 @@ const StyledLoginPage = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-
   .container:before {
     content: "";
     position: absolute;
@@ -183,13 +194,11 @@ const StyledLoginPage = styled.div`
     border-radius: 50%;
     z-index: 6;
   }
-
   .image {
     width: 90%;
     transition: transform 1.1s ease-in-out;
     transition-delay: 0.4s;
   }
-
   .panel {
     display: flex;
     flex-direction: column;
@@ -198,35 +207,29 @@ const StyledLoginPage = styled.div`
     text-align: center;
     z-index: 6;
   }
-
   .left-panel {
     pointer-events: all;
     padding: 3rem 17% 2rem 12%;
   }
-
   .right-panel {
     pointer-events: none;
     padding: 3rem 12% 2rem 17%;
   }
-
   .panel .content {
     color: #fff;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.6s;
   }
-
   .panel h3 {
     font-weight: 600;
     line-height: 1;
     font-size: 2.5rem;
   }
-
   .panel p {
     font-size: 1.5rem;
     margin-top: 15px;
     padding: 0.7rem 0;
   }
-
   .btn.transparent {
     margin: 0;
     background: none;
@@ -236,77 +239,61 @@ const StyledLoginPage = styled.div`
     font-weight: 600;
     font-size: 0.8rem;
   }
-
   .right-panel .image,
   .right-panel .content {
     transform: translateX(800px);
   }
-
-
   .container.sign-up-mode:before {
     transform: translate(100%, -50%);
     right: 52%;
   }
-
   .container.sign-up-mode .left-panel .image,
   .container.sign-up-mode .left-panel .content {
     transform: translateX(-800px);
   }
-
   .container.sign-up-mode .signin-signup {
     left: 25%;
   }
-
   .container.sign-up-mode form.sign-up-form {
     opacity: 1;
     z-index: 2;
   }
-
   .container.sign-up-mode form.sign-in-form {
     opacity: 0;
     z-index: 1;
   }
-
   .container.sign-up-mode .right-panel .image,
   .container.sign-up-mode .right-panel .content {
     transform: translateX(0%);
   }
-
   .container.sign-up-mode .left-panel {
     pointer-events: none;
   }
-
   .container.sign-up-mode .right-panel {
     pointer-events: all;
   }
-
   @media (max-width: 870px) {
     form {
       margin-bottom: 110px;
     }
-
     .container {
       min-height: 800px;
       height: 100vh;
     }
-
     .signin-signup {
       width: 100%;
       top: 95%;
       transform: translate(-50%, -100%);
       transition: 1s 0.8s ease-in-out;
     }
-
     .signin-signup,
     .container.sign-up-mode .signin-signup {
       left: 50%;
     }
-
     .panels-container {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 2fr 1fr;
     }
-
     .panel {
       flex-direction: row;
       justify-content: space-around;
@@ -314,43 +301,34 @@ const StyledLoginPage = styled.div`
       padding: 2.5rem 8%;
       grid-column: 1 / 2;
     }
-
     .right-panel {
       grid-row: 3 / 4;
     }
-
     .left-panel {
       grid-row: 1 / 2;
     }
-
     .image {
       width: 200px;
       transition: transform 0.9s ease-in-out;
       transition-delay: 0.6s;
     }
-
     .panel .content {
       padding-right: 15%;
       transition: transform 0.9s ease-in-out;
       transition-delay: 0.8s;
     }
-
     .panel h3 {
       font-size: 2rem;
     }
-
     .panel p {
       font-size: 1.2rem;
       padding: 0.5rem 0;
     }
-
     .btn.transparent {
       width: 110px;
       height: 35px;
       font-size: 0.7rem;
-
     }
-
     .container:before {
       width: 1500px;
       height: 1500px;
@@ -361,57 +339,46 @@ const StyledLoginPage = styled.div`
       top: initial;
       transition: 2s ease-in-out;
     }
-
     .container.sign-up-mode:before {
       transform: translate(-50%, 100%);
       bottom: 32%;
       right: initial;
     }
-
     .container.sign-up-mode .left-panel .image,
     .container.sign-up-mode .left-panel .content {
       transform: translateY(-300px);
     }
-
     .container.sign-up-mode .right-panel .image,
     .container.sign-up-mode .right-panel .content {
       transform: translateY(0px);
     }
-
     .right-panel .image,
     .right-panel .content {
       transform: translateY(300px);
     }
-
     .container.sign-up-mode .signin-signup {
       top: 5%;
       transform: translate(-50%, 0);
     }
   }
-
   @media (max-width: 570px) {
     form {
       margin-bottom: 160px;
       padding: 0 1.5rem;
     }
-
     .image {
       display: none;
     }
-
     .panel .content {
       padding: 0.5rem 1rem;
     }
-
     .container {
       padding: 1.5rem;
     }
-
     .container:before {
       bottom: 72%;
       left: 50%;
     }
-
     .container.sign-up-mode:before {
       bottom: 50%;
       left: 50%;
@@ -422,7 +389,6 @@ const StyledLoginPage = styled.div`
       margin-bottom: 220px;
     }
   }
-
 `;
 
 export default LoginPage;

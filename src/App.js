@@ -19,6 +19,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import {selectTheme} from "./features/gameSlice";
 import LoginPage from "./pages/LoginPage";
+import Cookies from "universal-cookie";
+import axios from "axios";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
@@ -67,6 +69,7 @@ function App() {
   const [foundWordObject, setFoundWordObject] = useState([]);
   const [loginUserName, setLoginUserName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [token, setToken] = useState("");
   // const [adminPassword, setAdminPassword] = useState("");
   // const [adminUserName, setAdminUserName] = useState("");
 
@@ -76,6 +79,13 @@ function App() {
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
+  const cookies = new Cookies();
+
+  useEffect(() => {
+    if (token) {
+      cookies.set("token", token, { path: "/" });
+    }
+  }, [token]);
 
   useEffect(() => {
     if(!hasFinished){
@@ -232,9 +242,25 @@ function App() {
     setFoundWordObject([]);
   }
 
-  const login = (e) => {
+  const userLogin = (tok) => {
+    setToken(tok);
+  };
+
+  const login = (e, user) => {
     e.preventDefault();
-  }
+    fetch("http://localhost:8000/auth/", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        userLogin(data.token);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <BrowserRouter>
