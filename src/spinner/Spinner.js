@@ -125,12 +125,6 @@ const SpinnerComponent = styled.ul`
   border-radius: 50%;
   overflow: hidden;
   border: 10px solid lightgray;
-  box-shadow: 0 0 2rem #fff,
-  inset 0 0 .5rem #fff,
-  0 0 4rem #a29f9f,
-  inset 0 0 4rem #a29f9f,
-  0 0 8rem #a29f9f,
-  inset 0 0 8rem #a29f9f;
   height: 70vh;
   max-height: 70vw;
   width: 70vw;
