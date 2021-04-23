@@ -13,14 +13,12 @@ function Spinner({ wheelRef }) {
         <SpinnerComponent ref={wheelRef}>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                    <img src="firstStageResources/shirt.svg" alt="Shirt" />
-                    
+                    <img src="firstStageResources/shirt.svg" alt="Shirt" />                    
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                <img src="firstStageResources/banana.svg" alt="banana" />
-                    
+                <img src="firstStageResources/banana.svg" alt="banana" />                    
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
@@ -30,14 +28,12 @@ function Spinner({ wheelRef }) {
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                <img src="firstStageResources/headphone-symbol.svg" alt="Headphones" />
-                
+                <img src="firstStageResources/headphone-symbol.svg" alt="Headphones" />                
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                    <img src="firstStageResources/longboard.svg" alt="Longboard" />
-                    
+                    <img src="firstStageResources/longboard.svg" alt="Longboard" />                    
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
         </SpinnerComponent>
