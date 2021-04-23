@@ -74,6 +74,8 @@ function App() {
   const [loginUserName, setLoginUserName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [token, setToken] = useState("");
+  const [leaderboardUsername, setLeaderboardUsername] = useState("");
+  const [leaderboardState, setLeaderboardState] = useState(false);
   // const [adminPassword, setAdminPassword] = useState("");
   // const [adminUserName, setAdminUserName] = useState("");
 
@@ -260,6 +262,7 @@ function App() {
     setFoundWordObject([]);
     setShowTreasureChest(false);
     setOpenTreasureChest(false);
+    setLeaderboardState(false);
   }
 
   const userLogin = (tok) => {
@@ -290,6 +293,11 @@ function App() {
     window.location.reload();
   }
 
+  const addToLeaderboard = (e) => {
+    e.preventDefault();
+    axios.post("localhost:8000/api/members")
+  }
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -297,6 +305,11 @@ function App() {
         <Route path="/game">
           {thirdStageStarted ? (
             <ThirdStage
+              leaderboardUsername={leaderboardUsername}
+              setLeaderboardUsername={setLeaderboardUsername}
+              addToLeaderboard={addToLeaderboard}
+              leaderboardState={leaderboardState}
+              setLeaderboardState={setLeaderboardState}
               playAgain={playAgain}
               finishCountDown={finishCountDown}
               thirdStageFoundWords={thirdStageFoundWords}
