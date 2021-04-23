@@ -67,6 +67,8 @@ function App() {
   const [startWordFlow, setStartWordFlow] = useState(false);
   const [finishCountDown, setFinishCountDown] = useState(15);
   const [foundWordObject, setFoundWordObject] = useState([]);
+  const [showTreasureChest, setShowTreasureChest] = useState(false);
+  const [openTreasureChest, setOpenTreasureChest] = useState(false);
   const [loginUserName, setLoginUserName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [token, setToken] = useState("");
@@ -125,8 +127,16 @@ function App() {
     dispatch(addThemeQuestions(randomStop.questions));
     dispatch(setAllQs(randomStop.secondStageQuestions));//Aizsūta otrās daļas jautājumus uz Redux
     setTimeout(() => {
-      setSpinAgain(true); //Kad rats beidz griezties, atļaut iegriezt velreiz
+      setShowTreasureChest(true); //Kad rats beidz griezties, parādīt dārgumu lādi
     }, 6000);
+    setTimeout(() => {
+      setOpenTreasureChest(true);
+    }, 8000);
+    setTimeout(() => {
+      setSpinAgain(true);
+      setShowTreasureChest(false);
+      setOpenTreasureChest(false);
+    }, 8500)
   };
 
   //atbild uz pirmās daļas jautājumu
@@ -290,6 +300,8 @@ function App() {
                 />
               ) : (
                 <Home
+                  openTreasureChest={openTreasureChest}
+                  showTreasureChest={showTreasureChest}
                   answerCounter={answerCounter}
                   firstPartAnswer={firstPartAnswer}
                   spinAgain={spinAgain}

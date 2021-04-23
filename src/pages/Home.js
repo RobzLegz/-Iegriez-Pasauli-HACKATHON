@@ -12,19 +12,28 @@ function Home({
   spinAgain,
   firstPartAnswer,
   answerCounter,
+  showTreasureChest,
+  openTreasureChest
 }) {
   const ThemeName = useSelector(selectTheme);
 
   return (
     <HomePage>
-      <SpinnerContainer>
-        <SpinnerArrow></SpinnerArrow>
-        <Spinner wheelRef={wheelRef} />
-        <button disabled={!spinAgain} onClick={SpinTheWheel}>
-          <img src={FortuneWheel} alt="Fortune wheel" />
-          <p>Iegriezt</p>
-        </button>
-      </SpinnerContainer>
+      {showTreasureChest ? (
+        <div className={!openTreasureChest ? "shaking_chest" : "open_chest"}>
+          <img src={openTreasureChest ? "firstStageResources/treasureopen.svg" : "firstStageResources/treasure.svg"} alt="chest"/>
+        </div>
+      ) : (
+        <SpinnerContainer>
+          <SpinnerArrow></SpinnerArrow>
+          <Spinner wheelRef={wheelRef} />
+          <button disabled={!spinAgain} onClick={SpinTheWheel}>
+            <img src={FortuneWheel} alt="Fortune wheel" />
+            <p>Iegriezt</p>
+          </button>
+        </SpinnerContainer>
+      )}
+      
       <div
         className={`question__popup ${
           ThemeName !== "" && spinAgain ? "open__question--popup" : ""
@@ -47,6 +56,9 @@ const HomePage = styled.div`
   background: #ebe1d1;
   width: 100%;
   justify-content: center;
+  >.shaking_chest{
+    animation: shakeChest 0.3s ease infinite;
+  }
   > .question__popup {
     position: absolute;
     top: 0;
@@ -82,6 +94,17 @@ const SpinnerContainer = styled.div`
     border: 1px solid #3c3c58;
     > p {
       margin-left: 5px;
+    }
+  }
+  @keyframes shakeChest{
+    0%{
+      transform: rotate(-2deg);
+    }
+    50%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(2deg);
     }
   }
 `;
