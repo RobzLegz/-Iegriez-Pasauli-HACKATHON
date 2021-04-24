@@ -138,11 +138,12 @@ function App() {
     if(secondStageStarted){
       //Kad sākas otrās daļa, sākt taimeri
       setTimeout(() => {
-        setGameCountDownTimer(gameCountDownTimer - 1);
         if(gameCountDownTimer <= 0){
+          //kad beidzas laiks, aizsūtīt uz game over lapu
           dispatch(stopGame());
           return;
         }
+        setGameCountDownTimer(gameCountDownTimer - 1);
       }, 1000);
     }    
   }, [gameCountDownTimer, secondStageStarted, dispatch]);
