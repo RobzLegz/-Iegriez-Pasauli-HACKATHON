@@ -18,20 +18,17 @@ function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboar
                 <form>
                     <input type="text" value={leaderboardUsername} onChange={(e) => setLeaderboardUsername(e.target.value)} placeholder="lietotājvārds" />
                     <button onClick={(e) => addToLeaderboard(e)}>Labi</button>
+                    <button onClick={playAgain} id="again">Spēlēt vēlreiz</button>
                 </form>
             ) : (
                 <div className="end__button--container">
                     <button onClick={playAgain} id="again">Spēlēt vēlreiz</button>
-                    <button id="best_results"><span>Labākie rezultāti</span></button>
+                    <button onClick={() => setLeaderboardState(true)} id="best_results"><span>Labākie rezultāti</span></button>
                 </div>
             )}
-            {points < 35 ? (
-                <ReactRain
-                    numDrops="500"
-                />
-            ) : (
+            {points > 34 && (
                 <ReactConfetti/>
-            )}            
+            )}          
         </StyledFinishPage>
     )
 }
