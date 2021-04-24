@@ -344,7 +344,7 @@ export const wheelStops = [
             correctAnswer: "Limonādi",
           },
           {
-            q: "Vai ir droši ēst braukšanas laikā ar longbordu?",
+            q: "Vai ir droši ēst braucot ar longbordu?",
             answerOptions: ["Jā","Nē"],
             correctAnswer: "Nē",
           },
