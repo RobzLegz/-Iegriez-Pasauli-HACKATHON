@@ -61,6 +61,9 @@ const HomePage = styled.div`
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   >.shown__part{
     position: absolute;
@@ -69,6 +72,9 @@ const HomePage = styled.div`
     transform: translate(-50%, -50%);
     opacity: 1;
     transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   > .question__popup {
     position: absolute;
@@ -93,6 +99,12 @@ const HomePage = styled.div`
   >div{
     >.shaking_chest{
       animation: shakeChest 0.3s ease infinite;
+      width: 80%;
+      height: 80%;
+    }
+    >.open_chest{
+      width: 80%;
+      height: 80%;
     }
   }
   @keyframes shakeChest{
@@ -114,11 +126,12 @@ const SpinnerContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
+  height: fit-content;
   > button {
     font-family: "Josefin Sans", sans-serif;
     height: 80px;
     width:80px;
-    margin-top: 210px;
+    margin-top: 130px;
     position: absolute;
     display: flex;
     align-items: center;
@@ -175,15 +188,12 @@ const SpinnerArrow = styled.div`
   width: 0;
   height: 0;
   overflow: hidden;
-  position: absolute;
   border-left: 25px solid transparent;
   border-right: 25px solid transparent;
   border-top: 25px solid  #3c3c58;
-  top: 24%;
-  left: 50%;
-  transform: translate(-50%,-50%);
   z-index: 10;
   color:  #3c3c58;
+  margin: 120px 0 -225px 0;
   @media(max-width: 594px){
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
@@ -194,7 +204,7 @@ const SpinnerArrow = styled.div`
     border-right: 15px solid transparent;
     border-top: 15px solid #3c3c58;
   }
-  @media(max-width: 800px){
+  /* @media(max-width: 800px){
     top: 35%;
   }
   @media(max-width: 768px){
@@ -238,7 +248,7 @@ const SpinnerArrow = styled.div`
   }
   @media(max-width: 320px){
     top: 38%;
-  }
+  } */
 `;
 
 export default Home;

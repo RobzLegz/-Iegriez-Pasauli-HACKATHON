@@ -10,7 +10,7 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
             <div className="correct__container">
                 {tsCorrectWords.map((correct) => (
                     <h3 
-                        key={correct.right - correct.bottom}
+                        key={correct.color}
                         onClick={() => clickWord(correct)} 
                         style={{
                             bottom: `${correct.bottom}%`, 
@@ -24,7 +24,7 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
             <div className="incorrect__container">
                 {tsIncorrectWords.map((incorrect) => (
                     <h3 
-                        key={incorrect.top + incorrect.left}
+                        key={incorrect.color}
                         style={{
                             top: `${incorrect.top}%`, 
                             left: `${incorrect.left}%`,

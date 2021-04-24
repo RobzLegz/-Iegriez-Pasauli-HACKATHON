@@ -47,6 +47,7 @@ const StyledSpinnerPage = styled.div`
     position: absolute;  
   }
   .wrapper {
+    z-index: 11;
     height: 130px;
     width: 40%;
     border-radius: 15px;
