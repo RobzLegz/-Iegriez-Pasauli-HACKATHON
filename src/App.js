@@ -281,7 +281,7 @@ function App() {
       <Switch>
         <Route path="/game">
           {gameOver ? (
-            <GameOverPage />
+            <GameOverPage playAgain={playAgain} />
           ) : (
             <>
               {thirdStageStarted ? (
