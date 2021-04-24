@@ -56,14 +56,14 @@ const StyledWordFlowStage = styled.div`
         >h3{
             cursor: pointer;
             position: absolute;
-            animation: floatWords 15s ease infinite;
+            animation: floatWords 15s ease-in infinite;
         }
         @keyframes floatWords{
             from{
                 transform: scale(0.5);
             }
             to{
-                transform: scale(1.5);
+                transform: scale(1.7);
             }
         }
     }
