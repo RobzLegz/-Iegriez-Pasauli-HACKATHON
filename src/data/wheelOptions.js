@@ -304,9 +304,9 @@ export const wheelStops = [
             correctAnswer: "samazinās",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Kāds ir vidējais ātrums, kuru var sasniegt ar parasto longbordu?",
+            answerOptions: ["1-5 km/h","15-20 km/h","50-60 km/h"],
+            correctAnswer: "15-20 km/h",
           },
         ],
       },
@@ -344,9 +344,9 @@ export const wheelStops = [
             correctAnswer: "Limonādi",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Vai ir droši ēst braukšanas laikā ar longbordu?",
+            answerOptions: ["Jā","Nē"],
+            correctAnswer: "Nē",
           },
         ],
       },
@@ -364,9 +364,9 @@ export const wheelStops = [
             correctAnswer: "Amerikā",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Kurā valstī visvairāk saražo longbordus?",
+            answerOptions: ["Spānijā", "Ķīnā", "Kazahstānā"],
+            correctAnswer: "Ķīnā",
           },
         ],
       },
@@ -374,14 +374,14 @@ export const wheelStops = [
         waste: [
           {
             image: "secondStageImages/delete.svg",
-            q: "Vai izmests, sabojāts longbordu pamats var bojāt apkārtējo vidi?",
+            q: "Vai izmests, sabojāts longbords var bojāt apkārtējo vidi?",
             answerOptions: ["Jā", "Nē"],
             correctAnswer: "Jā",
           },
           {
-            q: "Kā novecojušu longbordu var pārstrādāt?",
-            answerOptions: ["Longborda koku","",""],
-            correctAnswer: "",
+            q: "Kuru novecojuša longborda daļu var visvieglāk pārstrādāt?",
+            answerOptions: ["Longborda klāju", "Riteņus", "Skrūves"],
+            correctAnswer: "Longborda klāju",
           },
           {
             q: "Kāda tipa longborda ražošanai tiek radīti vairāk atkritumi?",
