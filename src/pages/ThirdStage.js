@@ -16,7 +16,7 @@ function ThirdStage({tsCorrectWords,setLeaderboardUsername, leaderboardUsername,
             ) : (
                 <>
                     {startWordFlow ? (
-                        <WordFlow 
+                        <WordFlow
                             finishCountDown={finishCountDown}
                             thirdStageFoundWords={thirdStageFoundWords}
                             clickWord={clickWord}
@@ -27,8 +27,7 @@ function ThirdStage({tsCorrectWords,setLeaderboardUsername, leaderboardUsername,
                         <h3>{tsCountdownTimer > 1 ? tsCountdownTimer > 4 ? "Uzklikšķini uz tiem vārdiem, kuri saistīti ar aprites ekonomiku" : tsCountdownTimer - 1 : "Aiziet!"}</h3>
                     )}
                 </>
-            )}
-            
+            )}            
         </StyledThirdStagePage>
     )
 }

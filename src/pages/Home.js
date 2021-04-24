@@ -18,20 +18,18 @@ function Home({
 
   return (
     <HomePage>
-      <div className={`closed__part ${showTreasureChest && "shown__part"}`}>
-        <img 
-          className={!openTreasureChest ? "shaking_chest" : "open_chest"}
-          src={openTreasureChest ? "firstStageResources/treasureopen.svg" : "firstStageResources/treasure.svg"} 
-          alt="chest"
-        />
-      </div>        
-      <div className={`${!showTreasureChest && "shown__part"} ${showTreasureChest && "closed__part"}`}>
+      {showTreasureChest ? (
+        <div className={!openTreasureChest ? "shaking_chest" : "open_chest"}>
+          <img src={openTreasureChest ? "firstStageResources/treasureopen.svg" : "firstStageResources/treasure.svg"} alt="chest"/>
+        </div>
+      ) : (
         <SpinnerContainer>
-          <SpinnerArrow></SpinnerArrow>
+          <SpinnerArrow/>
           <Spinner wheelRef={wheelRef} />
           <button disabled={!spinAgain} onClick={SpinTheWheel}>Iegriezt</button>
         </SpinnerContainer>
-      </div>            
+      )}
+
       <div
         className={`question__popup ${
           ThemeName !== "" && spinAgain ? "open__question--popup" : ""
@@ -54,28 +52,6 @@ const HomePage = styled.div`
   background: #ebe1d1;
   width: 100%;
   justify-content: center;
-  >.closed__part{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: all 0.5s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  >.shown__part{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 1;
-    transition: all 0.5s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   > .question__popup {
     position: absolute;
     top: 0;
@@ -96,16 +72,8 @@ const HomePage = styled.div`
     opacity: 1;
     z-index: 10;
   }
-  >div{
-    >.shaking_chest{
-      animation: shakeChest 0.3s ease infinite;
-      width: 80%;
-      height: 80%;
-    }
-    >.open_chest{
-      width: 80%;
-      height: 80%;
-    }
+  >.shaking_chest{
+    animation: shakeChest 0.3s ease infinite;
   }
   @keyframes shakeChest{
     0%{
@@ -120,18 +88,15 @@ const HomePage = styled.div`
   }
 `;
 const SpinnerContainer = styled.div`
-  overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  position: relative;
-  height: fit-content;
   > button {
     font-family: "Josefin Sans", sans-serif;
     height: 80px;
     width:80px;
-    margin-top: 130px;
+    margin-top: 210px;
     position: absolute;
     display: flex;
     align-items: center;
@@ -187,13 +152,15 @@ const SpinnerContainer = styled.div`
 const SpinnerArrow = styled.div`
   width: 0;
   height: 0;
-  overflow: hidden;
+  position: absolute;
   border-left: 25px solid transparent;
   border-right: 25px solid transparent;
   border-top: 25px solid  #3c3c58;
+  top: 26%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   z-index: 10;
   color:  #3c3c58;
-  margin: 120px 0 -225px 0;
   @media(max-width: 594px){
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
@@ -204,7 +171,7 @@ const SpinnerArrow = styled.div`
     border-right: 15px solid transparent;
     border-top: 15px solid #3c3c58;
   }
-  /* @media(max-width: 800px){
+  @media(max-width: 800px){
     top: 35%;
   }
   @media(max-width: 768px){
@@ -248,7 +215,7 @@ const SpinnerArrow = styled.div`
   }
   @media(max-width: 320px){
     top: 38%;
-  } */
+  }
 `;
 
 export default Home;

@@ -9,16 +9,15 @@ function Spinner({ wheelRef }) {
         <h1>Veiksmes Rats</h1>
         <p>Iegriez, lai izpētītu!</p>
         </div>
-        <canvas id="confetti"/>
         <SpinnerComponent ref={wheelRef}>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                    <img src="firstStageResources/shirt.svg" alt="Shirt" />                    
+                    <img src="firstStageResources/shirt.svg" alt="Shirt" />
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                <img src="firstStageResources/banana.svg" alt="banana" />                    
+                <img src="firstStageResources/banana.svg" alt="banana" />
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
@@ -28,12 +27,12 @@ function Spinner({ wheelRef }) {
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                <img src="firstStageResources/headphone-symbol.svg" alt="Headphones" />                
+                <img src="firstStageResources/headphone-symbol.svg" alt="Headphones" />
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
             <SpinnerOption>
                 <SpinnerOptionInnerEl>
-                    <img src="firstStageResources/longboard.svg" alt="Longboard" />                    
+                    <img src="firstStageResources/longboard.svg" alt="Longboard" />
                 </SpinnerOptionInnerEl>
             </SpinnerOption>
         </SpinnerComponent>
@@ -43,11 +42,7 @@ function Spinner({ wheelRef }) {
 }
 
 const StyledSpinnerPage = styled.div`
-  #confetti{
-    position: absolute;  
-  }
   .wrapper {
-    z-index: 11;
     height: 130px;
     width: 40%;
     border-radius: 15px;
@@ -126,6 +121,7 @@ const SpinnerComponent = styled.ul`
   border-radius: 50%;
   overflow: hidden;
   border: 10px solid lightgray;
+ 
   height: 70vh;
   max-height: 70vw;
   width: 70vw;

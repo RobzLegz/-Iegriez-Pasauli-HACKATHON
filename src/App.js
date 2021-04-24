@@ -14,7 +14,7 @@ import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
 import {wheelStops} from "./data/wheelOptions";
 import ThirdStage from "./pages/ThirdStage";
-import { finish, selecthasfinished, setPreviousTheme } from "./features/finishSlice";
+import { finish, selecthasfinished, selectLastTheme, setPreviousTheme } from "./features/finishSlice";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import {selectTheme} from "./features/gameSlice";
@@ -77,15 +77,26 @@ function App() {
   const [leaderboardUsername, setLeaderboardUsername] = useState("");
   const [leaderboardState, setLeaderboardState] = useState(false);
   const [leaderboardUsers, setLeaderboardUsers] = useState([]);
+  const [randomStop,setRandomStop] = useState(0);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
   const hasFinished = useSelector(selecthasfinished);
   const points = useSelector(selectPoints);
+  const lastTheme = useSelector(selectLastTheme);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
   const cookies = new Cookies();
+
+  useEffect(() => {
+    //Izvēlas nejaušu opciju, uz kuras rats uzgriezīsies
+    setRandomStop(wheelStops[Math.floor(Math.random() * 5) + 0]);
+    if(lastTheme === randomStop.value){
+      setRandomStop(wheelStops[Math.floor(Math.random() * 5) + 0]);
+      SpinTheWheel();
+    }
+  }, [lastTheme, randomStop])
 
   useEffect(() => {
     if (token) {
@@ -125,13 +136,10 @@ function App() {
     }    
   }, [thirdStageStarted, tsCountdownTimer, finishCountDown, dispatch, thirdStageFoundWords, hasFinished, foundWordObject]);
 
-  //Izvēlas nejaušu opciju, uz kuras rats uzgriezīsies
-  let randomStop = wheelStops[Math.floor(Math.random() * 5) + 0];
-
   //Iegriež ratu
   const SpinTheWheel = () => {
     setSpinAgain(false); //Ja rats griežas, neļaut iegriezt vēlreiz
-    wheelRef.current.style.transform = `rotate(${randomStop.deg}deg)`;
+    wheelRef.current.style.transform = `rotate(${randomStop.deg}deg)`;//iegriež ratu
     dispatch(startGame(randomStop.value)); //Aizsūta jautājumu tēmu uz Redux
     dispatch(findImage(randomStop.image));
     dispatch(addThemeQuestions(randomStop.questions));
@@ -241,7 +249,7 @@ function App() {
 
   //Spēlēt vēlreiz
   const playAgain = () => {
-    dispatch(setPreviousTheme(selectTheme)); //aizsūta iepriekšējo tēmu uz Redux
+    dispatch(setPreviousTheme(randomStop.value)); //aizsūta iepriekšējo tēmu uz Redux
     //Restartē state:
     dispatch(resetPoints());
     dispatch(resetSecondStage());
