@@ -13,7 +13,7 @@ import SecondStage from "./pages/SecondStage";
 import GlobalStyles from "./styles/GlobalStyles";
 import {wheelStops} from "./data/wheelOptions";
 import ThirdStage from "./pages/ThirdStage";
-import { finish, selecthasfinished } from "./features/finishSlice";
+import { finish, selectGameEnded, selecthasfinished, stopGame } from "./features/finishSlice";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
@@ -21,6 +21,7 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 import AdminPannel from "./pages/AdminPannel";
 import { v4 as uuidv4 } from 'uuid';
+import GameOverPage from "./pages/GameOverPage";
 
 function App() {
   const [spinAgain, setSpinAgain] = useState(true);
@@ -78,11 +79,13 @@ function App() {
   const [leaderboardUsers, setLeaderboardUsers] = useState([]);
   const [randomStop,setRandomStop] = useState(0);
   const [spinBtnCounter, setSpinBtnCounter] = useState(0);
+  const [gameCountDownTimer, setGameCountDownTimer] = useState(900);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
   const hasFinished = useSelector(selecthasfinished);
   const points = useSelector(selectPoints);
+  const gameOver = useSelector(selectGameEnded);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
@@ -130,6 +133,19 @@ function App() {
       return;
     }    
   }, [thirdStageStarted, tsCountdownTimer, finishCountDown, dispatch, thirdStageFoundWords, hasFinished, foundWordObject]);
+
+  useEffect(() => {
+    if(secondStageStarted){
+      //Kad sākas otrās daļa, sākt taimeri
+      setTimeout(() => {
+        setGameCountDownTimer(gameCountDownTimer - 1);
+        if(gameCountDownTimer <= 0){
+          dispatch(stopGame());
+          return;
+        }
+      }, 1000);
+    }    
+  }, [gameCountDownTimer, secondStageStarted, dispatch]);
 
   //Iegriež ratu
   const SpinTheWheel = () => {
@@ -194,7 +210,7 @@ function App() {
     if(ssAnswerCounter === 14){
       startThirdStage();
     }
-    document.getElementById(`visible${ssCheckingId}`).style.display = "none";
+    document.getElementById(`visible${ssCheckingId}`).style.display = "none";//kad atbild uz jautājumu neļaut vēlreiz uzspiest
     setSsAnswer("");
     //aizver jautājuma popupu
     setSsQuestionState(false);
@@ -264,42 +280,48 @@ function App() {
       <GlobalStyles />
       <Switch>
         <Route path="/game">
-          {thirdStageStarted ? (
-            <ThirdStage
-              leaderboardUsername={leaderboardUsername}
-              setLeaderboardUsername={setLeaderboardUsername}
-              addToLeaderboard={addToLeaderboard}
-              leaderboardState={leaderboardState}
-              setLeaderboardState={setLeaderboardState}
-              playAgain={playAgain}
-              finishCountDown={finishCountDown}
-              thirdStageFoundWords={thirdStageFoundWords}
-              clickWord={clickWord}
-              startWordFlow={startWordFlow}
-              tsCountdownTimer={tsCountdownTimer}
-              tsCorrectWords={tsCorrectWords}
-              tsIncorrectWords={tsIncorrectWords}
-            />
+          {gameOver ? (
+            <GameOverPage />
           ) : (
             <>
-              {secondStageStarted ? (
-                <SecondStage
-                  ssAnswer={ssAnswer}
-                  setSsAnswer={setSsAnswer}
-                  ssQuestionState={ssQuestionState}
-                  openSecondStageQuestion={openSecondStageQuestion}
-                  closeSecondStageQuestion={closeSecondStageQuestion}
+              {thirdStageStarted ? (
+                <ThirdStage
+                  leaderboardUsername={leaderboardUsername}
+                  setLeaderboardUsername={setLeaderboardUsername}
+                  addToLeaderboard={addToLeaderboard}
+                  leaderboardState={leaderboardState}
+                  setLeaderboardState={setLeaderboardState}
+                  playAgain={playAgain}
+                  finishCountDown={finishCountDown}
+                  thirdStageFoundWords={thirdStageFoundWords}
+                  clickWord={clickWord}
+                  startWordFlow={startWordFlow}
+                  tsCountdownTimer={tsCountdownTimer}
+                  tsCorrectWords={tsCorrectWords}
+                  tsIncorrectWords={tsIncorrectWords}
                 />
               ) : (
-                <Home
-                  openTreasureChest={openTreasureChest}
-                  showTreasureChest={showTreasureChest}
-                  answerCounter={answerCounter}
-                  firstPartAnswer={firstPartAnswer}
-                  spinAgain={spinAgain}
-                  wheelRef={wheelRef}
-                  SpinTheWheel={SpinTheWheel}
-                />
+                <>
+                  {secondStageStarted ? (
+                    <SecondStage
+                      ssAnswer={ssAnswer}
+                      setSsAnswer={setSsAnswer}
+                      ssQuestionState={ssQuestionState}
+                      openSecondStageQuestion={openSecondStageQuestion}
+                      closeSecondStageQuestion={closeSecondStageQuestion}
+                    />
+                  ) : (
+                    <Home
+                      openTreasureChest={openTreasureChest}
+                      showTreasureChest={showTreasureChest}
+                      answerCounter={answerCounter}
+                      firstPartAnswer={firstPartAnswer}
+                      spinAgain={spinAgain}
+                      wheelRef={wheelRef}
+                      SpinTheWheel={SpinTheWheel}
+                    />
+                  )}
+                </>
               )}
             </>
           )}

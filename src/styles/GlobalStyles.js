@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+    *{
+        overflow: hidden;
+    }
     body{
         /* ::-webkit-scrollbar {
             width: 10px;
