@@ -10,7 +10,7 @@ function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboar
     return (
         <StyledFinishPage>
              <div className="results">
-                <h3>{points < 35 ? "😞 Diemžēl" : " 🎉 Apsveicam!"} Jūs ieguvāt lomu </h3><br/> <h2>"{points < 35 ? "ŠVAKRITNIEKS" : points > 74 ? "APRITNIEKS" : "VIDRITNIEKS"}",</h2><br/><h3> un sasniedzāt {points} punktus!</h3>
+                <h3>{points < 35 ? "😞 Diemžēl" : " 🎉 Apsveicam!"} Jūs ieguvāt lomu </h3><br/> <h2>"{points < 35 ? "ŠVAKRITNIEKS" : points > 74 ? "APRITNIEKS" : "VIDRITNIEKS"}"</h2><br/><h3> un sasniedzāt {points} punktus!</h3>
             </div>
             {leaderboardState ? (
                 <form>
@@ -301,6 +301,15 @@ const StyledFinishPage = styled.div`
         .results>h3{
           font-size: 40px;
       
+        }
+    }
+    @media(max-height: 621px){
+        .end__button--container{
+          margin-top: 25px;
+        }
+        .end__button--container>button{
+          height: 60px;
+          width: 220px;
         }
     }
     @media(max-width:620px){

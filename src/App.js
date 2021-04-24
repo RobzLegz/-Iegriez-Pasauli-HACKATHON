@@ -17,7 +17,6 @@ import ThirdStage from "./pages/ThirdStage";
 import { finish, selecthasfinished, selectLastTheme, setPreviousTheme } from "./features/finishSlice";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import {selectTheme} from "./features/gameSlice";
 import LoginPage from "./pages/LoginPage";
 import Cookies from "universal-cookie";
 import axios from "axios";
