@@ -2,8 +2,6 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components';
 import { selectPoints } from '../features/userSlice'
-import ReactRain from 'react-rain-animation';
-import "react-rain-animation/lib/style.css";
 import ReactConfetti from "react-confetti";
 
 function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboardState, setLeaderboardUsername, leaderboardUsername}) {
@@ -34,19 +32,6 @@ function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboar
 }
 const StyledFinishPage = styled.div`
 
-    :root {
-        --main-color: #9aca3c;
-
-        --green: #495f41;
-        --lightgreen: #c4e0c0;
-        --darkblue: #3c3c58;
-        --light-brown: #ebe1d1;
-        --light-brown1: #efeae4;
-        --bereza: #2c85a4;
-        --lightbereza: #c3e5ed;
-        --orange: #ffa52f;
-        --darpink: #fd5679;
-    }
 
     display: flex;
     flex-direction: column;
