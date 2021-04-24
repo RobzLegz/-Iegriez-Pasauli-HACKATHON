@@ -294,14 +294,14 @@ export const wheelStops = [
         transport: [
           {
             image: "secondStageImages/airplane.svg",
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Kādu transportu visbiežāk izmanto longbordu transportēšanai?",
+            answerOptions: ["Lidmašīnu", "Kuģi", "Zemūdeni"],
+            correctAnswer: "Lidmašīnu",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Braucot ar longbordu, nevis mašīnu, ogļskābās gāzes izmešu daudzums...",
+            answerOptions: ["palielinās", "samazinās", "nemainās"],
+            correctAnswer: "samazinās",
           },
           {
             q: "",
@@ -314,19 +314,19 @@ export const wheelStops = [
         energy: [
           {
             image: "secondStageImages/wind-turbine.svg",
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Braucot ar elektrisko longbordu, nevis parasto...",
+            answerOptions: ["ogļskābās gāzes izmeši netiek radīti", "tiek samazināti ogļskābās gāzes izmeši", "tiek radīti ogļskābās gāzes izmeši"],
+            correctAnswer: "tiek radīti ogļskābās gāzes izmeši",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Braucot ar elektrisko longbordu...",
+            answerOptions: ["tiek patērēta elektrība","netiek patērēta elektrība"],
+            correctAnswer: "tiek patērēta elektrība",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Kāda ir normālais akumulatora jauda elektriskajā skeitbordā?",
+            answerOptions: ["90-100Wh", "30-40Wh", "250-300Wh"],
+            correctAnswer: "90-100Wh",
           },
         ],
       },
@@ -334,14 +334,14 @@ export const wheelStops = [
         food: [
           {
             image: "secondStageImages/restaurant.svg",
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Lai saražotu vienu longbordu...",
+            answerOptions: ["netiek patērēts ūdens", "tiek patērēts ūdens"],
+            correctAnswer: "tiek patērēts ūdens",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Kuru dzērienu visbiežāk attēlo uz longborda?",
+            answerOptions: ["Limonādi","Kolu", "Fantu"],
+            correctAnswer: "Limonādi",
           },
           {
             q: "",
@@ -354,14 +354,14 @@ export const wheelStops = [
         tourism: [
           {
             image: "secondStageImages/backpack.svg",
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Kura pilsēta ir uzskatīts par longbordu galvaspilsētu?",
+            answerOptions: ["Rīga", "Berlīne", "Losandželosa"],
+            correctAnswer: "Losandželosa",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Kurā valstī tika radīts pirmais longbords?",
+            answerOptions: ["Latvijā", "Vācijā", "Amerikā"],
+            correctAnswer: "Amerikā",
           },
           {
             q: "",
@@ -374,19 +374,19 @@ export const wheelStops = [
         waste: [
           {
             image: "secondStageImages/delete.svg",
-            q: "",
-            answerOptions: ["","",""],
+            q: "Vai izmests, sabojāts longbordu pamats var bojāt apkārtējo vidi?",
+            answerOptions: ["Jā", "Nē"],
+            correctAnswer: "Jā",
+          },
+          {
+            q: "Kā novecojušu longbordu var pārstrādāt?",
+            answerOptions: ["Longborda koku","",""],
             correctAnswer: "",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
-          },
-          {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Kāda tipa longborda ražošanai tiek radīti vairāk atkritumi?",
+            answerOptions: ["Elektriskā", "Parastā"],
+            correctAnswer: "Elektriskā",
           },
         ],
       },
@@ -468,14 +468,14 @@ export const wheelStops = [
             correctAnswer: "Zivs nomirst",
           },
           {
-            q: "Plastmasas atkritumi",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Plastmasas atkritumi, kuri nāk no nolietotām austiņām...",
+            answerOptions: ["piesārņo ūdenstilpnes", "nerada piesārņojumu"],
+            correctAnswer: "piesārņo ūdenstilpnes",
           },
           {
-            q: "",
-            answerOptions: ["","",""],
-            correctAnswer: "",
+            q: "Plastmasas atkritumu skaits okeānos...",
+            answerOptions: ["pieaug", "nemainās", "samazinās"],
+            correctAnswer: "pieaug",
           },
         ],
       },
