@@ -18,18 +18,20 @@ function Home({
 
   return (
     <HomePage>
-      {showTreasureChest ? (
-        <div className={!openTreasureChest ? "shaking_chest" : "open_chest"}>
-          <img src={openTreasureChest ? "firstStageResources/treasureopen.svg" : "firstStageResources/treasure.svg"} alt="chest"/>
-        </div>
-      ) : (
+      <div className={`closed__part ${showTreasureChest && "shown__part"}`}>
+        <img 
+          className={!openTreasureChest ? "shaking_chest" : "open_chest"}
+          src={openTreasureChest ? "firstStageResources/treasureopen.svg" : "firstStageResources/treasure.svg"} 
+          alt="chest"
+        />
+      </div>        
+      <div className={`${!showTreasureChest && "shown__part"} ${showTreasureChest && "closed__part"}`}>
         <SpinnerContainer>
           <SpinnerArrow></SpinnerArrow>
           <Spinner wheelRef={wheelRef} />
           <button disabled={!spinAgain} onClick={SpinTheWheel}>Iegriezt</button>
         </SpinnerContainer>
-      )}
-      
+      </div>            
       <div
         className={`question__popup ${
           ThemeName !== "" && spinAgain ? "open__question--popup" : ""
@@ -52,6 +54,22 @@ const HomePage = styled.div`
   background: #ebe1d1;
   width: 100%;
   justify-content: center;
+  >.closed__part{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  >.shown__part{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
   > .question__popup {
     position: absolute;
     top: 0;
@@ -72,8 +90,10 @@ const HomePage = styled.div`
     opacity: 1;
     z-index: 10;
   }
-  >.shaking_chest{
-    animation: shakeChest 0.3s ease infinite;
+  >div{
+    >.shaking_chest{
+      animation: shakeChest 0.3s ease infinite;
+    }
   }
   @keyframes shakeChest{
     0%{
@@ -88,10 +108,12 @@ const HomePage = styled.div`
   }
 `;
 const SpinnerContainer = styled.div`
+  overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  position: relative;
   > button {
     font-family: "Josefin Sans", sans-serif;
     height: 80px;
@@ -152,11 +174,12 @@ const SpinnerContainer = styled.div`
 const SpinnerArrow = styled.div`
   width: 0;
   height: 0;
+  overflow: hidden;
   position: absolute;
   border-left: 25px solid transparent;
   border-right: 25px solid transparent;
   border-top: 25px solid  #3c3c58;
-  top: 26%;
+  top: 24%;
   left: 50%;
   transform: translate(-50%,-50%);
   z-index: 10;
