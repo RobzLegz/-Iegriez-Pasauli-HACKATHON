@@ -293,5 +293,34 @@ const StyledFinishPage = styled.div`
             transform: translate3d(0, 0, 0) translateZ(0)
         }
     }
+    @media(max-width:820px){
+        .end__button--container {
+          align-items: center;
+          display: inline-block;
+        }
+        .results>h3{
+          font-size: 40px;
+      
+        }
+    }
+    @media(max-width:620px){
+        .results>h3{
+          font-size: 30px;
+        }
+    }
+    @media(max-width:500px){
+        .results>h3{
+          font-size: 24px;
+        }
+        .results>h2{
+          font-size: 35px;
+        }
+    }
+    @media(max-width: 345px){
+        .results>h2{
+          font-size: 30px;
+        } 
+    } 
+        
 `;
 export default FinishPage
