@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components';
+import Header from '../header/Header';
 import MapImage from "../resources/europe-map.png";
 import RandomisedQuestions from '../secondStage/RandomisedQuestions';
 
 function SecondStage({ssQuestionState, openSecondStageQuestion,ssQuestionVisible, setSsAnswer, ssAnswer, closeSecondStageQuestion}) {
     return (
         <StyledSecondStage>
+            <Header />
             <div className="game__container">
                 <img src={MapImage} alt="europe map"/>
                 <RandomisedQuestions

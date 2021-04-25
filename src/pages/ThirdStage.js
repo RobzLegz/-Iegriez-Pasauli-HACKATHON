@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components'
 import { selecthasfinished } from '../features/finishSlice';
+import Header from '../header/Header';
 import WordFlow from "../thirdStage/WordFlow"
 import FinishPage from './FinishPage';
 
@@ -12,6 +13,7 @@ function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup,setLeade
 
     return (
         <StyledThirdStagePage>
+            <Header />
             {hasFinished ? (
                 <>
                     <div className={leaderboardPopup ? "active__leaderboard--popup" : "invisible__leaderboard--popup"}>

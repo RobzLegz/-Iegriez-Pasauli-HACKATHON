@@ -4,6 +4,7 @@ import Spinner from "../spinner/Spinner";
 import FirstStageQuestions from "../firstStage/FirstStageQuestions";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../features/gameSlice";
+import Header from "../header/Header";
 
 function Home({
   SpinTheWheel,
@@ -18,6 +19,7 @@ function Home({
 
   return (
     <HomePage>
+      <Header />
       {showTreasureChest ? (
         <div className={!openTreasureChest ? "shaking_chest" : "open_chest"}>
           <img src={openTreasureChest ? "firstStageResources/treasureopen.svg" : "firstStageResources/treasure.svg"} alt="chest"/>
