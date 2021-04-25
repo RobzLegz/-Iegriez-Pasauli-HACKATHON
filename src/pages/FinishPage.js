@@ -3,11 +3,9 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components';
 import { selectPoints } from '../features/userSlice'
 import ReactConfetti from "react-confetti";
-import { useHistory } from 'react-router';
 
 function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboardState, setLeaderboardUsername, leaderboardUsername}) {
     const points = useSelector(selectPoints);
-    const history = useHistory();
 
     return (
         <StyledFinishPage>

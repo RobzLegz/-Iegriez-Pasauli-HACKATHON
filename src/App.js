@@ -272,7 +272,6 @@ function App() {
       axios.post("https://iegriez-pasauli-api.herokuapp.com/api/members/", {"username": leaderboardUsername, "score": points}).then(() => {
         axios.get("https://iegriez-pasauli-api.herokuapp.com/api/members/").then((res) => {
           setLeaderboardUsers(res.data);
-          console.log(leaderboardUsers);
         })
       })      
     }
@@ -289,6 +288,7 @@ function App() {
             <>
               {thirdStageStarted ? (
                 <ThirdStage
+                  leaderboardUsers={leaderboardUsers}
                   leaderboardPopup={leaderboardPopup}
                   leaderboardUsername={leaderboardUsername}
                   setLeaderboardUsername={setLeaderboardUsername}

@@ -5,16 +5,20 @@ import { selecthasfinished } from '../features/finishSlice';
 import WordFlow from "../thirdStage/WordFlow"
 import FinishPage from './FinishPage';
 
-function ThirdStage({tsCorrectWords,leaderboardPopup,setLeaderboardUsername, leaderboardUsername,addToLeaderboard,leaderboardState,setLeaderboardState, playAgain, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
+function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup,setLeaderboardUsername, leaderboardUsername, addToLeaderboard,leaderboardState,setLeaderboardState, playAgain, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
 
-  const hasFinished = useSelector(selecthasfinished);
+    const hasFinished = useSelector(selecthasfinished);
+    let i = 1;
 
     return (
         <StyledThirdStagePage>
             {hasFinished ? (
                 <>
                     <div className={leaderboardPopup ? "active__leaderboard--popup" : "invisible__leaderboard--popup"}>
-                        <h1>asdasdasddsdddddddddddddd</h1>
+                        {leaderboardUsers.map((leaderboardUser) => (
+                            <h3 key={i} className={`all__results ${leaderboardUsername === leaderboardUser.username ? "your__result" : ""}`}>{i++}. {leaderboardUser.username}</h3>
+                        ))}
+                        <button onClick={playAgain}>Spēlēt vēlreiz</button>
                     </div>
                     <FinishPage leaderboardUsername={leaderboardUsername} setLeaderboardUsername={setLeaderboardUsername} addToLeaderboard={addToLeaderboard} leaderboardState={leaderboardState} setLeaderboardState={setLeaderboardState} playAgain={playAgain} />
                 </>
@@ -61,6 +65,14 @@ const StyledThirdStagePage = styled.div`
         justify-content: center;
         opacity: 1;
         pointer-events: all;
+        background: linear-gradient(120deg, #efeae4, #ebe1d1);
+        text-align: left;
+        >h3{
+            text-align: left;
+        }
+        >.your__result{
+            background: yellow;
+        }
     }
     >.invisible__leaderboard--popup{
         opacity: 0;
