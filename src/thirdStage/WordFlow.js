@@ -46,81 +46,99 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
     )
 }
 const StyledWordFlowStage = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    >.correct__container{
-        >h3{
-            cursor: pointer;
-            position: absolute;
-            animation: floatWords 15s ease-in infinite;
-        }
-        @keyframes floatWords{
-            from{
-                transform: scale(0.5);
-            }
-            to{
-                transform: scale(1.7);
-            }
-        }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  > .correct__container {
+    > h3 {
+      cursor: pointer;
+      position: absolute;
+      animation: floatWords 15s ease-in infinite;
     }
-    >.incorrect__container{
-        >h3{
-            cursor: pointer;
-            position: absolute;
-            animation: floatWords 15s ease-in infinite;
-        }
-        @keyframes floatWords{
-            from{
-                transform: scale(0.5);
-            }
-            to{
-                transform: scale(1.5);
-            }
-        }
+
+    @keyframes floatWords {
+      from {
+        transform: scale(0.5);
+      }
+      to {
+        transform: scale(1.3);
+      }
     }
-    >.answered__container{
-        h3{
-            position: absolute;
-            font-size: 2rem;
-            animation: animateFoundWord 1s ease infinite;
-            pointer-events: none;
-        }
-        @keyframes animateFoundWord{
-            0%{
-                color: #36D63A;
-            }
-            50%{
-                color: #3c3c58;
-            }
-            100%{
-                color: #36D63A;
-            }
-        }
+  }
+
+  > .incorrect__container {
+    > h3 {
+      cursor: pointer;
+      position: absolute;
+      animation: floatWords 15s ease-in infinite;
     }
-    >.time__counter{
-        position: absolute;
-        top: 0;
-        right: 0;
-        font-size: 2rem;
-        >h4{
-            animation: animateCountDown 1s ease infinite;
-        }
-        @keyframes animateCountDown{
-            0%{
-                color: red;
-            }
-            50%{
-                color: #4fb61f;
-            }
-            100%{
-                color: red;
-            }
-        }
+
+    @keyframes floatWords {
+      from {
+        transform: scale(0.5)
+      }
+      to {
+        transform: scale(1)
+      }
     }
+  }
+
+  > .answered__container {
+    h3 {
+      position: absolute;
+      font-size: 2rem;
+      animation: animateFoundWord 1s ease infinite;
+      pointer-events: none;
+    }
+
+    @keyframes animateFoundWord {
+      0% {
+        color: #36D63A;
+      }
+      50% {
+        color: #41583c;
+      }
+      100% {
+        color: #36D63A;
+      }
+    }
+  }
+
+  > .time__counter {
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 65px;
+    width: 150px;
+    padding-top: 5px;
+    position: absolute;
+    text-align: center;
+    top: 70px;
+    right: -30px;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+
+    > h4 {
+      animation: animateCountDown 15s infinite;
+    }
+
+    @keyframes animateCountDown {
+      0% {
+        color: #2f2f2f;
+      }
+      50% {
+        color: #ffa52f;
+      }
+      100% {
+        color: red;
+      }
+    }
+  }
 
 `;
 

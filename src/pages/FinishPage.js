@@ -3,9 +3,11 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components';
 import { selectPoints } from '../features/userSlice'
 import ReactConfetti from "react-confetti";
+import { useHistory } from 'react-router';
 
 function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboardState, setLeaderboardUsername, leaderboardUsername}) {
     const points = useSelector(selectPoints);
+    const history = useHistory();
 
     return (
         <StyledFinishPage>
@@ -295,21 +297,20 @@ const StyledFinishPage = styled.div`
     }
     @media(max-width:820px){
         .end__button--container {
-          align-items: center;
-          display: inline-block;
+            display: flex;
+            flex-direction: column;
         }
         .results>h3{
-          font-size: 40px;
-      
+            font-size: 40px;
         }
-    }
+    }  
     @media(max-height: 621px){
         .end__button--container{
-          margin-top: 25px;
+            margin-top: 25px;
         }
         .end__button--container>button{
-          height: 60px;
-          width: 220px;
+            height: 60px;
+            width: 220px;
         }
     }
     @media(max-width:620px){

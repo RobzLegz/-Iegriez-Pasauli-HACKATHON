@@ -5,14 +5,19 @@ import { selecthasfinished } from '../features/finishSlice';
 import WordFlow from "../thirdStage/WordFlow"
 import FinishPage from './FinishPage';
 
-function ThirdStage({tsCorrectWords,setLeaderboardUsername, leaderboardUsername,addToLeaderboard,leaderboardState,setLeaderboardState, playAgain, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
+function ThirdStage({tsCorrectWords,leaderboardPopup,setLeaderboardUsername, leaderboardUsername,addToLeaderboard,leaderboardState,setLeaderboardState, playAgain, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
 
   const hasFinished = useSelector(selecthasfinished);
 
     return (
         <StyledThirdStagePage>
             {hasFinished ? (
-                <FinishPage leaderboardUsername={leaderboardUsername} setLeaderboardUsername={setLeaderboardUsername} addToLeaderboard={addToLeaderboard} leaderboardState={leaderboardState} setLeaderboardState={setLeaderboardState} playAgain={playAgain} />
+                <>
+                    <div className={leaderboardPopup ? "active__leaderboard--popup" : "invisible__leaderboard--popup"}>
+
+                    </div>
+                    <FinishPage leaderboardUsername={leaderboardUsername} setLeaderboardUsername={setLeaderboardUsername} addToLeaderboard={addToLeaderboard} leaderboardState={leaderboardState} setLeaderboardState={setLeaderboardState} playAgain={playAgain} />
+                </>
             ) : (
                 <>
                     {startWordFlow ? (

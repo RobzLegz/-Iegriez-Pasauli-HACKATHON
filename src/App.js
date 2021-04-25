@@ -35,15 +35,15 @@ function App() {
   const [instructionState, setInstructionState] = useState(false);
   //nepareizie trešās daļas jēdzieni
   const [tsIncorrectWords] = useState([
-    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#e62222", fontSize: "3rem", id: uuidv4()},
-    {text: "tērē ūdeni", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#b4b413", fontSize: "2.5rem", id: uuidv4()},
-    {text: "pērc jaunu", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#f02e2e", fontSize: "2rem", id: uuidv4()},
-    {text: "izmanto ķīmiju", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#74be12", fontSize: "1.8rem", id: uuidv4()},
+    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#9aca3c", fontSize: "3rem", id: uuidv4()},
+    {text: "tērē ūdeni", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#495f41", fontSize: "2.5rem", id: uuidv4()},
+    {text: "pērc jaunu", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "rgb(212,138,9)", fontSize: "2rem", id: uuidv4()},
+    {text: "izmanto ķīmiju", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#3c3c58", fontSize: "1.8rem", id: uuidv4()},
     {text: "neremontē", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#1fbcd8", fontSize: "2.5rem", id: uuidv4()},
-    {text: "nepērc vietējo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#8d24ca", fontSize: "rem", id: uuidv4()},
-    {text: "nepārstrādā", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#f02eb6", fontSize: "2.7rem", id: uuidv4()},
-    {text: "nelabo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#1a8e92", fontSize: "2.7rem", id: uuidv4()},
-    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#f02e2f", fontSize: "2.5rem", id: uuidv4()},
+    {text: "nepērc vietējo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#2c85a4", fontSize: "rem", id: uuidv4()},
+    {text: "nepārstrādā", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#c3e5ed", fontSize: "2.7rem", id: uuidv4()},
+    {text: "nelabo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#ffa52f", fontSize: "2.7rem", id: uuidv4()},
+    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#fd5679", fontSize: "2.5rem", id: uuidv4()},
     {text: "pērc jaunu", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#2032d4", fontSize: "1.6rem", id: uuidv4()},
     {text: "nešķiro", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#25bcd6", fontSize: "3rem", id: uuidv4()},
     {text: "piesārņo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#51ca19", fontSize: "2rem", id: uuidv4()},
@@ -51,18 +51,18 @@ function App() {
   ]);
   //pareizie trešās daļas jēdzieni
   const [tsCorrectWords, setTsCorrectWords] = useState([
-    {text: "remontē", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#e62222", fontSize: "3rem", id: uuidv4()},
+    {text: "remontē", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#9aca3c", fontSize: "3rem", id: uuidv4()},
     {text: "salabo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#b4b413", fontSize: "1.6rem", id: uuidv4()},
     {text: "sašuj", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#f02e2e", fontSize: "2.7rem", id: uuidv4()},
     {text: "salāpi", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#74be12", fontSize: "1.5rem", id: uuidv4()},
-    {text: "šķiro", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#1fbcd8", fontSize: "2rem", id: uuidv4()},
+    {text: "šķiro", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#2c85a4", fontSize: "2rem", id: uuidv4()},
     {text: "atdod", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#8d24ca", fontSize: "3rem", id: uuidv4()},
     {text: "aizņemies", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#f02eb6", fontSize: "2.7rem", id: uuidv4()},
-    {text: "iestādi", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#1a8e92", fontSize: "2.5rem", id: uuidv4()},
+    {text: "iestādi", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#4f0f0f", fontSize: "2.5rem", id: uuidv4()},
     {text: "audzē", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#f02e2f", fontSize: "1.6rem", id: uuidv4()},
     {text: "pārstrādā", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#2032d4", fontSize: "3rem", id: uuidv4()},
-    {text: "ēd vietējo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#25bcd6", fontSize: "1.4rem", id: uuidv4()},
-    {text: "samal", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#51ca19", fontSize: "2.5rem", id: uuidv4()},
+    {text: "ēd vietējo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#1fbcd8", fontSize: "1.4rem", id: uuidv4()},
+    {text: "samal", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#51ca20", fontSize: "2.5rem", id: uuidv4()},
   ])
   const [tsCountdownTimer, setTsCountdownTimer] = useState(7);
   const [startWordFlow, setStartWordFlow] = useState(false);
@@ -80,6 +80,7 @@ function App() {
   const [randomStop,setRandomStop] = useState(0);
   const [spinBtnCounter, setSpinBtnCounter] = useState(0);
   const [gameCountDownTimer, setGameCountDownTimer] = useState(900);
+  const [leaderboardPopup, setLeaderboardPopup] = useState(false);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
@@ -101,7 +102,7 @@ function App() {
       cookies.set("token", token, { path: "/" });
     }
     if(cookies.get('token')){
-      axios.get("http://localhost:8000/api/options/")
+      axios.get("https://iegriez-pasauli-api.herokuapp.com/api/options/")
       .then((res) => {
         setAdminQuestions(res.data);
       })
@@ -242,7 +243,7 @@ function App() {
 
   const login = (e, user, history) => {
     e.preventDefault();
-    fetch("http://localhost:8000/auth/", {
+    fetch("https://iegriez-pasauli-api.herokuapp.com/auth/", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -267,13 +268,14 @@ function App() {
   const addToLeaderboard = (e) => {
     e.preventDefault();
     if(leaderboardUsername !== ""){
-      axios.post("http://localhost:8000/api/members/", {"username": leaderboardUsername, "score": points});
-      axios.get("http://localhost:8000/api/members/").then((res) => {
-        setLeaderboardUsers(res.data);
-        console.log(leaderboardUsers);
-      })
+      axios.post("https://iegriez-pasauli-api.herokuapp.com/api/members/", {"username": leaderboardUsername, "score": points}).then(() => {
+        setLeaderboardPopup(true);
+        axios.get("https://iegriez-pasauli-api.herokuapp.com/api/members/").then((res) => {
+          setLeaderboardUsers(res.data);
+          console.log(leaderboardUsers);
+        })
+      })      
     }
-    
   }
 
   return (
@@ -287,6 +289,7 @@ function App() {
             <>
               {thirdStageStarted ? (
                 <ThirdStage
+                  leaderboardPopup={leaderboardPopup}
                   leaderboardUsername={leaderboardUsername}
                   setLeaderboardUsername={setLeaderboardUsername}
                   addToLeaderboard={addToLeaderboard}
