@@ -14,7 +14,7 @@ function ThirdStage({tsCorrectWords,leaderboardPopup,setLeaderboardUsername, lea
             {hasFinished ? (
                 <>
                     <div className={leaderboardPopup ? "active__leaderboard--popup" : "invisible__leaderboard--popup"}>
-
+                        <h1>asdasdasddsdddddddddddddd</h1>
                     </div>
                     <FinishPage leaderboardUsername={leaderboardUsername} setLeaderboardUsername={setLeaderboardUsername} addToLeaderboard={addToLeaderboard} leaderboardState={leaderboardState} setLeaderboardState={setLeaderboardState} playAgain={playAgain} />
                 </>
@@ -47,6 +47,34 @@ const StyledThirdStagePage = styled.div`
     >h3{
         font-size: 7rem;
         animation: animateTimer 1s ease infinite;
+    }
+    >.active__leaderboard--popup{
+        position: absolute;
+        z-index: 11;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        pointer-events: all;
+    }
+    >.invisible__leaderboard--popup{
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        z-index: 11;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     @keyframes animateTimer{
         0%{

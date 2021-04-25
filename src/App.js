@@ -268,8 +268,8 @@ function App() {
   const addToLeaderboard = (e) => {
     e.preventDefault();
     if(leaderboardUsername !== ""){
+      setLeaderboardPopup(true);
       axios.post("https://iegriez-pasauli-api.herokuapp.com/api/members/", {"username": leaderboardUsername, "score": points}).then(() => {
-        setLeaderboardPopup(true);
         axios.get("https://iegriez-pasauli-api.herokuapp.com/api/members/").then((res) => {
           setLeaderboardUsers(res.data);
           console.log(leaderboardUsers);
