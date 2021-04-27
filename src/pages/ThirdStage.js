@@ -35,7 +35,9 @@ function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup,setLeade
                             tsIncorrectWords={tsIncorrectWords} 
                         />
                     ) : (
-                        <h3>{tsCountdownTimer > 1 ? tsCountdownTimer > 4 ? "Uzklikšķini uz tiem vārdiem, kuri saistīti ar aprites ekonomiku" : tsCountdownTimer - 1 : "Aiziet!"}</h3>
+                        <div className="wrapper">
+                            <h3>{tsCountdownTimer > 1 ? tsCountdownTimer > 4 ? "Uzklikšķini uz tiem vārdiem, kuri saistīti ar aprites ekonomiku" : tsCountdownTimer - 1 : "Aiziet!"}</h3>
+                        </div>  
                     )}
                 </>
             )}            
@@ -43,16 +45,24 @@ function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup,setLeade
     )
 }
 const StyledThirdStagePage = styled.div`
-    background:linear-gradient(#c3e5ed 65%, #2c85a4);
+    background: linear-gradient(120deg, #efeae4, #ebe1d1);
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    >h3{
-        font-size: 7rem;
-        animation: animateTimer 1s ease infinite;
+    .wrapper{
+      background-color: white;
+      border-radius: 15px;
+      width: 95%;
+      padding: 15px;
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    }
+    .wrapper>h3{
+        font-size: 9vw;
+        text-align: center;
+        animation: animateTimer 5s ease infinite;
     }
     >.active__leaderboard--popup{
         position: absolute;
@@ -91,16 +101,45 @@ const StyledThirdStagePage = styled.div`
         justify-content: center;
     }
     @keyframes animateTimer{
-        0%{
-            color: #9ACA3C;
-        }
-        50%{
-            color: #2c85a4;
-        }
-        100%{
-            color: #9ACA3C;
-        }
+      0% {
+        color: blue;
+      }
+      10% {
+        color: #8e44ad;
+      }
+      20% {
+        color: #1abc9c;
+      }
+      30% {
+        color: #d35400;
+      }
+      40%{
+        color: #495f41;
+      }
+      50% {
+        color: #34495e;
+      }
+      60% {
+        color: blue;
+      }
+      70% {
+        color: #2980b9;
+      }
+      80% {
+        color: #f1c40f;
+      }
+      90%{
+        color:  #9aca3c;
+      }
+     100% {
+        color: #2980b9;
+      }
     }
+  @media(min-width: 1065px){
+    .wrapper>h3{
+      font-size: 5vw;
+    }
+  }
 `;
 
 export default ThirdStage
