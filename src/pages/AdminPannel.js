@@ -1,20 +1,24 @@
 import React from 'react'
 import styled from 'styled-components';
 
-function AdminPannel({adminQuestions}) {
+function AdminPannel({wheelStops}) {
     return (
         <StyledAdminPannel>
             <h1>admin pannel</h1>
-            {adminQuestions && adminQuestions.map((adminQuestion) => (
-                <div className="qeustion__container" key={adminQuestion.id}>
-                    <p>{adminQuestion.q}</p>
-                    <div className="answer__options">
-                        {adminQuestion.options.map((option) => (
-                            <p key={option.question + option.choice_text}>{option.choice_text}</p>
+            {wheelStops && wheelStops.map((wheelStop) => (
+                <div className="qeustion__container" key={wheelStop.deg}>
+                    <img src={wheelStop.image} alt={wheelStop.value}/>
+                    <div className="stage__questions">
+                        {wheelStop && wheelStop.questions.map((firstStageQ) => (
+                            <div className="stage__qna" key={firstStageQ.q}>
+                                <p><strong>{firstStageQ.q}</strong></p>
+                                <p>{firstStageQ.a.toString()}</p>
+                            </div>
                         ))}
                     </div>
-                    <img src={adminQuestion.image} alt=""/>
-                    <button>Saglabāt</button>
+                    <div className="stage__questions">
+                        
+                    </div>
                 </div>
             ))}
         </StyledAdminPannel>
@@ -29,6 +33,7 @@ const StyledAdminPannel = styled.div`
     }
     >.qeustion__container{
         width: 90%;
+        flex-direction: column;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -38,6 +43,12 @@ const StyledAdminPannel = styled.div`
         >img{
             width: 40px;
             height: 40px;
+        }
+        >.answer__options{
+            display: flex;
+            >p{
+                margin-left: 5px;
+            }
         }
     }
 `;

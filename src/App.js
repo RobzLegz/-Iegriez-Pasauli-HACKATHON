@@ -69,7 +69,6 @@ function App() {
   const [foundWordObject, setFoundWordObject] = useState([]);
   const [showTreasureChest, setShowTreasureChest] = useState(false);
   const [openTreasureChest, setOpenTreasureChest] = useState(false);
-  const [adminQuestions, setAdminQuestions] = useState([]);
   const [loginUserName, setLoginUserName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [token, setToken] = useState("");
@@ -771,12 +770,6 @@ function App() {
     if (token) {
       cookies.set("token", token, { path: "/" });
     }
-    if(cookies.get('token')){
-      axios.get("https://iegriez-pasauli-api.herokuapp.com/api/questions/")
-      .then((res) => {
-        setAdminQuestions(res.data);
-      })
-    }
   }, [token]);
 
   useEffect(() => {
@@ -1014,7 +1007,7 @@ function App() {
         {cookies.get('token') && (
           <Route path="/admin">
             <AdminPannel
-              adminQuestions={adminQuestions}
+              wheelStops={wheelStops}
             />
           </Route>
         )}
