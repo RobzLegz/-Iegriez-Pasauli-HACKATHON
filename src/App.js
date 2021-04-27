@@ -772,12 +772,12 @@ function App() {
       cookies.set("token", token, { path: "/" });
     }
     if(cookies.get('token')){
-      axios.get("https://iegriez-pasauli-api.herokuapp.com/api/options/")
+      axios.get("https://iegriez-pasauli-api.herokuapp.com/api/questions/")
       .then((res) => {
         setAdminQuestions(res.data);
       })
     }
-  });
+  }, [token]);
 
   useEffect(() => {
     if(!hasFinished){

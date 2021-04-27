@@ -1,9 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-    *{
-        overflow: hidden;
-    }
     body{
         /* ::-webkit-scrollbar {
             width: 10px;
@@ -19,7 +16,6 @@ const GlobalStyles = createGlobalStyle`
                 background: #3c3c58;
             }
         } */
-        overflow: hidden;
     }
     button, 
     input{

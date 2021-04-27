@@ -5,11 +5,16 @@ function AdminPannel({adminQuestions}) {
     return (
         <StyledAdminPannel>
             <h1>admin pannel</h1>
-            {adminQuestions.map((adminQuestion) => (
-                <div className="qeustion__container" key={adminQuestion.choice_text}>
-                    <p>{adminQuestion.question}</p>
-                    <p>{adminQuestion.choice_text}</p>
-                    <p>{adminQuestion.correct}</p>
+            {adminQuestions && adminQuestions.map((adminQuestion) => (
+                <div className="qeustion__container" key={adminQuestion.id}>
+                    <p>{adminQuestion.q}</p>
+                    <div className="answer__options">
+                        {adminQuestion.options.map((option) => (
+                            <p key={option.question + option.choice_text}>{option.choice_text}</p>
+                        ))}
+                    </div>
+                    <img src={adminQuestion.image} alt=""/>
+                    <button>Saglabāt</button>
                 </div>
             ))}
         </StyledAdminPannel>
@@ -28,7 +33,12 @@ const StyledAdminPannel = styled.div`
         align-items: center;
         justify-content: space-between;
         border-top: 1px solid lightgray;
-        height: 40px;
+        height: fit-content;
+        padding: 10px;
+        >img{
+            width: 40px;
+            height: 40px;
+        }
     }
 `;
 
