@@ -94,7 +94,7 @@ function App() {
 
   useEffect(() => {
     axios.get("https://iegriez-pasauli-api.herokuapp.com/api/questions/").then((res) => {
-      console.log(res.data[5].options[0].correct === true);
+      console.log(res.data[3].options[1]);
       setWheelStops(
         [
           {
@@ -102,22 +102,19 @@ function App() {
             value: "Banana",
             image: "firstStageResources/banana.svg",
             questions: [
-              { q: res.data[5].q, a: false },
-              { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: res.data[5].options[0].correct === true ? false : true },
+              { q: res.data[3].q, a: res.data[3].options[1].correct === true ? false : true },
+              { q: res.data[8].q, a: res.data[8].options[0].correct === true ? false : true },
               {
                 q:
-                  "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
-                a: true,
+                res.data[9].q, a: res.data[9].options[0].correct === true ? false : true
               },
               {
                 q:
-                  "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
-                a: true,
+                res.data[10].q, a: res.data[10].options[0].correct === true ? false : true
               },
               {
                 q:
-                  "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
-                a: true,
+                res.data[5].q, a: res.data[5].options[0].correct === true ? false : true,
               },
             ],
             secondStageQuestions: [
@@ -231,7 +228,7 @@ function App() {
             ],
           },
           {
-            deg: 725,
+            deg: 755,
             value: "Shirt",
             image: "firstStageResources/shirt.svg",
             questions: [
