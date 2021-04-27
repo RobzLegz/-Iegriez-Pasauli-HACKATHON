@@ -99,7 +99,7 @@ function App() {
           {
             deg: 685,
             value: "Banana",
-            image: "firstStageResources/banana.svg",
+            image: res.data[3].image,
             questions: [
               { q: res.data[3].q, a: res.data[3].options[1].correct === true ? false : true },
               { q: res.data[8].q, a: res.data[8].options[0].correct === true ? false : true },
