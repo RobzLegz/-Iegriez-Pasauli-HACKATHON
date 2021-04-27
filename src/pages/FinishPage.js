@@ -14,8 +14,8 @@ function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboar
             </div>
             {leaderboardState ? (
                 <form>
-                    <input type="text" value={leaderboardUsername} onChange={(e) => setLeaderboardUsername(e.target.value)} placeholder="lietotājvārds" />
-                    <button onClick={(e) => addToLeaderboard(e)}>Labi</button>
+                    <input type="text" value={leaderboardUsername} onChange={(e) => setLeaderboardUsername(e.target.value)} placeholder="Lietotājvārds:" />
+                    <button onClick={(e) => addToLeaderboard(e)} id="check">Pārbaudīt</button>
                     <button onClick={playAgain} id="again">Spēlēt vēlreiz</button>
                 </form>
             ) : (
@@ -31,8 +31,6 @@ function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboar
     )
 }
 const StyledFinishPage = styled.div`
-
-
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -43,6 +41,7 @@ const StyledFinishPage = styled.div`
     background: linear-gradient(120deg, #efeae4, #ebe1d1);
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
+    white-space: nowrap;
     justify-content: center;
 
 
@@ -232,6 +231,53 @@ const StyledFinishPage = styled.div`
             transform: scale(0.95, 1.05);
         }
     }
+    form{
+        margin-top: 50px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    form > input{
+        height: 40px;
+        width: 200px;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 20px;
+        margin-right: 100px;
+    }
+    form>#check{
+        background-color:#2c85a4;
+        border: 3px solid lightgray;
+        color: white;
+        font-family: "Josefin Sans",sans-serif;
+        margin-top: 10px;
+        height: 45px;
+        width: 150px;
+    :hover{
+      background-color: #c3e5ed;
+      color: #2f2f2f;
+      }
+    }
+    form > #again{
+        height: 70px;
+        width: 220px;
+        border-radius: 100px;
+        border: none;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 26px;
+        padding: 5px;
+        position: absolute;
+        bottom: 70px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        color: white;
+        margin-top: 50px;
+        margin-left: 135px;
+        margin-right: auto;
+        text-align: center;
+        display: block;
+    }
 
     .end__button--container {
         display: flex;
@@ -301,7 +347,12 @@ const StyledFinishPage = styled.div`
         .results>h3{
             font-size: 40px;
         }
-    }  
+    }
+    @media(max-height: 785px){
+      form > #again{
+        bottom:45px;
+      }
+    }
     @media(max-height: 621px){
         .end__button--container{
             margin-top: 25px;
@@ -309,6 +360,12 @@ const StyledFinishPage = styled.div`
         .end__button--container>button{
             height: 60px;
             width: 220px;
+        }
+        form > #again{
+          height: 50px;
+          width: 220px;
+          font-size: 20px;
+          padding: 10px;
         }
     }
     @media(max-width:620px){
@@ -324,11 +381,29 @@ const StyledFinishPage = styled.div`
           font-size: 35px;
         }
     }
+  @media(max-width: 453px){
+    form{
+      margin-top:15px;
+    }
+    form > input{
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    form > #check{
+      margin-top: 20px;
+      margin-left: 25px;
+    }
+    form>#again{
+      margin-left: -15px;
+    }
+  }
     @media(max-width: 345px){
         .results>h2{
           font-size: 30px;
         } 
     } 
-        
+  
 `;
 export default FinishPage

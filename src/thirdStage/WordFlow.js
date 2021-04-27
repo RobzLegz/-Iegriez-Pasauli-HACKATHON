@@ -46,6 +46,7 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
     )
 }
 const StyledWordFlowStage = styled.div`
+  background: linear-gradient(120deg, #efeae4, #ebe1d1);
   width: 100%;
   height: 100%;
   display: flex;
@@ -113,20 +114,19 @@ const StyledWordFlowStage = styled.div`
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     border-radius: 5px;
-    height: 65px;
-    width: 150px;
-    padding-top: 5px;
+    height: fit-content;
+    width: fit-content;
+    padding:5px 10px 5px 10px;
     position: absolute;
     text-align: center;
     top: 70px;
     right: -30px;
     transform: translate(-50%, -50%);
     font-size: 3rem;
-
+    
     > h4 {
       animation: animateCountDown 15s infinite;
     }
-
     @keyframes animateCountDown {
       0% {
         color: #2f2f2f;
@@ -137,6 +137,20 @@ const StyledWordFlowStage = styled.div`
       100% {
         color: red;
       }
+    }
+  }
+  @media(max-width: 600px){
+    .time__counter{
+      font-size: 2rem;
+      top: 40px;
+      right: -40px;
+    }
+  }
+  @media(max-width: 320px){
+    .time__counter{
+      font-size: 1.5rem;
+      top: 30px;
+      right: -30px;
     }
   }
 
