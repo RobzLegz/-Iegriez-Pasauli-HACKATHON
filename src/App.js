@@ -94,7 +94,6 @@ function App() {
 
   useEffect(() => {
     axios.get("https://iegriez-pasauli-api.herokuapp.com/api/questions/").then((res) => {
-      console.log(res.data[3].options[1]);
       setWheelStops(
         [
           {
@@ -232,22 +231,21 @@ function App() {
             value: "Shirt",
             image: "firstStageResources/shirt.svg",
             questions: [
-              { q: "Visbiežāk t-kreklus izgatavo no kokvilnas.", a: true },
-              { q: "Ik gadu tiek pārdots 1 miljards t-kreklu visā pasaulē.", a: false },
+              { q:
+                res.data[11].q, a: res.data[11].options[0].correct === true ? false : true, },
+              { q:
+                res.data[12].q, a: res.data[12].options[0].correct === true ? false : true, },
               {
                 q:
-                  "Pasaules dārgākais t-krekls maksā 200’000 euro",
-                a: false,
+                res.data[13].q, a: res.data[13].options[0].correct === true ? false : true,
               },
               {
                 q:
-                  "Sākotnēji t-krekli skaitījās kā apakšveļa.",
-                a: true,
+                res.data[14].q, a: res.data[14].options[0].correct === true ? false : true,
               },
               {
                 q:
-                  "Lai izgatavot vienu T-kreklu nepieciešami 2700 litri ūdens.",
-                a: true,
+                res.data[15].q, a: res.data[15].options[0].correct === true ? false : true,
               },
             ],
             secondStageQuestions: [
@@ -365,23 +363,11 @@ function App() {
             value: "Longboard",
             image: "firstStageResources/longboard.svg",
             questions: [
-              { q: "Garākais pasaules longboards ir aptuveni 2 metrus.", a: true },
-              { q: "Uzstādītais ātruma rekors ar longboardu ir 90km/h.", a: false },
-              {
-                q:
-                  "70-tajos gados longbordi vēl nebija 'modē'.",
-                a: true,
-              },
-              {
-                q:
-                  "“Surf-style” longbordi ir vieni no mazākajiem longbordiem.",
-                a: false,
-              },
-              {
-                q:
-                  "Longbordi ir piemērotāki triku izpildei nekā skeitbordi.",
-                a: false,
-              },
+              {q: res.data[25].q, a: res.data[25].options[0].correct === true ? false : true},
+              {q: res.data[26].q, a: res.data[26].options[0].correct === true ? false : true},
+              {q: res.data[27].q, a: res.data[27].options[0].correct === true ? false : true},
+              {q: res.data[28].q, a: res.data[28].options[0].correct === true ? false : true},
+              {q: res.data[29].q, a: res.data[29].options[0].correct === true ? false : true},
             ],
             secondStageQuestions: [
               {
@@ -491,23 +477,11 @@ function App() {
             value: "Headphones",
             image: "firstStageResources/headphone-symbol.svg",
             questions: [
-              { q: "Skaņu slāpējošā funkcija tika radīta zāles pļāvēja lielā trokšņa dēļ.", a: false },
-              { q: "Pasaules dārgākās austiņas maksā 30’000 euro.", a: false },
-              {
-                q:
-                  "Jūtīgākās austiņas ir 110 dB/mW.",
-                a: true,
-              },
-              {
-                q:
-                  "Pirmās mūsdienīgās austiņas tika radītas virtuvē.",
-                a: true,
-              },
-              {
-                q:
-                  "Pirmajām austiņām bija tikai viens austiņas uzgalis.",
-                a: true,
-              },
+              {q: res.data[16].q, a: res.data[16].options[0].correct === true ? false : true},
+              {q: res.data[17].q, a: res.data[17].options[0].correct === true ? false : true},
+              {q: res.data[18].q, a: res.data[18].options[0].correct === true ? false : true},
+              {q: res.data[19].q, a: res.data[19].options[0].correct === true ? false : true},
+              {q: res.data[97].q, a: res.data[97].options[0].correct === true ? false : true},
             ],
             secondStageQuestions: [
               {
@@ -622,23 +596,11 @@ function App() {
             value: "Burger",
             image: "firstStageResources/burger.svg",
             questions: [
-              { q: "Lielākais pasaules hamburgers sver 1164.2 kg", a: true },
-              { q: "Amerikāņi gada laikā apēd 13 miljardus hamburgeru.", a: true },
-              {
-                q:
-                  "McDonalds ik sekundi pārdod 249 hamburgerus.",
-                a: false,
-              },
-              {
-                q:
-                  "Vidēji amerikānis apēd 5 burgerus nedēļā.",
-                a: false,
-              },
-              {
-                q:
-                  "Hamburgeri savu nosaukumu ieguvuši no Hamburgas, Vācijā.",
-                a: true,
-              },
+              {q: res.data[20].q, a: res.data[20].options[0].correct === true ? false : true},
+              {q: res.data[21].q, a: res.data[21].options[0].correct === true ? false : true},
+              {q: res.data[22].q, a: res.data[22].options[0].correct === true ? false : true},
+              {q: res.data[23].q, a: res.data[23].options[0].correct === true ? false : true},
+              {q: res.data[24].q, a: res.data[24].options[0].correct === true ? false : true},
             ],
             secondStageQuestions: [
               {
