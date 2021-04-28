@@ -13,7 +13,8 @@ function Home({
   firstPartAnswer,
   answerCounter,
   showTreasureChest,
-  openTreasureChest
+  openTreasureChest,
+  loadingPopup
 }) {
   const ThemeName = useSelector(selectTheme);
 
@@ -42,6 +43,9 @@ function Home({
           firstPartAnswer={firstPartAnswer}
         />
       </div>
+      <div className={`loading__popup ${loadingPopup && "loading__popup--active"}`}>
+        <h3>Loading</h3>
+      </div>
     </HomePage>
   );
 }
@@ -49,11 +53,35 @@ const HomePage = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: hidden !important;
   height: 100vh;
   background: #ebe1d1;
   width: 100%;
   justify-content: center;
+  >.loading__popup{
+    width: 90%;
+    height: fit-content;
+    max-width: 400px;
+    background: #f5f5f5;
+    padding: 140px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    opacity: 0;
+    z-index: -1;
+    max-height: 400px;
+  }
+  >.loading__popup--active{
+    opacity: 1;
+    transition: all 0.3s ease;
+    z-index: 14;
+  }
   > .question__popup {
     position: absolute;
     top: 0;

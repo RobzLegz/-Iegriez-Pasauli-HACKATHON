@@ -5,7 +5,7 @@ import { selectAllQuestions } from '../features/secondStageSlice';
 import SSQuestionPopup from './popups/SSQuestionPopup';
 import QuestionSection from './QuestionSection';
 
-function RandomisedQuestions({ssQuestionState, ssQuestionVisible, openSecondStageQuestion, setSsAnswer, ssAnswer, closeSecondStageQuestion}) {
+function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisible, openSecondStageQuestion, setSsAnswer, ssAnswer, closeSecondStageQuestion}) {
     const secondStageQs = useSelector(selectAllQuestions);
     
     return (
@@ -192,6 +192,7 @@ function RandomisedQuestions({ssQuestionState, ssQuestionVisible, openSecondStag
 
                 {ssQuestionState && (
                     <SSQuestionPopup 
+                        setSsQuestionState={setSsQuestionState}
                         ssAnswer={ssAnswer}
                         setSsAnswer={setSsAnswer}
                         closeSecondStageQuestion={closeSecondStageQuestion} 
@@ -267,6 +268,22 @@ const StyledRandomQs = styled.ul`
             right: 10%;
         }
     }
+  @media(max-width: 400px){
+    >li{
+      :first-child{
+        top: 47%;
+        right: 23%;
+      }
+      :nth-child(2){
+        bottom: 10%;
+        left: 7%;
+      }
+      :nth-child(3){
+        bottom: 28%;
+        left:38%;
+      }
+    }
+}
 `;
 
 export default RandomisedQuestions

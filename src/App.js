@@ -80,6 +80,9 @@ function App() {
   const [gameCountDownTimer, setGameCountDownTimer] = useState(900);
   const [leaderboardPopup, setLeaderboardPopup] = useState(false);
   const [wheelStops, setWheelStops] = useState([]);
+  const [loadingPopup, setLoadingPopup] = useState(false);
+  const [gameTime, setGameTime] = useState(0);
+  const [gameStarted, setGameStarted] = useState(false);
 
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
@@ -92,282 +95,271 @@ function App() {
   const cookies = new Cookies();
 
   useEffect(() => {
+    setLoadingPopup(true);
     axios.get("https://iegriez-pasauli-api.herokuapp.com/api/questions/").then((res) => {
       setWheelStops(
         [
           {
             deg: 685,
             value: "Banana",
-            image: res.data[3].image,
+            image: "firstStageResources/banana.svg",
             questions: [
-              { q: res.data[3].q, a: res.data[3].options[1].correct === true ? false : true },
-              { q: res.data[8].q, a: res.data[8].options[0].correct === true ? false : true },
+              { q: "Viens Latvijas iedzīvotājs gadā apēd 4 banānus.", a: false },
+              { q: "Banānu mizas var izmantot kurpju spodrināšanai.", a: true },
               {
                 q:
-                res.data[9].q, a: res.data[9].options[0].correct === true ? false : true
+                  "Ēst vietējo nozīmē ēst Latvijā audzētus ābolus, nevis vietējā veikalā pirktus banānus.",
+                a: true,
               },
               {
                 q:
-                res.data[10].q, a: res.data[10].options[0].correct === true ? false : true
+                  "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju kā jebkuras citas kultūras audzēšanā.",
+                a: true,
               },
               {
                 q:
-                res.data[5].q, a: res.data[5].options[0].correct === true ? false : true,
+                  "Banānu mizas labvēlīgi ietekmē zobu emalju. Berzējiet zobus ar mizu divas minūtes un tie kļūs baltāki.",
+                a: true,
               },
             ],
             secondStageQuestions: [
               {
                 transport: [
                   {
-                    image: res.data[30].image,
-                    q: res.data[30].q,
-                    answerOptions: res.data[30].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[30].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[30].xtraInfo,
+                    image: "secondStageImages/airplane.svg",
+                    q: "No kuras valsts tiek vesti visvairāk banāni?",
+                    answerOptions: ["Ekvadora", "Madagaskara", "Austrālija"],
+                    correctAnswer: "Ekvadora",
+                    xtraInfo: "Lielākās banānu eksportētājvalstis ir Ekvadora, Filipīnas, Kostarika un Kolumbija."
                   },
                   {
-                    q: res.data[31].q,
-                    answerOptions: res.data[31].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[31].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[31].xtraInfo,
+                    q: "Kā pasargāt vidi?",
+                    answerOptions: ["Pārvadāt banānus tikai ar vilcienu", "Ēst vairāk vietējo augļu"],
+                    correctAnswer: "Ēst vairāk vietējo augļu",
                   },
                   {
-                    q: res.data[32].q,
-                    answerOptions: res.data[32].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[32].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[32].xtraInfo,
+                    q: "Kāds ir banānu eksportēšanai visbiežāk lietotais transports?",
+                    answerOptions: ["lidmašīna", "smagā automašīna", "vilciens"],
+                    correctAnswer: "lidmašīna",
                   },
                 ],
               },
               {
                 energy: [
                   {
-                    image: res.data[33].image,
-                    q: res.data[33].q,
-                    answerOptions: res.data[33].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[33].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[33].xtraInfo,
+                    image: "secondStageImages/wind-turbine.svg",
+                    q: "Vai banānu tirdzniecība patērē elektrību?",
+                    answerOptions: ["Jā", "Nē"],
+                    correctAnswer: "Jā",
                   },
                   {
-                    q: res.data[34].q,
-                    answerOptions: res.data[34].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[34].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[34].xtraInfo,
+                    q: "Lai banāns nonāktu Tavās mājās...",
+                    answerOptions: ["ir nepieciešama elektroenerģija", "nav nepieciešama elektroenerģija"],
+                    correctAnswer: "ir nepieciešama elektroenerģija",
                   },
                   {
-                    q: res.data[35].q,
-                    answerOptions: res.data[35].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[35].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[35].xtraInfo,
+                    q: "Vai ar banānu palīdzību var ražot elektrību?",
+                    answerOptions: ["Jā", "Nē"],
+                    correctAnswer: "Jā",
+                    xtraInfo: "Elektrības radīšanas ierīci savienojot ar banānu mizu var radīt lidz 5 voltu stipru eletrību."
                   },
                 ],
               },
               {
                 food: [
                   {
-                    image: res.data[0].image,
-                    q: res.data[0].q,
-                    answerOptions: res.data[0].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[0].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[0].xtraInfo,
+                    image: "secondStageImages/restaurant.svg",
+                    q: "Kā izskatās banāns pirms nobriešanas?",
+                    answerOptions: ["sarkans", "zaļš", "dzeltens"],
+                    correctAnswer: "zaļš",
                   },
                   {
-                    q: res.data[1].q,
-                    answerOptions: res.data[1].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[1].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[1].xtraInfo,
+                    q: "Izvēloties banānus ar Godīgās tirdzniecības marķējumu...",
+                    answerOptions: ["tu ziedo naudu labdarībā.", "tu labvēlīgi ietekmē plantāciju strādnieku dzīvi."],
+                    correctAnswer: "tu labvēlīgi ietekmē plantāciju strādnieku dzīvi.",
                   },
                   {
-                    q: res.data[2].q,
-                    answerOptions: res.data[2].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[2].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[2].xtraInfo,
+                    q: "Katrs trešais ar Godīgās tirdzniecības uzlīmi marķētais banāns ir",
+                    answerOptions: ["audzēts, izmantojot ķimikālijas.", "audzēts, izmantojot bioloģiskās lauksaimniecības metodes."],
+                    correctAnswer: "audzēts, izmantojot bioloģiskās lauksaimniecības metodes.",
+                    xtraInfo: "Katrs trešais ar Godīgās tirdzniecības uzlīmi marķētais banāns ir audzēts, izmantojot bioloģiskās lauksaimniecības metodes."
                   },
                 ],
               },
               {
                 tourism: [
                   {
-                    image: res.data[4].image,
-                    q: res.data[4].q,
-                    answerOptions: res.data[4].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[4].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[4].xtraInfo,
+                    image: "secondStageImages/backpack.svg",
+                    q: "Uz kuru valsti cilvēki dodas apskatīt banānu fermas?  ",
+                    answerOptions: ["Kostarika", "Peru", "Mozambika"],
+                    correctAnswer: "Kostarika",
+                    xtraInfo: "Kostarika ir izveidojusi biznesa centru, ar kura palīdzību pelna naudu, veidojot ekskursijas tūristiem."
                   },
                   {
-                    q: res.data[6].q,
-                    answerOptions: res.data[6].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[6].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[6].xtraInfo,
+                    q: "Kādēļ tūristiem ir aizliegs apskatīt banānu plantācijas?",
+                    answerOptions: ["Tūristi piesārņo bio vidi", "Tūristi zog banānus"],
+                    correctAnswer: "Tūristi piesārņo bio vidi",
+                    xtraInfo: "Banāni tiek audzēti speciālos apstākļos, lai tie būtu bioloģiski tīri, tiem ir speciāls gaisa sastāvs un jebkura detaļa var pasliktināt banānu augšanu"
                   },
                   {
-                    q: res.data[7].q,
-                    answerOptions: res.data[7].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[7].options.filter(option => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[7].xtraInfo,
+                    q: "Kā tūristi var palīdzēt banānu augšanai?",
+                    answerOptions: ["ēdot banānus", "atstājot savu urīnu komposta kaudzē"],
+                    correctAnswer: "atstājot savu urīnu komposta kaudzē",
                   },
                 ],
               },
               {
                 waste: [
                   {
-                    image: res.data[36].image,
-                    q: res.data[36].q,
-                    answerOptions: res.data[36].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[36].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[36].xtraInfo,
+                    image: "secondStageImages/delete.svg",
+                    q: "Cik ilgā laikā banāni pārgatavojas",
+                    answerOptions: ["18 dienās", "27 dienās", "30 dienās"],
+                    correctAnswer: "30 dienās",
                   },
                   {
-                    q: res.data[38].q,
-                    answerOptions: res.data[38].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[38].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[38].xtraInfo,
+                    q: "Banānu ražošana",
+                    answerOptions: ["ir ceturtajā vietā pēc atkritumu daudzuma lauksaimniecības nozarē.", "saražo visvairāk atkritumu lauksaimniecības nozarē jaunattīstības valstīs."],
+                    correctAnswer: "saražo visvairāk atkritumu lauksaimniecības nozarē jaunattīstības valstīs.",
+                    xtraInfo: "Saskaņā ar Pasaules Dabas fonda datiem banānu nozare saražo vairāk atkritumu nekā jebkura cita lauksaimniecības nozare jaunattīstības valstīs."
                   },
                   {
-                    q: res.data[39].q,
-                    answerOptions: res.data[39].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[39].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[39].xtraInfo,
+                    q: "Ražojot banānus...",
+                    answerOptions: ["tiek piesārņota augsne un ūdenstilpnes.", "netiek piesārņota apkārtējā vide."],
+                    correctAnswer: "tiek piesārņota augsne un ūdenstilpnes.",
+                    xtraInfo: "Banānu lielražošanā tiek patērēts vairāk agroķimikāliju nekā jebkuras citas kultūras audzēšanā un tā kā tropos bieži līst, pesticīdi no augu lapām nepārtraukti tiek ieskaloti augsnē un ūdenstilpēs."
                   },
                 ],
               },
             ],
           },
           {
-            deg: 755,
+            deg: 725,
             value: "Shirt",
             image: "firstStageResources/shirt.svg",
             questions: [
-              { q:
-                res.data[11].q, a: res.data[11].options[0].correct === true ? false : true, },
-              { q:
-                res.data[12].q, a: res.data[12].options[0].correct === true ? false : true, },
+              { q: "Visbiežāk t-kreklus izgatavo no kokvilnas.", a: true },
+              { q: "Ik gadu tiek pārdots 1 miljards t-kreklu visā pasaulē.", a: false },
               {
                 q:
-                res.data[13].q, a: res.data[13].options[0].correct === true ? false : true,
+                  "Pasaules dārgākais t-krekls maksā 200’000 euro",
+                a: false,
               },
               {
                 q:
-                res.data[14].q, a: res.data[14].options[0].correct === true ? false : true,
+                  "Sākotnēji t-krekli skaitījās kā apakšveļa.",
+                a: true,
               },
               {
                 q:
-                res.data[15].q, a: res.data[15].options[0].correct === true ? false : true,
+                  "Lai izgatavot vienu T-kreklu nepieciešami 2700 litri ūdens.",
+                a: true,
               },
             ],
             secondStageQuestions: [
               {
                 transport: [
                   {
-                    image: res.data[40].image,
-                    q: res.data[40].q,
-                    answerOptions: res.data[40].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[40].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[40].xtraInfo,
+                    image: "secondStageImages/airplane.svg",
+                    q: "T-kreklu transports rada...",
+                    answerOptions: ["10% no pasaules oglekļa emisijām.", "5.5% no pasaules oglekļa emisijām."],
+                    correctAnswer: "10% no pasaules oglekļa emisijām.",
+                    xtraInfo: "T-kreklu piegāde no ražotāja uz veikaliem un pēc tam pie pircēja rada lielu oglekļu emisiju daudzumu."
                   },
                   {
-                    q: res.data[41].q,
-                    answerOptions: res.data[41].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[41].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[41].xtraInfo,
+                    q: "T-kreklu ražošana visbiežāk izmanto kokvilnu, ko piegādā no:",
+                    answerOptions: ["Eiropas", "Ķīnas un Indijas", "Amerikas"],
+                    correctAnswer: "Ķīnas un Indijas",
+                    xtraInfo: "Ķīna un Indija ir lielākās kokvilnas ražotājas pasaulē."
                   },
                   {
-                    q: res.data[42].q,
-                    answerOptions: res.data[42].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[42].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[42].xtraInfo,
+                    q: "Ar kāda transportlīdzekļa palīdzību var nogādāt pēc iespējas vairāk T-kreklu?",
+                    answerOptions: ["Ar kuģi", "Ar lidmašīnu", "Ar vilcienu"],
+                    correctAnswer: "Ar kuģi",
+                    xtraInfo: "Ar 1 lielā kuģa palīdzību, tiek piegādāts visvairāk apģērba nekā ar citiem transportiem."
                   },
                 ],
               },
               {
                 energy: [
                   {
-                    image: res.data[43].image,
-                    q: res.data[43].q,
-                    answerOptions: res.data[43].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[43].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[43].xtraInfo,
+                    image: "secondStageImages/wind-turbine.svg",
+                    q: "Uz t-kreklu tiek patērēta enerģija arī pēc tā izgatavošanas?",
+                    answerOptions: ["Jā", "Nē"],
+                    correctAnswer: "Jā",
+                    xtraInfo: "Uz t-kreklu tiek patērēta enerģija arī pēc tā izgatavošanas, jo tas ir jāmazgā (veļasmašīna patērē elektrību) un jāgludina (gludeklis patērē elektrību)."
                   },
                   {
-                    q: res.data[44].q,
-                    answerOptions: res.data[44].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[44].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[44].xtraInfo,
+                    q: "Lai saražotu vienu t-kreklu...",
+                    answerOptions: ["tiek tērēta elektrība", "netiek tērēta elektrība"],
+                    correctAnswer: "tiek tērēta elektrība",
                   },
                   {
-                    q: res.data[45].q,
-                    answerOptions: res.data[45].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[45].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[45].xtraInfo,
+                    q: "Elektrība, kas izmantota t-krekla ražošanai parasti nāk no...",
+                    answerOptions: ["neizsmeļamajiem resursiem", "izsmeļamajiem resursiem", "tīra elektrības ieguves veida"],
+                    correctAnswer: "izsmeļamajiem resursiem",
                   },
                 ],
               },
               {
                 food: [
                   {
-                    image: res.data[46].image,
-                    q: res.data[46].q,
-                    answerOptions: res.data[46].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[46].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[46].xtraInfo,
+                    image: "secondStageImages/restaurant.svg",
+                    q: "Viena t-krekla ražošanā patērētais ūdens var nodrošināt cilvēku ar ūdeni: ",
+                    answerOptions: ["300 dienas", "2000 dienas", "900 dienas"],
+                    correctAnswer: "900 dienas",
+                    xtraInfo: "Viena t-krekla radīšanai tiek izmantoti 2700l ūdens, kas varētu nodrošināt cilvēku ar ūdeni 900 dienas."
                   },
                   {
-                    q: res.data[47].q,
-                    answerOptions: res.data[47].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[47].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[47].xtraInfo,
+                    q: "Kāds ēdiens visbiežāk tiek attēlos uz T-krekliem?",
+                    answerOptions: ["Fast food", "Sušī", "Pelmeņi"],
+                    correctAnswer: "Fast food",
+                    xtraInfo: "Uz T-krekliem visbiežāk tiek attēlots fast food, jo tas ir lēts un cilvēkiem saistošs, cilvēka acis strādā, kā vēders, tas paēd ar bildēm."
                   },
                   {
-                    q: res.data[48].q,
-                    answerOptions: res.data[48].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[48].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[48].xtraInfo,
+                    q: "Cik procentu gadījumos cilvēki T-kreklu nosmērē ar ēdienu?",
+                    answerOptions: ["18%", "32%", "100%"],
+                    correctAnswer: "32%",
+                    xtraInfo: "Veiktajā pētījumā atklājās, ka gandrīz katrs trešais nosmērē savu apģērbu ar ēdienu, galvenie iemesli ir ātra ēšana, steigšanas."
                   },
                 ],
               },
               {
                 tourism: [
                   {
-                    image: res.data[49].image,
-                    q: res.data[49].q,
-                    answerOptions: res.data[49].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[49].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[49].xtraInfo,
+                    image: "secondStageImages/backpack.svg",
+                    q: "Kad ir T-krekla diena? ",
+                    answerOptions: ["14. augustā", "21. jūnijā", "32. decembrī"],
+                    correctAnswer: "21. jūnijā",
                   },
                   {
-                    q: res.data[50].q,
-                    answerOptions: res.data[50].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[50].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[50].xtraInfo,
+                    q: "Vai ir iespējamas ekskursijas T-kreklu ražotnēs?",
+                    answerOptions: ["Jā", "Nē"],
+                    correctAnswer: "Jā",
                   },
                   {
-                    q: res.data[51].q,
-                    answerOptions: res.data[51].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[51].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[51].xtraInfo,
+                    q: "Kura valsts visvairāk t-kreklus saražo gadā?",
+                    answerOptions: ["Ķīna", "Amerika", "Latvija"],
+                    correctAnswer: "Ķīna",
                   },
                 ],
               },
               {
                 waste: [
                   {
-                    image: res.data[52].image,
-                    q: res.data[52].q,
-                    answerOptions: res.data[52].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[52].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[52].xtraInfo,
+                    image: "secondStageImages/delete.svg",
+                    q: "Cik daudz T-kreklu rada atkritumus 1kg svarā?",
+                    answerOptions: ["6", "20", "1"],
+                    correctAnswer: "6",
                   },
                   {
-                    q: res.data[53].q,
-                    answerOptions: res.data[53].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[53].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[53].xtraInfo,
+                    q: "Cik % no T-krekla ražošanā un patērēšanā radīto atkritumu rada tā uzkopšana? ",
+                    answerOptions: ["40%", "60%", "5%"],
+                    correctAnswer: "60%",
                   },
                   {
-                    q: res.data[54].q,
-                    answerOptions: res.data[54].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[54].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[54].xtraInfo,
+                    q: "Cik grami ogļskābās gāzes tiek radīti ražojot vienu t kreklu?",
+                    answerOptions: ["10", "0", "1000"],
+                    correctAnswer: "10",
                   },
                 ],
               },
@@ -378,125 +370,122 @@ function App() {
             value: "Longboard",
             image: "firstStageResources/longboard.svg",
             questions: [
-              {q: res.data[25].q, a: res.data[25].options[0].correct === true ? false : true},
-              {q: res.data[26].q, a: res.data[26].options[0].correct === true ? false : true},
-              {q: res.data[27].q, a: res.data[27].options[0].correct === true ? false : true},
-              {q: res.data[28].q, a: res.data[28].options[0].correct === true ? false : true},
-              {q: res.data[29].q, a: res.data[29].options[0].correct === true ? false : true},
+              { q: "Garākais pasaules longboards ir aptuveni 2 metrus.", a: true },
+              { q: "Uzstādītais ātruma rekors ar longboardu ir 90km/h.", a: false },
+              {
+                q:
+                  "70-tajos gados longbordi vēl nebija 'modē'.",
+                a: true,
+              },
+              {
+                q:
+                  "“Surf-style” longbordi ir vieni no mazākajiem longbordiem.",
+                a: false,
+              },
+              {
+                q:
+                  "Longbordi ir piemērotāki triku izpildei nekā skeitbordi.",
+                a: false,
+              },
             ],
             secondStageQuestions: [
               {
                 transport: [
                   {
-                    image: res.data[55].image,
-                    q: res.data[55].q,
-                    answerOptions: res.data[55].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[55].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[55].xtraInfo,
+                    image: "secondStageImages/airplane.svg",
+                    q: "Kādu transportu visbiežāk izmanto longbordu transportēšanai?",
+                    answerOptions: ["Lidmašīnu", "Kuģi", "Zemūdeni"],
+                    correctAnswer: "Lidmašīnu",
                   },
                   {
-                    q: res.data[56].q,
-                    answerOptions: res.data[56].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[56].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[56].xtraInfo,
+                    q: "Braucot ar longbordu, nevis mašīnu, ogļskābās gāzes izmešu daudzums...",
+                    answerOptions: ["palielinās", "samazinās", "nemainās"],
+                    correctAnswer: "samazinās",
                   },
                   {
-                    q: res.data[57].q,
-                    answerOptions: res.data[57].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[57].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[57].xtraInfo,
+                    q: "Kāds ir vidējais ātrums, kuru var sasniegt ar parasto longbordu?",
+                    answerOptions: ["1-5 km/h","15-20 km/h","50-60 km/h"],
+                    correctAnswer: "15-20 km/h",
                   },
                 ],
               },
               {
                 energy: [
                   {
-                    image: res.data[58].image,
-                    q: res.data[58].q,
-                    answerOptions: res.data[58].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[58].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[58].xtraInfo,
+                    image: "secondStageImages/wind-turbine.svg",
+                    q: "Braucot ar elektrisko longbordu, nevis parasto...",
+                    answerOptions: ["ogļskābās gāzes izmeši netiek radīti", "tiek samazināti ogļskābās gāzes izmeši", "tiek radīti ogļskābās gāzes izmeši"],
+                    correctAnswer: "tiek radīti ogļskābās gāzes izmeši",
                   },
                   {
-                    q: res.data[59].q,
-                    answerOptions: res.data[59].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[59].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[59].xtraInfo,
+                    q: "Braucot ar elektrisko longbordu...",
+                    answerOptions: ["tiek patērēta elektrība","netiek patērēta elektrība"],
+                    correctAnswer: "tiek patērēta elektrība",
                   },
                   {
-                    q: res.data[60].q,
-                    answerOptions: res.data[60].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[60].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[60].xtraInfo,
+                    q: "Kāda ir normālais akumulatora jauda elektriskajā skeitbordā?",
+                    answerOptions: ["90-100Wh", "30-40Wh", "250-300Wh"],
+                    correctAnswer: "90-100Wh",
                   },
                 ],
               },
               {
                 food: [
                   {
-                    image: res.data[61].image,
-                    q: res.data[61].q,
-                    answerOptions: res.data[61].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[61].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[61].xtraInfo,
+                    image: "secondStageImages/restaurant.svg",
+                    q: "Lai saražotu vienu longbordu...",
+                    answerOptions: ["netiek patērēts ūdens", "tiek patērēts ūdens"],
+                    correctAnswer: "tiek patērēts ūdens",
                   },
                   {
-                    q: res.data[62].q,
-                    answerOptions: res.data[62].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[62].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[62].xtraInfo,
+                    q: "Kuru dzērienu visbiežāk attēlo uz longborda?",
+                    answerOptions: ["Limonādi","Kolu", "Fantu"],
+                    correctAnswer: "Limonādi",
                   },
                   {
-                    q: res.data[63].q,
-                    answerOptions: res.data[63].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[63].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[63].xtraInfo,
+                    q: "Vai ir droši ēst braucot ar longbordu?",
+                    answerOptions: ["Jā","Nē"],
+                    correctAnswer: "Nē",
                   },
                 ],
               },
               {
                 tourism: [
                   {
-                    image: res.data[64].image,
-                    q: res.data[64].q,
-                    answerOptions: res.data[64].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[64].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[64].xtraInfo,
+                    image: "secondStageImages/backpack.svg",
+                    q: "Kura pilsēta ir uzskatīts par longbordu galvaspilsētu?",
+                    answerOptions: ["Rīga", "Berlīne", "Losandželosa"],
+                    correctAnswer: "Losandželosa",
                   },
                   {
-                    q: res.data[65].q,
-                    answerOptions: res.data[65].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[65].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[65].xtraInfo,
+                    q: "Kurā valstī tika radīts pirmais longbords?",
+                    answerOptions: ["Latvijā", "Vācijā", "Amerikā"],
+                    correctAnswer: "Amerikā",
                   },
                   {
-                    q: res.data[66].q,
-                    answerOptions: res.data[66].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[66].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[66].xtraInfo,
+                    q: "Kurā valstī visvairāk saražo longbordus?",
+                    answerOptions: ["Spānijā", "Ķīnā", "Kazahstānā"],
+                    correctAnswer: "Ķīnā",
                   },
                 ],
               },
               {
                 waste: [
                   {
-                    image: res.data[67].image,
-                    q: res.data[67].q,
-                    answerOptions: res.data[67].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[67].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[67].xtraInfo,
+                    image: "secondStageImages/delete.svg",
+                    q: "Vai izmests, sabojāts longbords var bojāt apkārtējo vidi?",
+                    answerOptions: ["Jā", "Nē"],
+                    correctAnswer: "Jā",
                   },
                   {
-                    q: res.data[68].q,
-                    answerOptions: res.data[68].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[68].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[68].xtraInfo,
+                    q: "Kuru novecojuša longborda daļu var visvieglāk pārstrādāt?",
+                    answerOptions: ["Longborda klāju", "Riteņus", "Skrūves"],
+                    correctAnswer: "Longborda klāju",
                   },
                   {
-                    q: res.data[69].q,
-                    answerOptions: res.data[69].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[69].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[69].xtraInfo,
+                    q: "Kāda tipa longborda ražošanai tiek radīti vairāk atkritumi?",
+                    answerOptions: ["Elektriskā", "Parastā"],
+                    correctAnswer: "Elektriskā",
                   },
                 ],
               },
@@ -507,125 +496,127 @@ function App() {
             value: "Headphones",
             image: "firstStageResources/headphone-symbol.svg",
             questions: [
-              {q: res.data[16].q, a: res.data[16].options[0].correct === true ? false : true},
-              {q: res.data[17].q, a: res.data[17].options[0].correct === true ? false : true},
-              {q: res.data[18].q, a: res.data[18].options[0].correct === true ? false : true},
-              {q: res.data[19].q, a: res.data[19].options[0].correct === true ? false : true},
-              {q: res.data[96].q, a: res.data[96].options[0].correct === true ? false : true},
+              { q: "Skaņu slāpējošā funkcija tika radīta zāles pļāvēja lielā trokšņa dēļ.", a: false },
+              { q: "Pasaules dārgākās austiņas maksā 30’000 euro.", a: false },
+              {
+                q:
+                  "Jūtīgākās austiņas ir 110 dB/mW.",
+                a: true,
+              },
+              {
+                q:
+                  "Pirmās mūsdienīgās austiņas tika radītas virtuvē.",
+                a: true,
+              },
+              {
+                q:
+                  "Pirmajām austiņām bija tikai viens austiņas uzgalis.",
+                a: true,
+              },
             ],
             secondStageQuestions: [
               {
                 transport: [
                   {
-                    image: res.data[70].image,
-                    q: res.data[70].q,
-                    answerOptions: res.data[70].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[70].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[70].xtraInfo,
+                    image: "secondStageImages/airplane.svg",
+                    q: "Kā labāk pārvadāt austiņas?",
+                    answerOptions: ["Kastē", "Aizsargmaciņā ", "Mugursomā"],
+                    correctAnswer: "Aizsargmaciņā",
                   },
                   {
-                    q: res.data[71].q,
-                    answerOptions: res.data[71].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[71].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[71].xtraInfo,
+                    q: "Kāds ir lielākais risks, lietojot austiņas transportlīdzeklī?",
+                    answerOptions: ["Pazūd uzmanība", "Var aizmigt", "Sāk gribēties ēst"],
+                    correctAnswer: "Pazūd uzmanība",
+                    xtraInfo: "Lietojot austiņas transportlīdzeklī cilvēkam pazūd uzmanība un ja viņš piedalās satiksme, tas var apdraudēt pārējos."
                   },
                   {
-                    q: res.data[72].q,
-                    answerOptions: res.data[72].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[72].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[72].xtraInfo,
+                    q: "Kā austiņas palīdz braucot kādā transportlīdzeklī?",
+                    answerOptions: ["Nedzirdi apkārtējos", "Netraucē citiem"],
+                    correctAnswer: "Netraucē citiem",
                   },
                 ],
               },
               {
                 energy: [
                   {
-                    image: res.data[73].image,
-                    q: res.data[73].q,
-                    answerOptions: res.data[73].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[73].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[73].xtraInfo,
+                    image: "secondStageImages/wind-turbine.svg",
+                    q: "Vai ir nepieciešama elektrība, lai austiņas darbotos?",
+                    answerOptions: ["Jā", "Nē", "Ne vienmēr"],
+                    correctAnswer: "Ne vienmēr",
                   },
                   {
-                    q: res.data[74].q,
-                    answerOptions: res.data[74].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[74].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[74].xtraInfo,
+                    q: "Vai bezvadu austiņas patērē elektrību?",
+                    answerOptions: ["Jā", "Nē"],
+                    correctAnswer: "Jā",
+                    xtraInfo: "Bezvadu austiņām ir nepieciešama elektrība, lai tās varētu uzlādēt."
                   },
                   {
-                    q: res.data[97].q,
-                    answerOptions: res.data[97].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[97].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[97].xtraInfo,
+                    q: "Kurš no uzlādes veidiem patērē vairāk elektrības?",
+                    answerOptions: ["Bezvadu", "Ar vadu"],
+                    correctAnswer: "Bezvadu",
+                    xtraInfo: "Bezvadu uzlāde patērē par 47% vairāk elektrības, nekā ladējot ar vada palīdzību."
                   },
                 ],
               },
               {
                 food: [
                   {
-                    image: res.data[75].image,
-                    q: res.data[75].q,
-                    answerOptions: res.data[75].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[75].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[75].xtraInfo,
+                    image: "secondStageImages/restaurant.svg",
+                    q: "Zivīm apēdot plastmasu, no kuras veidotas austiņas... ",
+                    answerOptions: ["Nekas nenotiek", "zivs plastmasu sagremo", "Zivs nomirst"],
+                    correctAnswer: "Zivs nomirst",
                   },
                   {
-                    q: res.data[76].q,
-                    answerOptions: res.data[76].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[76].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[76].xtraInfo,
+                    q: "Plastmasas atkritumi, kuri nāk no nolietotām austiņām...",
+                    answerOptions: ["piesārņo ūdenstilpnes", "nerada piesārņojumu"],
+                    correctAnswer: "piesārņo ūdenstilpnes",
                   },
                   {
-                    q: res.data[77].q,
-                    answerOptions: res.data[77].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[77].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[77].xtraInfo,
+                    q: "Plastmasas atkritumu skaits okeānos...",
+                    answerOptions: ["pieaug", "nemainās", "samazinās"],
+                    correctAnswer: "pieaug",
                   },
                 ],
               },
               {
                 tourism: [
                   {
-                    image: res.data[78].image,
-                    q: res.data[78].q,
-                    answerOptions: res.data[78].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[78].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[78].xtraInfo,
+                    image: "secondStageImages/backpack.svg",
+                    q: "Kā austiņas palīdz pārvarēt pārlidojumus?",
+                    answerOptions: ["Aizmirsti ka esi lidmašīnā", "Laiks paiet ātrāk", "Palīdz aimigt"],
+                    correctAnswer: "Laiks paiet ātrāk",
                   },
                   {
-                    q: res.data[79].q,
-                    answerOptions: res.data[79].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[79].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[79].xtraInfo,
+                    q: "kā ceļojumu ietekmē austiņas?",
+                    answerOptions: ["Ceļojums tiek izbaudīts","Uzmanība tiek novērsta no ceļojuma","tiek patērēta vairāk nauda"],
+                    correctAnswer: "Uzmanība tiek novērsta no ceļojuma",
                   },
                   {
-                    q: res.data[80].q,
-                    answerOptions: res.data[80].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[80].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[80].xtraInfo,
+                    q: "Kā austiņas atšķirās citās valstīs?",
+                    answerOptions: ["Tās kalpo kā čips smadzenēs","Tās ir mazākas","Tās neatšķiras"],
+                    correctAnswer: "Tās neatšķiras",
                   },
                 ],
               },
               {
                 waste: [
                   {
-                    image: res.data[81].image,
-                    q: res.data[81].q,
-                    answerOptions: res.data[81].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[81].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[81].xtraInfo,
+                    image: "secondStageImages/delete.svg",
+                    q: "Vai austiņas drīkst mest sadzīves atkritumu miskastēs?",
+                    answerOptions: ["Jā", "Nē", "Dažreiz"],
+                    correctAnswer: "Nē",
+                    xtraInfo: "Austiņās ir toksiskas vielas, kuru dēļ ir speciālas tvertnes, kurās drīkst atstāt savas nolietotās austiņas."
                   },
                   {
-                    q: res.data[82].q,
-                    answerOptions: res.data[82].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[82].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[82].xtraInfo,
+                    q: "Cik ilgi kalpo lētas, nekvalatatīvas austiņas?",
+                    answerOptions: ["gadu", "3 gadus", "dažus mēnešus"],
+                    correctAnswer: "dažus mēnešus",
+                    xtraInfo: "Lētās austiņas tiek taisītas, no nekvalatatīviem materiāliem, kuri ir arī kaitīgi dabai."
                   },
                   {
-                    q: res.data[83].q,
-                    answerOptions: res.data[83].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[83].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[83].xtraInfo,
+                    q: "Kura firma sāk ražot austiņas no materiāla, kurš ir pārstrādājam un nekaitīgs dabai?",
+                    answerOptions: ["Samsung", "Apple", "Tesla"],
+                    correctAnswer: "Apple",
                   },
                 ],
               },
@@ -636,125 +627,122 @@ function App() {
             value: "Burger",
             image: "firstStageResources/burger.svg",
             questions: [
-              {q: res.data[20].q, a: res.data[20].options[0].correct === true ? false : true},
-              {q: res.data[21].q, a: res.data[21].options[0].correct === true ? false : true},
-              {q: res.data[22].q, a: res.data[22].options[0].correct === true ? false : true},
-              {q: res.data[23].q, a: res.data[23].options[0].correct === true ? false : true},
-              {q: res.data[24].q, a: res.data[24].options[0].correct === true ? false : true},
+              { q: "Lielākais pasaules hamburgers sver 1164.2 kg", a: true },
+              { q: "Amerikāņi gada laikā apēd 13 miljardus hamburgeru.", a: true },
+              {
+                q:
+                  "McDonalds ik sekundi pārdod 249 hamburgerus.",
+                a: false,
+              },
+              {
+                q:
+                  "Vidēji amerikānis apēd 5 burgerus nedēļā.",
+                a: false,
+              },
+              {
+                q:
+                  "Hamburgeri savu nosaukumu ieguvuši no Hamburgas, Vācijā.",
+                a: true,
+              },
             ],
             secondStageQuestions: [
               {
                 transport: [
                   {
-                    image: res.data[100].image,
-                    q: res.data[100].q,
-                    answerOptions: res.data[100].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[100].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[100].xtraInfo,
+                    image: "secondStageImages/airplane.svg",
+                    q: "Kā burgerus transportē?",
+                    answerOptions: ["sadalītus pa piedevām", "jau gatavus burgerus"],
+                    correctAnswer: "sadalītus pa piedevām",
                   },
                   {
-                    q: res.data[101].q,
-                    answerOptions: res.data[101].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[101].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[101].xtraInfo,
+                    q: "Burgeru pārvadāšanai visvairāk izmanto...",
+                    answerOptions: ["kravas auto", "vilcienus", "lidmašīnas"],
+                    correctAnswer: "kravas auto",
                   },
                   {
-                    q: res.data[102].q,
-                    answerOptions: res.data[102].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[102].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[102].xtraInfo,
+                    q: "Kurā valstī tiek pārdoti visvairāk burgeri gadā",
+                    answerOptions: ["Indijā", "Kanādā", "Amerikā"],
+                    correctAnswer: "Amerikā",
                   },
                 ],
               },
               {
                 energy: [
                   {
-                    image: res.data[84].image,
-                    q: res.data[84].q,
-                    answerOptions: res.data[84].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[84].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[84].xtraInfo,
+                    image: "secondStageImages/wind-turbine.svg",
+                    q: "Burgeru ražošanai radītā elektrība aiziet...",
+                    answerOptions: ["burgeru cepšanai", "burgeru piegādei"],
+                    correctAnswer: "burgeru cepšanai",
                   },
                   {
-                    q: res.data[85].q,
-                    answerOptions: res.data[85].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[85].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[85].xtraInfo,
+                    q: "Vai dedzinot burgerus var ražot elektrību",
+                    answerOptions: ["Jā", "Nē"],
+                    correctAnswer: "Nē",
                   },
                   {
-                    q: res.data[86].q,
-                    answerOptions: res.data[86].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[86].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[86].xtraInfo,
+                    q: "Vai Burgeru ražošanā nepieciešams pielietot ",
+                    answerOptions: ["Jā", "Nē"],
+                    correctAnswer: "Jā",
                   },
                 ],
               },
               {
                 food: [
                   {
-                    image: res.data[87].image,
-                    q: res.data[87].q,
-                    answerOptions: res.data[87].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[87].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[87].xtraInfo,
+                    image: "secondStageImages/restaurant.svg",
+                    q: "Kāda tipa ēdiens ir burgers?",
+                    answerOptions: ["fast food", "dārzenis", "auglis"],
+                    correctAnswer: "fast food",
                   },
                   {
-                    q: res.data[88].q,
-                    answerOptions: res.data[88].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[88].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[88].xtraInfo,
+                    q: "Kā burgers atšķirās no citiem ēdieniem?",
+                    answerOptions: ["Tas ir ietīts wrapā", "Tas ir apaļš ar dažādiem dārzeņiem, gaļu un piedevām", "Tam ir maize ar sieru pa vidu"],
+                    correctAnswer: "Tas ir apaļš ar dažādiem dārzeņiem, gaļu un piedevām",
                   },
                   {
-                    q: res.data[89].q,
-                    answerOptions: res.data[89].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[89].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[89].xtraInfo,
+                    q: "Kādu gaļu lieto burgeros?",
+                    answerOptions: ["Vistas gaļu", "Cūkgaļu", "Gan vistas gaļu gan cūkas"],
+                    correctAnswer: "Gan vistas gaļu gan cūkas",
                   },
                 ],
               },
               {
                 tourism: [
                   {
-                    image: res.data[90].image,
-                    q: res.data[90].q,
-                    answerOptions: res.data[90].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[90].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[90].xtraInfo,
+                    image: "secondStageImages/backpack.svg",
+                    q: "Kā fast food burgeri atšķirās citās valstīs",
+                    answerOptions: ["Nav burgera apakšējās maizītes", "Nav burgera augšējās maizes", "Neatšķiras"],
+                    correctAnswer: "Neatšķiras",
                   },
                   {
-                    q: res.data[91].q,
-                    answerOptions: res.data[91].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[91].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[91].xtraInfo,
+                    q: "Kura valsts visvairāk patērē burgerus?",
+                    answerOptions: ["Kanāda", "Amerika", "Latvija"],
+                    correctAnswer: "Amerika",
                   },
                   {
-                    q: res.data[92].q,
-                    answerOptions: res.data[92].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[92].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[92].xtraInfo,
+                    q: "Kura valsts visvairāk saražo burgeru",
+                    answerOptions: ["Austrālija", "Latvija", "Amerika"],
+                    correctAnswer: "Amerika",
                   },
                 ],
               },
               {
                 waste: [
                   {
-                    image: res.data[93].image,
-                    q: res.data[93].q,
-                    answerOptions: res.data[93].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[93].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[93].xtraInfo,
+                    image: "secondStageImages/delete.svg",
+                    q: "Vai burgeru atliekas slikti ietekmē apkārtējo vidi",
+                    answerOptions: ["Jā", "Nē"],
+                    correctAnswer: "Nē",
                   },
                   {
-                    q: res.data[94].q,
-                    answerOptions: res.data[94].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[94].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[94].xtraInfo,
+                    q: "Burgeru iepakojums parasti ir...",
+                    answerOptions: ["ražots no bioloģiskiem materiāliem", "kaitīgs dabai"],
+                    correctAnswer: "kaitīgs dabai",
                   },
                   {
-                    q: res.data[95].q,
-                    answerOptions: res.data[95].options.map((option) => option.choice_text),
-                    correctAnswer: res.data[95].options.filter((option) => option.correct === true)[0].choice_text,
-                    xtraInfo: res.data[95].xtraInfo,
+                    q: "Vidēji cik kg ogļskābās gāzes tie radīti lai saražotu vienu burgeru?",
+                    answerOptions: ["4", "0.5", "10"],
+                    correctAnswer: "4",
                   },
                 ],
               },
@@ -762,7 +750,9 @@ function App() {
           },
         ]
       )
-      setRandomStop(wheelStops[Math.floor(Math.random() * 5) + 0]);
+      setRandomStop(wheelStops[Math.floor(Math.random() * 6) + 0]);
+    }).then(() => {
+      setLoadingPopup(false);
     })
   }, [wheelStops])
 
@@ -809,7 +799,7 @@ function App() {
         }
         setGameCountDownTimer(gameCountDownTimer - 1);
       }, 1000);
-    }    
+    }
   }, [gameCountDownTimer, secondStageStarted, dispatch]);
 
   //Iegriež ratu
@@ -973,6 +963,7 @@ function App() {
                 <>
                   {secondStageStarted ? (
                     <SecondStage
+                      setSsQuestionState={setSsQuestionState}
                       ssAnswer={ssAnswer}
                       setSsAnswer={setSsAnswer}
                       ssQuestionState={ssQuestionState}
@@ -981,6 +972,7 @@ function App() {
                     />
                   ) : (
                     <Home
+                      loadingPopup={loadingPopup}
                       openTreasureChest={openTreasureChest}
                       showTreasureChest={showTreasureChest}
                       answerCounter={answerCounter}
