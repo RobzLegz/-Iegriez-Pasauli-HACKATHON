@@ -15,6 +15,24 @@ const StyledQuestionSection = styled.div`
         width: 50px;
         height: 50px;
     }
+  @media(max-width: 770px){
+    >img{
+      width: 40px;
+      height: 40px;
+    }
+  }
+  @media(max-width: 528px){
+    >img{
+      width: 30px;
+      height: 30px;
+    }
+  }
+  @media(max-width: 375px){
+    >img{
+      width: 25px;
+      height: 25px;
+    }
+  }
 `;
 
 export default QuestionSection

@@ -27,7 +27,7 @@ const StyledHeader = styled.div`
       color: #2f2f2f;
     }
   img{
-    float: left;
+    float: right;
     height: 35px;
     width: 35px;
     margin-right: 10px;
