@@ -5,6 +5,9 @@ import {
   findImage,
   addThemeQuestions,
   selectQuestions,
+  selectThemeImage,
+  addSecond,
+  selectGameTime,
 } from "./features/gameSlice";
 import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion } from "./features/secondStageSlice";
 import { addPoint, addPoints, selectPoints } from "./features/userSlice";
@@ -81,18 +84,26 @@ function App() {
   const [leaderboardPopup, setLeaderboardPopup] = useState(false);
   const [wheelStops, setWheelStops] = useState([]);
   const [loadingPopup, setLoadingPopup] = useState(false);
-  const [gameTime, setGameTime] = useState(0);
-  const [gameStarted, setGameStarted] = useState(false);
 
+  const themeImage = useSelector(selectThemeImage);
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
   const hasFinished = useSelector(selecthasfinished);
   const points = useSelector(selectPoints);
   const gameOver = useSelector(selectGameEnded);
+  const gameTime = useSelector(selectGameTime);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
   const cookies = new Cookies();
+
+  useEffect(() => {
+    if(themeImage !== ""){
+      setTimeout(() => {
+        dispatch(addSecond());
+      }, 1000);
+    }    
+  }, [themeImage, gameTime])
 
   useEffect(() => {
     setLoadingPopup(true);

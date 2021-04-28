@@ -26,10 +26,21 @@ function LandingPage({instructionState, setInstructionState}) {
                 </button>
             </div>
             {instructionState && (
-                <StyledIntsructions>
-                    <CloseIcon className="close" onClick={() => setInstructionState(false)} />
-                    <h1>Instrukcija</h1>
-                </StyledIntsructions>
+                 <StyledInstructions>
+                 <CloseIcon className="close" onClick={() => setInstructionState(false)} />
+                 <h2>Sveicināti spēles "Iegriez pasauli instrukcijā"!</h2>
+                 <img src="https://www.flaticon.com/svg/vstatic/svg/831/831700.svg?token=exp=1619630125~hmac=e3c35431239acce1601c6dd0e2c538d4" alt=""/>
+                 <ul>
+                     <li><span>1.</span> Spiediet pogu "Sākt spēli".</li>
+                     <li><span>2.</span> Lai iegrieztu ratu Jums ir jānospiež poga "Iegriezt".</li>
+                     <li><span>3.</span> Rats Jums noteiks tēmu un pēc tam, Jums tiks uzdoti jautājumi par noteikto tēmu.</li>
+                     <li><span>4.</span> 1.kārtā tiks uzdoti 5 jautājumi, par katru pareizo atbildi jūs saņemsiet 1 punktu.</li>
+                     <li><span>5.</span> Pēc tam jūs nonāksiet Eiropas kartē, kur spiežot uz simbola Jūs dabūsiet jautājumu.</li>
+                     <li><span>6.</span> Par katru pareizi atbildēto jautājumu Jūs saņemsiet 5 punktus.</li>
+                     <li><span>7.</span> 3.kārtā Jūsu uzdevums ir pēc iespējas vairāk atlasīt pareizos vārdus vai vārdu savienojumus.</li>
+                     <li><span>8.</span> Pēc 3.kārtas Jūsu uzzināsiet cik punktus nopelnījāt un kāda ir jūsu loma. </li>
+                 </ul>
+             </StyledInstructions>
             )}
 
         </StyledLandingPage>
@@ -37,7 +48,6 @@ function LandingPage({instructionState, setInstructionState}) {
     )
 }
 const StyledLandingPage = styled.div`
-
   :root {
     --main-color: #9aca3c;
 
@@ -529,7 +539,7 @@ const StyledLandingPage = styled.div`
   }
 `;
 
-const StyledIntsructions = styled.div`
+const StyledInstructions = styled.div`
     position: absolute;
     top: 0;
     left: 0;
@@ -537,25 +547,49 @@ const StyledIntsructions = styled.div`
     color:black;
     width: 100%;
     min-height:100vh;
-    height:fit-content;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color:white;
     border-radius:10px;
     animation:instructions 0.75s;
-    overflow:hidden;
+    border: 5px solid #2c85a4;
 
+   
 
+  h2{
+      font-size: 40px;
+      margin: 60px;
+      color:#2f2f2f;
+      text-align: center;
+      min-width: 100%;
+      width: 100%;
+      position: absolute;
+    }
+    span{
+      font-weight: bold;
+    }
+  li{
+    font-family: "Josefin Sans",sans-serif;
+    font-size: 20px;
+    padding: 15px;
+    border-bottom: 2px solid #9aca3c;
+  }
+  img{
+    height: 90px;
+    width: 90px;
+    margin-top: 130px;
+    margin-bottom: 100px;
+  }
     .close{
         height:37px;
         width:37px;
         position:absolute;
-        top:25px;
-        right:25px;
+        top:15px;
+        right:15px;
         cursor:pointer;
     }
-
     @keyframes instructions {
         from {
         opacity: 0;
@@ -571,6 +605,32 @@ const StyledIntsructions = styled.div`
         margin-top:auto;
         margin-bottom:auto;
     }
+  @media(max-width: 781px){
+    h2{
+      font-size: 35px;
+    }
+  }
+  @media(max-width: 560px){
+    h2{
+      font-size: 30px;
+    }
+    li{
+      font-size: 16px;
+    }
+    .close{
+      height:30px;
+      width:30px;
+    }
+  }
+  @media(max-width:373px){
+    h2{
+      font-size: 26px;
+    }
+    img{
+      margin-top: 150px;
+    }
+  }
+  
 `;
 
 export default LandingPage;

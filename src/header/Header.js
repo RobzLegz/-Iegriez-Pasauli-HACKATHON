@@ -1,31 +1,43 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components'
+import { selectGameTime } from '../features/gameSlice';
 import { selectPoints } from '../features/userSlice';
 import Money from './money.svg'
 
 function Header() {
     const points = useSelector(selectPoints);
+    const gameTime = useSelector(selectGameTime);
 
     return (
         <StyledHeader>
+          <div className="header__left">
             <img src={Money} alt="Star"/>
             <h3>{points}</h3>
+          </div>
+          <div className="header__right">
+            <h3>{Math.floor(gameTime / 60)}</h3>
+          </div>
         </StyledHeader>
     )
 }
 const StyledHeader = styled.div`
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 0;
+  left: 0;
   font-family:"Josefin Sans", sans-serif;
   z-index:100;
   display: flex;
-  justify-content: flex-start;
-    
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  width: 100%;
+  >.header__left{
+    display: flex;
+  }
   h3{
     font-size: 30px;
-    margin-top: 5px;
     color: #2f2f2f;
   }
   img{
@@ -34,11 +46,8 @@ const StyledHeader = styled.div`
     margin-right: 10px;
   }
   @media(max-width: 320px){
-    top: 10px;
-    left: 0;
     h3{
       font-size: 26px;
-      margin-top:1px;
     }
     img{
       height: 25px;
