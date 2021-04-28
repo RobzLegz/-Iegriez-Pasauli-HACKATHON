@@ -7,7 +7,7 @@ import {
   selectQuestions,
   selectThemeImage,
   addSecond,
-  selectGameTime,
+  selectGameSeconds,
 } from "./features/gameSlice";
 import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion } from "./features/secondStageSlice";
 import { addPoint, addPoints, selectPoints } from "./features/userSlice";
@@ -91,7 +91,7 @@ function App() {
   const hasFinished = useSelector(selecthasfinished);
   const points = useSelector(selectPoints);
   const gameOver = useSelector(selectGameEnded);
-  const gameTime = useSelector(selectGameTime);
+  const gameTime = useSelector(selectGameSeconds);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
@@ -103,7 +103,7 @@ function App() {
         dispatch(addSecond());
       }, 1000);
     }    
-  }, [themeImage, gameTime])
+  }, [themeImage, gameTime, dispatch])
 
   useEffect(() => {
     setLoadingPopup(true);
@@ -768,12 +768,6 @@ function App() {
   }, [wheelStops]);
 
   useEffect(() => {
-    if (token) {
-      cookies.set("token", token, { path: "/" });
-    }
-  }, [token]);
-
-  useEffect(() => {
     if(!hasFinished){
       //izpildīt, ja spēle nav beigusies
       if(tsCountdownTimer > 0 && thirdStageStarted){
@@ -905,6 +899,9 @@ function App() {
 
   const userLogin = (tok) => {
     setToken(tok);
+    if (token) {
+      cookies.set("token", token, { path: "/" });
+    }
   };
 
   const login = (e, user, history) => {

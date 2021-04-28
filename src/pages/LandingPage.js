@@ -29,7 +29,7 @@ function LandingPage({instructionState, setInstructionState}) {
                  <StyledInstructions>
                  <CloseIcon className="close" onClick={() => setInstructionState(false)} />
                  <h2>Sveicināti spēles "Iegriez pasauli instrukcijā"!</h2>
-                 <img src="https://www.flaticon.com/svg/vstatic/svg/831/831700.svg?token=exp=1619630125~hmac=e3c35431239acce1601c6dd0e2c538d4" alt=""/>
+                 <img src="landingPageResources/instructions.svg" alt=""/>
                  <ul>
                      <li><span>1.</span> Spiediet pogu "Sākt spēli".</li>
                      <li><span>2.</span> Lai iegrieztu ratu Jums ir jānospiež poga "Iegriezt".</li>

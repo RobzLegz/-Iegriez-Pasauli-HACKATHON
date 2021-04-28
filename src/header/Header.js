@@ -1,13 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components'
-import { selectGameTime } from '../features/gameSlice';
+import {selectGameMinutes, selectGameSeconds } from '../features/gameSlice';
 import { selectPoints } from '../features/userSlice';
 import Money from './money.svg'
 
 function Header() {
     const points = useSelector(selectPoints);
-    const gameTime = useSelector(selectGameTime);
+    const gameSeconds = useSelector(selectGameSeconds);
+    const gameMinutes = useSelector(selectGameMinutes);
 
     return (
         <StyledHeader>
@@ -16,7 +17,7 @@ function Header() {
             <h3>{points}</h3>
           </div>
           <div className="header__right">
-            <h3>{Math.floor(gameTime / 60)}</h3>
+            <h3>{gameMinutes < 10 ? "0" + gameMinutes : gameMinutes}.{gameSeconds < 10 ? "0" + gameSeconds : gameSeconds}</h3>
           </div>
         </StyledHeader>
     )
