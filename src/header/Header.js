@@ -15,19 +15,20 @@ function Header() {
     )
 }
 const StyledHeader = styled.div`
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    font-family:"Josefin Sans", sans-serif;
-    z-index:1000;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-family:"Josefin Sans", sans-serif;
+  z-index:100;
+  display: flex;
+  justify-content: flex-start;
     
-    h3{
-      font-size: 30px;
-      margin-top: 5px;
-      color: #2f2f2f;
-    }
+  h3{
+    font-size: 30px;
+    margin-top: 5px;
+    color: #2f2f2f;
+  }
   img{
-    float: right;
     height: 35px;
     width: 35px;
     margin-right: 10px;
