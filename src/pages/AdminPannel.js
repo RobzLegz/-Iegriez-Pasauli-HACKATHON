@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 
 function AdminPannel({wheelStops}) {
-    const [questionVal, setQuestionVal] = useState("");
-
     return (
         <StyledAdminPannel>
             <h1>admin pannel</h1>
@@ -57,6 +55,24 @@ const StyledAdminPannel = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll !important;
+    width: 100%;
+    height:100vh;
+    position: absolute;
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #ebe1d1
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #c5aa80;
+        border: 1px solid  #3c3c58;
+        border-radius: 10px;
+        :hover {
+            background: #3c3c58;
+        }
+    }
     >h1{
         margin-bottom: 20px;
     }

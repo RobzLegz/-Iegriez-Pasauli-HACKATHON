@@ -754,7 +754,7 @@ function App() {
     }).then(() => {
       setLoadingPopup(false);
     })
-  }, [wheelStops])
+  }, [wheelStops]);
 
   useEffect(() => {
     if (token) {
