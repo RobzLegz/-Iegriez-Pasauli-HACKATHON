@@ -88,6 +88,13 @@ function App() {
     answeredCorrectly: false,
     activeQusetion: ""
   })
+  const [indexGroupMap] = useState({
+    'banana': 0,
+    'shirt': 1,
+    "longboard": 2,
+    "headphones": 3,
+    "burger": 4
+  })
 
   const themeImage = useSelector(selectThemeImage);
   const activeQuestions = useSelector(selectQuestions);
@@ -101,14 +108,6 @@ function App() {
   const wheelRef = useRef();
 
   const cookies = new Cookies();
-
-  const indexGroupMap = {
-    'banana': 0,
-    'shirt': 1,
-    "longboard": 2,
-    "headphones": 3,
-    "burger": 4
-  }
   
   useEffect(() => {
     if(themeImage !== ""){
@@ -121,8 +120,6 @@ function App() {
   useEffect(() => {
     setLoadingPopup(true);
     axios.get("https://iegriez-pasauli-api.herokuapp.com/api/questions/").then((res) => {
-
-      console.log(res.data);
       for(const questionSelector of res.data){
         if(questionSelector.sub_group === "N/A"){
           wheelStops[indexGroupMap[questionSelector.group.toLowerCase()]].questions.push(
@@ -148,7 +145,7 @@ function App() {
       setRandomStop(wheelStops[Math.floor(Math.random() * 5)]);
       setLoadingPopup(false);
     })
-  }, []);
+  }, [indexGroupMap]);
 
   useEffect(() => {
     if(!hasFinished){
