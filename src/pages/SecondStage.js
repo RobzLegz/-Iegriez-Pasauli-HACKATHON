@@ -4,7 +4,7 @@ import Header from '../header/Header';
 import MapImage from "../resources/europe-map.png";
 import RandomisedQuestions from '../secondStage/RandomisedQuestions';
 
-function SecondStage({ssQuestionState,setSsQuestionState, openSecondStageQuestion,ssQuestionVisible, setSsAnswer, ssAnswer, closeSecondStageQuestion}) {
+function SecondStage({ssQuestionState,correctAnswerState,randomStop,setSsQuestionState,setCorrectAnswerState, openSecondStageQuestion,ssQuestionVisible, setSsAnswer, ssAnswer, closeSecondStageQuestion}) {
     return (
         <StyledSecondStage>
             <Header />
@@ -15,13 +15,16 @@ function SecondStage({ssQuestionState,setSsQuestionState, openSecondStageQuestio
             <div className="game__container">
                 <img src={MapImage} alt="europe map"/>
                 <RandomisedQuestions
-                    setSsQuestionState={setSsQuestionState}
-                    ssQuestionVisible={ssQuestionVisible}
-                    ssAnswer={ssAnswer}
-                    setSsAnswer={setSsAnswer}
-                    ssQuestionState={ssQuestionState}
-                    openSecondStageQuestion={openSecondStageQuestion}
-                    closeSecondStageQuestion={closeSecondStageQuestion}
+                  correctAnswerState={correctAnswerState}
+                  setCorrectAnswerState={setCorrectAnswerState}
+                  randomStop={randomStop}
+                  setSsQuestionState={setSsQuestionState}
+                  ssQuestionVisible={ssQuestionVisible}
+                  ssAnswer={ssAnswer}
+                  setSsAnswer={setSsAnswer}
+                  ssQuestionState={ssQuestionState}
+                  openSecondStageQuestion={openSecondStageQuestion}
+                  closeSecondStageQuestion={closeSecondStageQuestion}
                 />      
             </div>  
         </StyledSecondStage>

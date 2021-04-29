@@ -8,36 +8,36 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
                 <h4>0.{finishCountDown < 10 ? "0" + finishCountDown : finishCountDown}</h4>
             </div>
             <div className="correct__container">
-                {tsCorrectWords.map((correct) => (
+                {tsCorrectWords.map((correct, i) => (
                     <h3 
-                        key={correct.id}
-                        onClick={() => clickWord(correct)} 
-                        style={{
-                            bottom: `${correct.bottom}%`, 
-                            right: `${correct.right}%`,
-                            color: `${correct.color}`,
-                            fontSize: `${correct.fontSize}`
-                        }}
+                      key={`correct-${i}`}
+                      onClick={() => clickWord(correct)} 
+                      style={{
+                          bottom: `${correct.bottom}%`, 
+                          right: `${correct.right}%`,
+                          color: `${correct.color}`,
+                          fontSize: `${correct.fontSize}`
+                      }}
                     >{correct.text}</h3>
                 ))}
             </div>            
             <div className="incorrect__container">
-                {tsIncorrectWords.map((incorrect) => (
+                {tsIncorrectWords.map((incorrect, i) => (
                     <h3 
-                        key={incorrect.id}
-                        style={{
-                            top: `${incorrect.top}%`, 
-                            left: `${incorrect.left}%`,
-                            color: `${incorrect.color}`,
-                            fontSize: `${incorrect.fontSize}`
-                        }}
+                      key={`incorrect-${i}`}
+                      style={{
+                          top: `${incorrect.top}%`, 
+                          left: `${incorrect.left}%`,
+                          color: `${incorrect.color}`,
+                          fontSize: `${incorrect.fontSize}`
+                      }}
                     >{incorrect.text}</h3>
                 ))}
             </div>            
             <div className="answered__container">
-                {thirdStageFoundWords.map((found) => (
+                {thirdStageFoundWords.map((found, i) => (
                     <h3 
-                        key={found.id}
+                        key={`found-${i}`}
                         style={{bottom: `${found[1]}%`, right: `${found[2]}%`}}
                     >{found[0]}</h3>
                 ))}

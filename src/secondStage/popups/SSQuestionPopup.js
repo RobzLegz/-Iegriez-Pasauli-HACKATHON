@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { selectActiveAnswers, selectActiveCorrectAnswer, selectActiveQuestion } from '../../features/secondStageSlice';
 import CloseIcon from '@material-ui/icons/Close';
 
-function SSQuestionPopup({closeSecondStageQuestion,setSsQuestionState, setSsAnswer, ssAnswer,ssQuestionState}) {
+function SSQuestionPopup({closeSecondStageQuestion,setSsQuestionState, setSsAnswer, ssAnswer}) {
 
     const ssActiveQuestion = useSelector(selectActiveQuestion);
     const ssActiveAnswers = useSelector(selectActiveAnswers);
@@ -17,28 +17,27 @@ function SSQuestionPopup({closeSecondStageQuestion,setSsQuestionState, setSsAnsw
             <select onChange={(e) => setSsAnswer(e.target.value)} value={ssAnswer}>
                 <option></option>
                 {ssActiveAnswers.map((activeAnswer) => (
-                    <option key={activeAnswer}>{activeAnswer}</option>
+                  <option key={activeAnswer}>{activeAnswer}</option>
                 ))}
             </select>
             <button onClick={(e) => closeSecondStageQuestion(e, ssActiveCorrectAnswer)}>Iesniegt</button>
-            <img src="secondStageImages/question-mark.svg" alt=""/>
+            <img src="secondStageImages/question-mark.svg" alt="question"/>
         </StyledSSQuestionPopup>
     )
 }
 const StyledSSQuestionPopup = styled.form`
-  
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    width: 100%;
-    border-radius: 15px;
-    height: 100%;
-    background: white;
-    top: 0;
-    left: 0;
-    text-align: center;
-    border: 5px solid #2c85a4;
-    animation: appear 1s;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  border-radius: 15px;
+  height: 100%;
+  background: white;
+  top: 0;
+  left: 0;
+  text-align: center;
+  border: 5px solid #2c85a4;
+  animation: appear 1s;
 
   .MuiSvgIcon-root{
     color: #2f2f2f;
@@ -50,39 +49,44 @@ const StyledSSQuestionPopup = styled.form`
     cursor:pointer;
   }
   img{
+    height: 60vh;
+    opacity: 0.8;
+    width:60vw;
     position: absolute;
-    height: 25vh;
-    width: 25vw;
+    margin-top: 120px;
     transform: translate(-50%,-50%);
-    bottom: -50px;
     left: 50%;
+    top: 350px;
+    margin-left: auto;
+    margin-right: auto;
   }
-    h3{
-      text-align: center;
-      position: absolute;
-      margin: 60px;
-      font-size: 30px;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      left: 0;
-      right: 0;
-  
-    }
-    select{
-      width: fit-content;
-      min-width: 40%;
-      margin-left: auto;
-      margin-right: auto;
-      font-family: "Poppins", sans-serif;
-      font-size:16px;
-      margin-top:200px;
-      font-weight: 200;
-      height: 30px;
-      border-radius:5px ;
-      border:3px solid lightgray;
-    }
+  h3{
+    text-align: center;
+    position: absolute;
+    margin: 60px;
+    font-size: 30px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+  select{
+    z-index: 100;
+    width: fit-content;
+    min-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Poppins", sans-serif;
+    font-size:16px;
+    margin-top:250px;
+    font-weight: 200;
+    height: 30px;
+    border-radius:5px ;
+    border:3px solid lightgray;
+  }
   button{
+    z-index: 100;
     margin-top: 150px;
     margin-left: auto;
     margin-right: auto;
@@ -104,24 +108,35 @@ const StyledSSQuestionPopup = styled.form`
     }
   }
   @keyframes appear{
-  from{
-    opacity: 0;
-    transform: scale(0);
+    from{
+      opacity: 0;
+      transform: scale(0);
+    }
+    to{
+      opacity: 1;
+      transform: scale(1);
+    }
   }
-  to{
-    opacity: 1;
-    transform: scale(1);
-  }
-}
   @keyframes pulse {
     to {
       -webkit-transform: scale(0.9);
       transform: scale(0.9);
     }
   }
-  @media(max-width: 800px){
+  @media(max-width: 924px){
     img{
-      bottom: -90px;
+      height: 60vh;
+      width: 60vw;
+    }
+  }
+  @media(max-width: 872px){
+    img{
+      margin-top: 90px;
+    }
+  }
+  @media(max-width: 812px){
+    img{
+      margin-top: 30px;
     }
   }
   @media(max-width: 729px){
@@ -171,4 +186,3 @@ const StyledSSQuestionPopup = styled.form`
 `;
 
 export default SSQuestionPopup
-

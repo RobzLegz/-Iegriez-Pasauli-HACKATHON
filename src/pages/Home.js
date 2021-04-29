@@ -44,7 +44,13 @@ function Home({
         />
       </div>
       <div className={`loading__popup ${loadingPopup && "loading__popup--active"}`}>
-        <h3>Loading</h3>
+          <div className="loading_animation">
+              <div/>
+              <div/>
+              <div/>
+              <div/>
+          </div>
+        <h3>Lādējas...</h3>
       </div>
     </HomePage>
   );
@@ -64,6 +70,7 @@ const HomePage = styled.div`
     max-width: 400px;
     background: #f5f5f5;
     padding: 140px 10px;
+    border-radius:15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,15 +79,56 @@ const HomePage = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     opacity: 0;
     z-index: -1;
     max-height: 400px;
   }
+  >.loading__popup> h3{
+    position: absolute;
+    margin-top: 130px;
+    font-size: 28px;
+    font-family: "Josefin Sans", sans-serif;
+  }
   >.loading__popup--active{
     opacity: 1;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     z-index: 14;
+  }
+  >.loading__popup--active > .loading_animation{
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 30px;
+  }
+  >.loading__popup--active > .loading_animation > div{
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #9aca3c;
+    border-radius: 50%;
+    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #9aca3c transparent transparent transparent;
+  }
+  .loading__popup--active > .loading_animation > div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .loading__popup--active > .loading_animation > div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .loading__popup--active > .loading_animation > div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
   > .question__popup {
     position: absolute;

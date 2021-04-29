@@ -2,12 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { selectAllQuestions } from '../features/secondStageSlice';
+import CorrectAnswerPopup from './popups/CorrectAnswerPopup';
 import SSQuestionPopup from './popups/SSQuestionPopup';
 import QuestionSection from './QuestionSection';
 
-function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisible, openSecondStageQuestion, setSsAnswer, ssAnswer, closeSecondStageQuestion}) {
-    const secondStageQs = useSelector(selectAllQuestions);
-    
+function RandomisedQuestions({ssQuestionState,setSsQuestionState,correctAnswerState,setCorrectAnswerState, openSecondStageQuestion, setSsAnswer, ssAnswer, closeSecondStageQuestion}) {
+    const secondStageQs = useSelector(selectAllQuestions);    
     return (
         <StyledRandomQs>
             
@@ -15,10 +15,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={0}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[0].transport[0].q} 
-                        answerOptions={secondStageQs[0].transport[0].answerOptions} 
-                        correctAnswer={secondStageQs[0].transport[0].correctAnswer} 
-                        image={secondStageQs[0].transport[0].image} 
+                        question={secondStageQs.transport[0].q} 
+                        answerOptions={secondStageQs.transport[0].answerOptions} 
+                        correctAnswer={secondStageQs.transport[0].correctAnswer} 
+                        image={secondStageQs.transport[0].image}
+                        xtraInfo={secondStageQs.transport[0].xtraInfo}
                     />
                 </li>
 
@@ -27,10 +28,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={1}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[0].transport[1].q} 
-                        answerOptions={secondStageQs[0].transport[1].answerOptions} 
-                        correctAnswer={secondStageQs[0].transport[1].correctAnswer} 
-                        image={secondStageQs[0].transport[0].image} 
+                        question={secondStageQs.transport[1].q} 
+                        answerOptions={secondStageQs.transport[1].answerOptions} 
+                        correctAnswer={secondStageQs.transport[1].correctAnswer} 
+                        image={secondStageQs.transport[0].image} 
+                        xtraInfo={secondStageQs.transport[1].xtraInfo}
                     />
                 </li>
 
@@ -39,10 +41,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={2}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[0].transport[2].q} 
-                        answerOptions={secondStageQs[0].transport[2].answerOptions} 
-                        correctAnswer={secondStageQs[0].transport[2].correctAnswer} 
-                        image={secondStageQs[0].transport[0].image} 
+                        question={secondStageQs.transport[2].q} 
+                        answerOptions={secondStageQs.transport[2].answerOptions} 
+                        correctAnswer={secondStageQs.transport[2].correctAnswer} 
+                        image={secondStageQs.transport[0].image} 
+                        xtraInfo={secondStageQs.transport[2].xtraInfo}
                     />
                 </li>
 
@@ -52,10 +55,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={3}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[1].energy[0].q} 
-                        answerOptions={secondStageQs[1].energy[0].answerOptions} 
-                        correctAnswer={secondStageQs[1].energy[0].correctAnswer}
-                        image={secondStageQs[1].energy[0].image} 
+                        question={secondStageQs.energy[0].q} 
+                        answerOptions={secondStageQs.energy[0].answerOptions} 
+                        correctAnswer={secondStageQs.energy[0].correctAnswer}
+                        image={secondStageQs.energy[0].image} 
+                        xtraInfo={secondStageQs.energy[0].xtraInfo}
                     />
                 </li>
 
@@ -64,10 +68,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={4}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[1].energy[1].q} 
-                        answerOptions={secondStageQs[1].energy[1].answerOptions} 
-                        correctAnswer={secondStageQs[1].energy[1].correctAnswer}
-                        image={secondStageQs[1].energy[0].image} 
+                        question={secondStageQs.energy[1].q} 
+                        answerOptions={secondStageQs.energy[1].answerOptions} 
+                        correctAnswer={secondStageQs.energy[1].correctAnswer}
+                        image={secondStageQs.energy[0].image} 
+                        xtraInfo={secondStageQs.energy[1].xtraInfo}
                     />
                 </li>
 
@@ -76,23 +81,24 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={5}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[1].energy[2].q} 
-                        answerOptions={secondStageQs[1].energy[2].answerOptions} 
-                        correctAnswer={secondStageQs[1].energy[2].correctAnswer}
-                        image={secondStageQs[1].energy[0].image} 
+                        question={secondStageQs.energy[2].q} 
+                        answerOptions={secondStageQs.energy[2].answerOptions} 
+                        correctAnswer={secondStageQs.energy[2].correctAnswer}
+                        image={secondStageQs.energy[0].image} 
+                        xtraInfo={secondStageQs.energy[2].xtraInfo}
                     />
                 </li>
 
 
-            
                 <li id="visible6">
                     <QuestionSection
                         id={6}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[2].food[0].q} 
-                        answerOptions={secondStageQs[2].food[0].answerOptions} 
-                        correctAnswer={secondStageQs[2].food[0].correctAnswer}
-                        image={secondStageQs[2].food[0].image} 
+                        question={secondStageQs.food[0].q} 
+                        answerOptions={secondStageQs.food[0].answerOptions} 
+                        correctAnswer={secondStageQs.food[0].correctAnswer}
+                        image={secondStageQs.food[0].image} 
+                        xtraInfo={secondStageQs.food[0].xtraInfo}
                     />
                 </li>
 
@@ -101,10 +107,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={7}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[2].food[1].q} 
-                        answerOptions={secondStageQs[2].food[1].answerOptions} 
-                        correctAnswer={secondStageQs[2].food[1].correctAnswer}
-                        image={secondStageQs[2].food[0].image} 
+                        question={secondStageQs.food[1].q} 
+                        answerOptions={secondStageQs.food[1].answerOptions} 
+                        correctAnswer={secondStageQs.food[1].correctAnswer}
+                        image={secondStageQs.food[0].image} 
+                        xtraInfo={secondStageQs.food[1].xtraInfo}
                     />
                 </li>
 
@@ -113,10 +120,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={8}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[2].food[2].q} 
-                        answerOptions={secondStageQs[2].food[2].answerOptions} 
-                        correctAnswer={secondStageQs[2].food[2].correctAnswer}
-                        image={secondStageQs[2].food[0].image} 
+                        question={secondStageQs.food[2].q} 
+                        answerOptions={secondStageQs.food[2].answerOptions} 
+                        correctAnswer={secondStageQs.food[2].correctAnswer}
+                        image={secondStageQs.food[0].image} 
+                        xtraInfo={secondStageQs.food[2].xtraInfo}
                     />
                 </li>
 
@@ -126,10 +134,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={9}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[3].tourism[0].q} 
-                        answerOptions={secondStageQs[3].tourism[0].answerOptions} 
-                        correctAnswer={secondStageQs[3].tourism[0].correctAnswer}
-                        image={secondStageQs[3].tourism[0].image} 
+                        question={secondStageQs.tourism[0].q} 
+                        answerOptions={secondStageQs.tourism[0].answerOptions} 
+                        correctAnswer={secondStageQs.tourism[0].correctAnswer}
+                        image={secondStageQs.tourism[0].image} 
+                        xtraInfo={secondStageQs.tourism[0].xtraInfo}
                     />
                 </li>
 
@@ -137,10 +146,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={10}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[3].tourism[1].q} 
-                        answerOptions={secondStageQs[3].tourism[1].answerOptions} 
-                        correctAnswer={secondStageQs[3].tourism[1].correctAnswer}
-                        image={secondStageQs[3].tourism[0].image} 
+                        question={secondStageQs.tourism[1].q} 
+                        answerOptions={secondStageQs.tourism[1].answerOptions} 
+                        correctAnswer={secondStageQs.tourism[1].correctAnswer}
+                        image={secondStageQs.tourism[0].image} 
+                        xtraInfo={secondStageQs.tourism[1].xtraInfo}
                     />
                 </li>
 
@@ -148,10 +158,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={11}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[3].tourism[2].q} 
-                        answerOptions={secondStageQs[3].tourism[2].answerOptions} 
-                        correctAnswer={secondStageQs[3].tourism[2].correctAnswer}
-                        image={secondStageQs[3].tourism[0].image} 
+                        question={secondStageQs.tourism[2].q} 
+                        answerOptions={secondStageQs.tourism[2].answerOptions} 
+                        correctAnswer={secondStageQs.tourism[2].correctAnswer}
+                        image={secondStageQs.tourism[0].image}
+                        xtraInfo={secondStageQs.tourism[2].xtraInfo}
                     />
                 </li>
 
@@ -160,10 +171,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={12}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[4].waste[0].q} 
-                        answerOptions={secondStageQs[4].waste[0].answerOptions} 
-                        correctAnswer={secondStageQs[4].waste[0].correctAnswer}
-                        image={secondStageQs[4].waste[0].image} 
+                        question={secondStageQs.waste[0].q} 
+                        answerOptions={secondStageQs.waste[0].answerOptions} 
+                        correctAnswer={secondStageQs.waste[0].correctAnswer}
+                        image={secondStageQs.waste[0].image} 
+                        xtraInfo={secondStageQs.waste[0].xtraInfo}
                     />
                 </li>
 
@@ -171,10 +183,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={13}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[4].waste[1].q} 
-                        answerOptions={secondStageQs[4].waste[1].answerOptions} 
-                        correctAnswer={secondStageQs[4].waste[1].correctAnswer}
-                        image={secondStageQs[4].waste[0].image} 
+                        question={secondStageQs.waste[1].q} 
+                        answerOptions={secondStageQs.waste[1].answerOptions} 
+                        correctAnswer={secondStageQs.waste[1].correctAnswer}
+                        image={secondStageQs.waste[0].image} 
+                        xtraInfo={secondStageQs.waste[1].xtraInfo}
                     />
                 </li>
 
@@ -183,10 +196,11 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                     <QuestionSection
                         id={14}
                         openSecondStageQuestion={openSecondStageQuestion}
-                        question={secondStageQs[4].waste[2].q} 
-                        answerOptions={secondStageQs[4].waste[2].answerOptions} 
-                        correctAnswer={secondStageQs[4].waste[2].correctAnswer}
-                        image={secondStageQs[4].waste[0].image}
+                        question={secondStageQs.waste[2].q} 
+                        answerOptions={secondStageQs.waste[2].answerOptions} 
+                        correctAnswer={secondStageQs.waste[2].correctAnswer}
+                        image={secondStageQs.waste[0].image}
+                        xtraInfo={secondStageQs.waste[2].xtraInfo}
                     />
                 </li>
 
@@ -197,6 +211,10 @@ function RandomisedQuestions({ssQuestionState,setSsQuestionState, ssQuestionVisi
                         setSsAnswer={setSsAnswer}
                         closeSecondStageQuestion={closeSecondStageQuestion} 
                     />
+                )}
+
+                {correctAnswerState.shown === true && (
+                    <CorrectAnswerPopup correctAnswerState={correctAnswerState} setCorrectAnswerState={setCorrectAnswerState} />
                 )}
 
         </StyledRandomQs>

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 
-function QuestionSection({image, question, answerOptions, correctAnswer, openSecondStageQuestion, id}) {
+function QuestionSection({image, question, answerOptions, correctAnswer, openSecondStageQuestion, id, xtraInfo}) {
     return (
         <StyledQuestionSection>
             <img onClick={() => {
-                openSecondStageQuestion(question, answerOptions, correctAnswer, id);
+                openSecondStageQuestion(question, answerOptions, correctAnswer, id, xtraInfo);
             }} src={image} alt="object" />
         </StyledQuestionSection>
     )
