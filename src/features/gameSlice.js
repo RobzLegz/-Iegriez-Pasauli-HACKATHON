@@ -7,7 +7,7 @@ export const gameSlice = createSlice({
     activeThemeImage: "",
     themeQuestions: [],
     gameSeconds: 0,
-    gameMinutes: 0,
+    gameMinutes: 15,
   },
   reducers: {
     startGame: (state, action) => {
@@ -20,10 +20,12 @@ export const gameSlice = createSlice({
       state.themeQuestions = action.payload;
     },
     addSecond: (state) => {
-      state.gameSeconds += 1;
-      if(state.gameSeconds === 60){
-        state.gameSeconds = 0;
-        state.gameMinutes += 1;
+      if(state.gameSeconds === 0){
+        state.gameSeconds = 59;
+        state.gameSeconds -= 1;
+        state.gameMinutes -= 1;
+      }else{
+        state.gameSeconds -= 1;
       }
     },
   },

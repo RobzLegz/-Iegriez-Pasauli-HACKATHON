@@ -117,11 +117,12 @@ const StyledFinishPage = styled.div`
         height: fit-content;
         border-radius: 15px;
         border: 5px solid #3a3a88;
-        width: fit-content;
+        width:fit-content;
         max-width: 95%;
         margin-right: auto;
         margin-left: auto;
-        padding: 25px;
+        padding-top: 25px;
+        padding-bottom:25px;
         box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
         -webkit-animation: animatezoom 2s, animating 3s ease infinite;
         animation: animatezoom 2s, animating 3s ease infinite;
@@ -146,6 +147,8 @@ const StyledFinishPage = styled.div`
     .results > h3 {
         font-size: 3rem;
         text-align: center;
+        position: relative;
+        width:100%;
         -webkit-animation: animatezoom 2s, animating 3s ease infinite;
         animation: animatezoom 2s, animating 3s ease infinite;
         -webkit-transform: perspective(1px) translateZ(0);
@@ -381,6 +384,16 @@ const StyledFinishPage = styled.div`
           font-size: 35px;
         }
     }
+  @media(max-width: 407px){
+    .results>h3{
+      font-size:20px; 
+    }
+  }
+  @media(max-width: 341px){
+    .results>h3{
+      font-size:18px;
+    }
+  }
   @media(max-width: 453px){
     form{
       margin-top:15px;

@@ -103,18 +103,37 @@ const HomePage = styled.div`
     z-index: 10;
   }
   >.shaking_chest{
-    animation: shakeChest 0.3s ease infinite;
+    animation:shakeChest 0.5s;
+    animation-iteration-count: infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >img{
+      width: 90%;
+      max-width: 500px;
+    }
+  }
+  >.open_chest{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >img{
+      width: 90%;
+      max-width: 500px;
+    }
   }
   @keyframes shakeChest{
-    0%{
-      transform: rotate(-2deg);
-    }
-    50%{
-      transform: rotate(0deg);
-    }
-    100%{
-      transform: rotate(2deg);
-    }
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
 `;
 const SpinnerContainer = styled.div`

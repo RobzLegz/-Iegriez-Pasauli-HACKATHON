@@ -119,7 +119,7 @@ const StyledWordFlowStage = styled.div`
     padding:5px 10px 5px 10px;
     position: absolute;
     text-align: center;
-    top: 70px;
+    top: 90px;
     right: -30px;
     transform: translate(-50%, -50%);
     font-size: 3rem;
@@ -142,18 +142,18 @@ const StyledWordFlowStage = styled.div`
   @media(max-width: 600px){
     .time__counter{
       font-size: 2rem;
-      top: 40px;
+      top: 80px;
       right: -40px;
     }
   }
   @media(max-width: 320px){
     .time__counter{
       font-size: 1.5rem;
-      top: 30px;
+      top: 80px;
       right: -30px;
     }
   }
 
 `;
 
-export default WordFlow
+export default WordFlow;

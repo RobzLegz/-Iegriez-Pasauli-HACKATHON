@@ -21,6 +21,7 @@ function SSQuestionPopup({closeSecondStageQuestion,setSsQuestionState, setSsAnsw
                 ))}
             </select>
             <button onClick={(e) => closeSecondStageQuestion(e, ssActiveCorrectAnswer)}>Iesniegt</button>
+            <img src="secondStageImages/question-mark.svg" alt=""/>
         </StyledSSQuestionPopup>
     )
 }
@@ -47,6 +48,14 @@ const StyledSSQuestionPopup = styled.form`
     right: 15px;
     top: 15px;
     cursor:pointer;
+  }
+  img{
+    position: absolute;
+    height: 25vh;
+    width: 25vw;
+    transform: translate(-50%,-50%);
+    bottom: -50px;
+    left: 50%;
   }
     h3{
       text-align: center;
@@ -108,6 +117,16 @@ const StyledSSQuestionPopup = styled.form`
     to {
       -webkit-transform: scale(0.9);
       transform: scale(0.9);
+    }
+  }
+  @media(max-width: 800px){
+    img{
+      bottom: -90px;
+    }
+  }
+  @media(max-width: 729px){
+    img{
+      display: none;
     }
   }
   @media(max-width: 575px){
