@@ -137,7 +137,7 @@ const StyledLandingPage = styled.div`
   .pogas {
     display: flex;
     flex-direction: row;
-    margin-top: 75px;
+    margin-top: 15px;
   }
 
   button .liquid {
