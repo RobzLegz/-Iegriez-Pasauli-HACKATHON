@@ -264,7 +264,7 @@ const StyledLandingPage = styled.div`
     width: 600px;
     background-image: url("landingPageResources/Earth.jpg");
     border-radius: 50%;
-    margin-top: 70px;
+    margin-top: 40px;
     background-size: 1100px;
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 1), 0 0 50px #4069ff;
     animation-name: spin;
