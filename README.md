@@ -14,4 +14,4 @@
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
 <h2>Administrātora iespējas:</h2>
-<img src="src/screenshots/adminlogin.png" />
+<img src="screenshots/adminlogin.png" />
