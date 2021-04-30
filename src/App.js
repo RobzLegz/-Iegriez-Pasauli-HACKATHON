@@ -41,8 +41,6 @@ function App() {
   const [foundWordObject, setFoundWordObject] = useState([]);
   const [showTreasureChest, setShowTreasureChest] = useState(false);
   const [openTreasureChest, setOpenTreasureChest] = useState(false);
-  const [loginUserName, setLoginUserName] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
   const [leaderboardUsername, setLeaderboardUsername] = useState("");
   const [leaderboardState, setLeaderboardState] = useState(false);
   const [leaderboardUsers, setLeaderboardUsers] = useState([]);
