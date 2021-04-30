@@ -48,6 +48,8 @@
 </ul>
 <br />
 <hr />
+<br />
+<br />
 <h4>Lai rediģētu atbildes:</h4>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Options".</li>
