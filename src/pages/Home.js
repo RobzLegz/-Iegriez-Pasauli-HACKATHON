@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import Spinner from "../spinner/Spinner";
 import FirstStageQuestions from "../firstStage/FirstStageQuestions";
