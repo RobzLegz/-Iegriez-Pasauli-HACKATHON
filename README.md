@@ -18,4 +18,4 @@
 <h4>Kad pierakstaties, varat rediģēt jautājumus un atbildes</h4>
 <img src="src/screenshots/adminoptions.png" width="700px" height="auto" />
 <h4>Sadaļā "members" var redzēt spēlētāju topu un spēlētāju rezultātus.</h4>
-<h4>Sadaļā "questions" var rediģēt jautājumus un atbildes.</h4>
+<h4>Sadaļā "core/questions" var rediģēt jautājumus un papildus informāciju.</h4>
