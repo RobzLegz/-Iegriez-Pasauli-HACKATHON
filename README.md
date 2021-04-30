@@ -15,6 +15,7 @@
 <hr />
 <h2>Kā palaist aplikāciju?</h2>
 <ul>
+  <li>0. Atver termināli(<code>Ctrl + `</code>)</li>
   <li>1. <code>npm install</code></li>
   <li>2. <code>npm start</code></li>
 </ul>
