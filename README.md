@@ -14,5 +14,5 @@
   <li><span>8.</span> Pēc trešās kārtas Jūs uzzināsiet cik punktus nopelnījāt un kāda ir jūsu loma.</li>
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
-<br />
+<hr />
 ## Administrātora iespējas:
