@@ -14,8 +14,10 @@ function CorrectAnswerPopup({setCorrectAnswerState, correctAnswerState}) {
             )}
             {correctAnswerState.xtraInfo !== "" && correctAnswerState.xtraInfo !=="N/A" && correctAnswerState.xtraInfo !== "No extra info" && correctAnswerState.xtraInfo !== "." && (
                 <>
+                <div>
                     <h3><strong>Interesanti:</strong></h3>
                     <h3>{correctAnswerState.xtraInfo}</h3>
+                </div>
                 </>
             )}
             <button onClick={() => {
@@ -35,10 +37,12 @@ const StyledCheckPopup = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    margin-top:auto;
+    margin-bottom:auto;
     flex-direction: column;
     align-items: center;
     >img{
-        width: 50%;
+        width: 60%;
         max-width: 300px;
     }
     >h2{
@@ -51,6 +55,19 @@ const StyledCheckPopup = styled.div`
             background: #46fb26;
             padding: 30px;
             color: #3b3b3b;
+        }
+    }
+    >button{
+        position:absolute;
+        bottom:60px;
+        width:40%;
+        height:50px;
+        border:none;
+        background-color:#c4e0c0;
+        color:white;
+        font-family:"Josefin Sans",sans-serif;
+        :hover{
+            background-color: #B1E29CFF;
         }
     }
 `;

@@ -178,27 +178,25 @@ function App() {
 
   //Iegriež ratu
   const SpinTheWheel = () => {
-    if(randomStop){
-      if(localStorage.getItem("lastTheme") === randomStop.value){
-        setSpinBtnCounter(spinBtnCounter + 1);
-        return;
-      }else{
-        setSpinAgain(false); //Ja rats griežas, neļaut iegriezt vēlreiz
-        wheelRef.current.style.transform = `rotate(${randomStop.deg}deg)`;//iegriež ratu
-        dispatch(startGame(randomStop.value)); //Aizsūta jautājumu tēmu uz Redux
-        dispatch(findImage(randomStop.image));
-        dispatch(addThemeQuestions(randomStop.questions));
-        dispatch(setAllQs(randomStop.secondStageQuestions));//Aizsūta otrās daļas jautājumus uz Redux
-        setTimeout(() => {
-          setShowTreasureChest(true); //Kad rats beidz griezties, parādīt dārgumu lādi
-        }, 6000);
-        setTimeout(() => {
-          setOpenTreasureChest(true);
-        }, 8000);
-        setTimeout(() => {
-          setSpinAgain(true);
-        }, 8500)
-      }  
+    if(localStorage.getItem("lastTheme") === randomStop.value){
+      setSpinBtnCounter(spinBtnCounter + 1);
+      return;
+    }else{
+      setSpinAgain(false); //Ja rats griežas, neļaut iegriezt vēlreiz
+      wheelRef.current.style.transform = `rotate(${randomStop.deg}deg)`;//iegriež ratu
+      dispatch(startGame(randomStop.value)); //Aizsūta jautājumu tēmu uz Redux
+      dispatch(findImage(randomStop.image));
+      dispatch(addThemeQuestions(randomStop.questions));
+      dispatch(setAllQs(randomStop.secondStageQuestions));//Aizsūta otrās daļas jautājumus uz Redux
+      setTimeout(() => {
+        setShowTreasureChest(true); //Kad rats beidz griezties, parādīt dārgumu lādi
+      }, 6000);
+      setTimeout(() => {
+        setOpenTreasureChest(true);
+      }, 8000);
+      setTimeout(() => {
+        setSpinAgain(true);
+      }, 8500)
     }      
   };
 
