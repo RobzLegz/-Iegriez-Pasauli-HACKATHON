@@ -46,22 +46,22 @@
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Options".</li>
   <img src="src/screenshots/answeredittut1.png" width="300px" />
-  <br />
+  <hr />
   <li><span>2.</span> Atrodiet atbildi, kuru vēlaties rediģēt.</li>
   <img src="src/screenshots/answeredittut2.png" width="500px" />
-  <br />
+  <hr />
   <li><span>3.</span> Atbildei priekšā ir dots jautājums, uz kuru attiecas atbildes opcija.</li>
   <img src="src/screenshots/answeredittut3.png" width="600px" />
-  <br />
+  <hr />
   <li><span>4.</span> Kad noklikšķināsiet uz kādu atbildi, nonāksiet šajā lapā.</li>
   <img src="src/screenshots/answeredittut4.png" width="600px" />
-  <br />
+  <hr />
   <li><span>5.</span> Sadaļā xtraInfo varat rediģēt vai pievienot papildus informāciju saistībā ar jautājumu</li>
   <img src="src/screenshots/answeredittut5.png" width="600px" />
-  <br />
+  <hr />
   <li><span>6.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
   <img src="src/screenshots/answeredittut6.png" width="600px" />
-  <br />
+  <hr />
   <li><span>!</span> Uzmanību šos lauciņus lūdzu nemainīt</li>
   <img src="src/screenshots/answeredittut7.png" width="600px" />
 </ul>
