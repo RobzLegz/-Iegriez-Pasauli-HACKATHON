@@ -24,5 +24,6 @@
 <h4>Lai rediģētu jautājumus:</h4>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
+  <img src="src/screenshots/questioneditstep1.png" width="300px" />
   <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
 </ul>
