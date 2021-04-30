@@ -20,3 +20,9 @@
 <h4>Sadaļā "CORE/Members" var redzēt spēlētāju topu un spēlētāju rezultātus.</h4>
 <h4>Sadaļā "CORE/Questions" var rediģēt jautājumus un papildus informāciju.</h4>
 <h4>Sadaļā"CORE/Options" var rediģēt atbildes uz jautājumiem</h4>
+<br />
+<h4>Lai rediģētu jautājumus:</h4>
+<ul>
+  <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
+  <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
+</ul>
