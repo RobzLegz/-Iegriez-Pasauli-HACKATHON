@@ -1,6 +1,5 @@
 # Iegriez Pasauli
-<a href="https://iegriez-pasauli-hackathon-robzlegz.vercel.app/">Apmeklēt</a> (Ctrl + click)
-<br />
+<h3><a href="https://iegriez-pasauli-hackathon-robzlegz.vercel.app/">Apmeklēt</a> (Ctrl + click)</h3>
 <h2>Noteikumi:</h2>
 <ul>
   <li><span>1.</span> Spiediet pogu "Sākt spēli".</li>
@@ -14,4 +13,16 @@
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
 <h2>Administrātora iespējas:</h2>
-<img src="/src/screenshots/adminlogin.png" />
+<h4>Lai mainītu jautājumus un atbildes vajag pierakstīties <a href="https://iegriez-pasauli-api.herokuapp.com/admin/">šeit</a>.</h4>
+<img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
+<h4>Kad pierakstaties, varat rediģēt jautājumus un atbildes</h4>
+<img src="src/screenshots/adminoptions.png" width="700px" height="auto" />
+<h4>Sadaļā "CORE/Members" var redzēt spēlētāju topu un spēlētāju rezultātus.</h4>
+<h4>Sadaļā "CORE/Questions" var rediģēt jautājumus un papildus informāciju.</h4>
+<h4>Sadaļā"CORE/Options" var rediģēt atbildes uz jautājumiem</h4>
+<br />
+<h4>Lai rediģētu jautājumus:</h4>
+<ul>
+  <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
+  <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
+</ul>
