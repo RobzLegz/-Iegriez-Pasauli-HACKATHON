@@ -14,5 +14,5 @@
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
 <h2>Administrātora iespējas:</h2>
-<h4>Lai mainītu jautājumus un atbildes vajag pierakstīties.</h4>
+<h4>Lai mainītu jautājumus un atbildes vajag pierakstīties <a href="https://iegriez-pasauli-api.herokuapp.com/admin/">šeit</a>.</h4>
 <img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
