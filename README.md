@@ -19,5 +19,3 @@
 <img src="src/screenshots/adminoptions.png" width="700px" height="auto" />
 <h4>Sadaļā "members" var redzēt spēlētāju topu un spēlētāju rezultātus.</h4>
 <h4>Sadaļā "questions" var rediģēt jautājumus un atbildes.</h4>
-<h4>Sadaļā "members" var redzēt spēlētāju topu un spēlētāju rezultātus</h4>
-<h4>Sadaļā "members" var redzēt spēlētāju topu un spēlētāju rezultātus</h4>
