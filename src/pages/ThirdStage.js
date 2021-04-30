@@ -15,10 +15,12 @@ function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup, setLead
       {hasFinished ? (
         <>
           <div className={leaderboardPopup ? "active__leaderboard--popup" : "invisible__leaderboard--popup"}>
+            <h2>Spēlētāju tops</h2>
             {leaderboardUsers.map((leaderboardUser, i) => (
               <div className="" key={i} className={`all__results ${leaderboardUsername === leaderboardUser.username ? "your__result" : ""}`}>
                 <h3>{i + 1}.</h3>
                 <h3>{leaderboardUser.username}</h3>
+                <h3>{leaderboardUser.score}</h3>
                 <h3>{leaderboardUser.role}</h3>
               </div>
             ))}

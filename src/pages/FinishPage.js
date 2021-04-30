@@ -9,7 +9,7 @@ function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboar
 
     return (
         <StyledFinishPage>
-             <div className="results">
+            <div className="results">
                 <h3>{points < 35 ? "😞 Diemžēl" : " 🎉 Apsveicam!"} Jūs ieguvāt lomu </h3><br/> <h2>"{points < 35 ? "ŠVAKRITNIEKS" : points > 74 ? "APRITNIEKS" : "VIDRITNIEKS"}"</h2><br/><h3> un sasniedzāt {points} punktus!</h3>
             </div>
             {leaderboardState ? (
