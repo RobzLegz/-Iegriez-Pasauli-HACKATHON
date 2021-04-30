@@ -62,7 +62,7 @@
   <li><span>4.</span> Kad noklikšķināsiet uz kādu atbildi, nonāksiet šajā lapā.</li>
   <img src="src/screenshots/answeredittut4.png" width="600px" />
   <hr />
-  <li><span>5.</span> Sadaļā xtraInfo varat rediģēt vai pievienot papildus informāciju saistībā ar jautājumu</li>
+  <li><span>5.</span> Atbildes opciju varat rediģēt šeit:</li>
   <img src="src/screenshots/answeredittut5.png" width="600px" />
   <hr />
   <li><span>6.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
