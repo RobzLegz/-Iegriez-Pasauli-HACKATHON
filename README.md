@@ -31,4 +31,6 @@
   <img src="src/screenshots/questioneditstep3.png" width="600px" />
   <li><span>4.</span> Sadaļā Q varat rediģēt pašu jautājumu</li>
   <img src="src/screenshots/questioneditstep4.png" width="600px" />
+  <li><span>5.</span> Sadaļā xtraInfo varat rediģēt vai pievienot papildus informāciju saistībā ar jautājumu</li>
+  <img src="src/screenshots/questioneditstep5.png" width="600px" />
 </ul>
