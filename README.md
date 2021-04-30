@@ -86,4 +86,9 @@
   <li><span>!</span> Uzmanību šo lauciņu lūdzu nemainīt</li>
   <img src="src/screenshots/answeredittut8.png" width="800px" />
 </ul>
-
+<br />
+<h2>Noderīgas saites:</h2>
+<br />
+<ul>
+  <li>1. <code><a href="https://github.com/MareksNo/test-dir-api/tree/fixing-bugs">Backend repository</a></code></li>
+</ul>
