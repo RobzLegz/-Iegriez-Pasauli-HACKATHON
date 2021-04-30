@@ -47,6 +47,7 @@ const StyledSSQuestionPopup = styled.form`
     right: 15px;
     top: 15px;
     cursor:pointer;
+    z-index: 50;
   }
   img{
     height: 60vh;

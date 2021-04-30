@@ -69,7 +69,7 @@ const StyledSecondStage = styled.div`
   > .game__container {
     position: relative;
     width: 90%;
-    max-width: 900px;
+    max-width: 830px;
 
     > img {
       width: 100%;
