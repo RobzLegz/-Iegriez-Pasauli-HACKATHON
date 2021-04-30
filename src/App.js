@@ -18,7 +18,6 @@ import ThirdStage from "./pages/ThirdStage";
 import { finish, selectGameEnded, selecthasfinished, stopGame } from "./features/finishSlice";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import LoginPage from "./pages/LoginPage";
 import Cookies from "universal-cookie";
 import axios from "axios";
 import GameOverPage from "./pages/GameOverPage";
@@ -34,10 +33,8 @@ function App() {
   const [thirdStageStarted, setThirdStageStarted] = useState(false);
   const [thirdStageFoundWords, setThirdStageFoundWords] = useState([]);
   const [instructionState, setInstructionState] = useState(false);
-  //nepareizie trešās daļas jēdzieni
-  const [tsIncorrectWords] = useState([]);
-  //pareizie trešās daļas jēdzieni
-  const [tsCorrectWords, setTsCorrectWords] = useState([])
+  const [tsIncorrectWords] = useState([]);//nepareizie trešās daļas jēdzieni
+  const [tsCorrectWords, setTsCorrectWords] = useState([]);//pareizie trešās daļas jēdzieni
   const [tsCountdownTimer, setTsCountdownTimer] = useState(7);
   const [startWordFlow, setStartWordFlow] = useState(false);
   const [finishCountDown, setFinishCountDown] = useState(15);
@@ -95,10 +92,12 @@ function App() {
     axios.get("https://iegriez-pasauli-api.herokuapp.com/api/questions/").then((res) => {
       for(const questionSelector of res.data){
         if(questionSelector.sub_group === "N/A"){
+          //Atgriež pirmās daļas jautājumus
           wheelStops[indexGroupMap[questionSelector.group.toLowerCase()]].questions.push(
             {q: questionSelector.q, a: questionSelector.options[0].correct === true ? false : true}
           )
         }else{
+          //Atgriež otrās daļas jautājumus
           wheelStops[indexGroupMap[questionSelector.group.toLowerCase()]].secondStageQuestions[questionSelector.sub_group].push(
             {
               image: questionSelector.image, 
@@ -118,6 +117,7 @@ function App() {
       axios.get("https://iegriez-pasauli-api.herokuapp.com/api/thirdstage/").then((res) => {
         for(const thirdStageOp of res.data){
           if(thirdStageOp.correct === false){
+            //Atrod trešās daļas nepareizo vārdu opcijas
             tsIncorrectWords.push(
               {
                 text: thirdStageOp.q, 
@@ -128,6 +128,7 @@ function App() {
               }
             )
           }else{
+            //Atrod trešās daļas pareizo vārdu opcijas
             tsCorrectWords.push(
               {
                 text: thirdStageOp.q, 
@@ -140,8 +141,8 @@ function App() {
           }
         }
       }).then(() => {
-        setRandomStop(wheelStops[Math.floor(Math.random() * 5)]);
-        setLoadingPopup(false);
+        setRandomStop(wheelStops[Math.floor(Math.random() * 5)]);//Izvēlas nejaušu jautājumu daļu
+        setLoadingPopup(false);//Nolaiž spēles lādēšanās popupu
       })
     })
   }, [indexGroupMap, tsIncorrectWords, tsCorrectWords]);
@@ -298,36 +299,6 @@ function App() {
     window.location.reload();
   }
 
-  const userLogin = (tok) => {
-    if (tok) {
-      cookies.set("token", tok, { path: "/" });
-    }
-  };
-
-  const login = (e, user, history) => {
-    e.preventDefault();
-    fetch("https://iegriez-pasauli-api.herokuapp.com/auth/", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        userLogin(data.token);
-        if (data.token) {
-          history.push("/admin");
-          setAdminInfo();
-        }
-      })
-      .catch((error) => console.error(error));
-  };
-
-  const setAdminInfo = () => {
-    window.location.reload();
-  }
-
   const addToLeaderboard = (e) => {
     e.preventDefault();
     if(leaderboardUsername !== ""){
@@ -399,15 +370,6 @@ function App() {
               )}
             </>
           )}
-        </Route>
-        <Route path="/login">
-          <LoginPage
-            login={login}
-            loginPassword={loginPassword}
-            loginUserName={loginUserName}
-            setLoginUserName={setLoginUserName}
-            setLoginPassword={setLoginPassword}
-          />
         </Route>
         <Route path="/">
           <LandingPage
