@@ -15,4 +15,4 @@
 </ul>
 
 <br />
-## Administrātora iespējas:
+# Administrātora iespējas:
