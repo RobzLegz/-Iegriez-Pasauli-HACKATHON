@@ -15,3 +15,5 @@
 <h2>Administrātora iespējas:</h2>
 <h4>Lai mainītu jautājumus un atbildes vajag pierakstīties <a href="https://iegriez-pasauli-api.herokuapp.com/admin/">šeit</a>.</h4>
 <img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
+<h4>Kad pierakstaties, varat rediģēt jautājumus un atbildes</h4>
+<img src="src/screenshots/adminoptions.png" width="400px" height="auto" />
