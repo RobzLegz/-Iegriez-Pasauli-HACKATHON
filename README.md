@@ -17,3 +17,4 @@
 <img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
 <h4>Kad pierakstaties, varat rediģēt jautājumus un atbildes</h4>
 <img src="src/screenshots/adminoptions.png" width="700px" height="auto" />
+<h4>Sadaļā "members" var redzēt spēlētāju topu un spēlētāju rezultātus</h4>
