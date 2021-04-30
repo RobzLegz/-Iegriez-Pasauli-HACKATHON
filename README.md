@@ -17,13 +17,22 @@
 <img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
 <h4>Kad pierakstaties, varat rediģēt jautājumus un atbildes</h4>
 <img src="src/screenshots/adminoptions.png" width="700px" height="auto" />
-<h4>Sadaļā "CORE/Members" var redzēt spēlētāju topu un spēlētāju rezultātus.</h4>
-<h4>Sadaļā "CORE/Questions" var rediģēt jautājumus un papildus informāciju.</h4>
-<h4>Sadaļā"CORE/Options" var rediģēt atbildes uz jautājumiem</h4>
+<h5>Sadaļā "CORE/Members" var redzēt spēlētāju topu un spēlētāju rezultātus.</h5>
+<h5>Sadaļā "CORE/Questions" var rediģēt jautājumus un papildus informāciju.</h5>
+<h5>Sadaļā"CORE/Options" var rediģēt atbildes uz jautājumiem</h5>
 <br />
 <h4>Lai rediģētu jautājumus:</h4>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
   <img src="src/screenshots/questioneditstep1.png" width="300px" />
   <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
+  <img src="src/screenshots/questioneditstep2.png" width="500px" />
+  <li><span>3.</span> Kad uzklikšķinat uz kādu jautājumu, Jūs nonāksiet šajā lapā:</li>
+  <img src="src/screenshots/questioneditstep3.png" width="600px" />
+  <li><span>4.</span> Sadaļā Q varat rediģēt pašu jautājumu</li>
+  <img src="src/screenshots/questioneditstep4.png" width="600px" />
+  <li><span>5.</span> Sadaļā xtraInfo varat rediģēt vai pievienot papildus informāciju saistībā ar jautājumu</li>
+  <img src="src/screenshots/questioneditstep5.png" width="600px" />
+  <li><span>6.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
+  <img src="src/screenshots/questioneditstep6.png" width="600px" />
 </ul>
