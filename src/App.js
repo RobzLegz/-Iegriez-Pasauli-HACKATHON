@@ -5,9 +5,7 @@ import {
   findImage,
   addThemeQuestions,
   selectQuestions,
-  selectThemeImage,
   addSecond,
-  selectGameSeconds,
 } from "./features/gameSlice";
 import { checkSecondStage, setActiveCorrectAnswer, setActiveAnswers, startSecondStage, setAllQs, setActiveQuestion } from "./features/secondStageSlice";
 import { addPoint, addPoints, selectPoints } from "./features/userSlice";
@@ -48,6 +46,7 @@ function App() {
   const [gameCountDownTimer, setGameCountDownTimer] = useState(900);
   const [leaderboardPopup, setLeaderboardPopup] = useState(false);
   const [loadingPopup, setLoadingPopup] = useState(false);
+  const [finishedGame, setFinishedGame] = useState(false);
   const [correctAnswerState, setCorrectAnswerState] = useState({
     shown: false, 
     correctAnswer: "", 
@@ -63,24 +62,14 @@ function App() {
     "burger": 4
   })
 
-  const themeImage = useSelector(selectThemeImage);
   const activeQuestions = useSelector(selectQuestions);
   const secondStageStarted = useSelector(checkSecondStage);
   const hasFinished = useSelector(selecthasfinished);
   const points = useSelector(selectPoints);
   const gameOver = useSelector(selectGameEnded);
-  const gameTime = useSelector(selectGameSeconds);
 
   const dispatch = useDispatch();
   const wheelRef = useRef();
-
-  useEffect(() => {
-    if(themeImage !== ""){
-      setTimeout(() => {
-        dispatch(addSecond());
-      }, 1000);
-    }    
-  }, [themeImage, gameTime, dispatch])
 
   useEffect(() => {
     setLoadingPopup(true);
@@ -119,7 +108,7 @@ function App() {
                 color: thirdStageOp.color,
                 fontSize: thirdStageOp.fontsize,
                 top: Math.floor((Math.random() * 70) + 20), 
-                left: Math.floor((Math.random() * 70)+ 20),               
+                left: Math.floor((Math.random() * 70) + 20),               
               }
             )
           }else{
@@ -151,7 +140,7 @@ function App() {
           setTsCountdownTimer(tsCountdownTimer - 1);
         }, 1000);
       }else if(tsCountdownTimer === 0){
-        //kad (3, 2, 1) atskaites taimeris ir 0, tad izpildīt šo:  
+        //kad (3, 2, 1) atskaites taimeris ir 0, tad izpildīt šo:
         setStartWordFlow(true); //sāk vārdu krišanas spēli
         setTimeout(() => {
           //atskaitīt dotās sekundes līdz finišam
@@ -159,6 +148,7 @@ function App() {
         }, 1000);
         if(finishCountDown === 0){
           //kad finiša laiks sasniedz 0 tad pasaka ka ir finišējis
+          setFinishedGame(true);
           dispatch(finish());
           return;
         }
@@ -169,7 +159,7 @@ function App() {
   }, [thirdStageStarted, tsCountdownTimer, finishCountDown, dispatch, thirdStageFoundWords, hasFinished, foundWordObject]);
 
   useEffect(() => {
-    if(secondStageStarted){
+    if(secondStageStarted && !finishedGame){
       //Kad sākas otrās daļa, sākt taimeri
       setTimeout(() => {
         if(gameCountDownTimer <= 0){
@@ -178,9 +168,12 @@ function App() {
           return;
         }
         setGameCountDownTimer(gameCountDownTimer - 1);
+        dispatch(addSecond());
       }, 1000);
+    }else{
+      return;
     }
-  }, [gameCountDownTimer, secondStageStarted, dispatch]);
+  }, [gameCountDownTimer, secondStageStarted, dispatch, finishedGame]);
 
   //Iegriež ratu
   const SpinTheWheel = () => {
