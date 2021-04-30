@@ -39,9 +39,9 @@
   <img src="src/screenshots/questioneditstep7.png" width="600px" />
 </ul>
 <br />
-<h4>Lai rediģētu jautājumus:</h4>
+<h4>Lai rediģētu atbildes:</h4>
 <ul>
-  <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
+  <li><span>1.</span> Aizejiet uz sadaļu "CORE/Options"</li>
   <img src="src/screenshots/answeredittut1.png" width="300px" />
   <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
   <img src="src/screenshots/answeredittut2.png" width="500px" />
