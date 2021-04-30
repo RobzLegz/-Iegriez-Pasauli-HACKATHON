@@ -55,7 +55,7 @@ const StyledSpinnerPage = styled.div`
     top: 50px;
     padding: 10px;
     left: 30%;
-    animation: Wrapper 1s, Wrapper 1s 6s reverse forwards,flicker 1.5s infinite alternate;
+    animation: Wrapper 1s, Wrapper 1s 4s reverse forwards,flicker 1.5s infinite alternate;
     h1{
       font-size: 42px;
       margin-bottom: 10px;

@@ -13,19 +13,19 @@ function SecondStage({ssQuestionState,correctAnswerState,randomStop,setSsQuestio
                 <p>Nospied, lai izpētītu!</p>
             </div>
             <div className="game__container">
-                <img src={MapImage} alt="europe map"/>
-                <RandomisedQuestions
-                  correctAnswerState={correctAnswerState}
-                  setCorrectAnswerState={setCorrectAnswerState}
-                  randomStop={randomStop}
-                  setSsQuestionState={setSsQuestionState}
-                  ssQuestionVisible={ssQuestionVisible}
-                  ssAnswer={ssAnswer}
-                  setSsAnswer={setSsAnswer}
-                  ssQuestionState={ssQuestionState}
-                  openSecondStageQuestion={openSecondStageQuestion}
-                  closeSecondStageQuestion={closeSecondStageQuestion}
-                />      
+              <img src={MapImage} alt="europe map"/>
+              <RandomisedQuestions
+                correctAnswerState={correctAnswerState}
+                setCorrectAnswerState={setCorrectAnswerState}
+                randomStop={randomStop}
+                setSsQuestionState={setSsQuestionState}
+                ssQuestionVisible={ssQuestionVisible}
+                ssAnswer={ssAnswer}
+                setSsAnswer={setSsAnswer}
+                ssQuestionState={ssQuestionState}
+                openSecondStageQuestion={openSecondStageQuestion}
+                closeSecondStageQuestion={closeSecondStageQuestion}
+              />      
             </div>  
         </StyledSecondStage>
     )
@@ -53,7 +53,7 @@ const StyledSecondStage = styled.div`
     top: 50px;
     padding: 10px;
     left: 30%;
-    animation: Wrapper 1s, Wrapper 1s 6s reverse forwards, flicker1 1.5s infinite alternate;
+    animation: Wrapper 1s, Wrapper 1s 4s reverse forwards, flicker1 1.5s infinite alternate;
 
     h1 {
       font-size: 42px;

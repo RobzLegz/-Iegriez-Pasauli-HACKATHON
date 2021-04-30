@@ -35,36 +35,9 @@ function App() {
   const [thirdStageFoundWords, setThirdStageFoundWords] = useState([]);
   const [instructionState, setInstructionState] = useState(false);
   //nepareizie trešās daļas jēdzieni
-  const [tsIncorrectWords] = useState([
-    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#9aca3c", fontSize: "3rem"},
-    {text: "tērē ūdeni", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#495f41", fontSize: "2.5rem"},
-    {text: "pērc jaunu", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "rgb(212,138,9)", fontSize: "2rem"},
-    {text: "izmanto ķīmiju", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#3c3c58", fontSize: "1.8rem"},
-    {text: "neremontē", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#1fbcd8", fontSize: "2.5rem"},
-    {text: "nepērc vietējo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#2c85a4", fontSize: "rem"},
-    {text: "nepārstrādā", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#c3e5ed", fontSize: "2.7rem"},
-    {text: "nelabo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#ffa52f", fontSize: "2.7rem"},
-    {text: "nešķiro atkritumus", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#fd5679", fontSize: "2.5rem"},
-    {text: "pērc jaunu", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#2032d4", fontSize: "1.6rem"},
-    {text: "nešķiro", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#25bcd6", fontSize: "3rem"},
-    {text: "piesārņo", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#51ca19", fontSize: "2rem"},
-    {text: "pērc vairāk", top: Math.floor((Math.random() * 70) + 20), left: Math.floor((Math.random() * 70) + 20), color: "#51ca20", fontSize: "2.6rem"},
-  ]);
+  const [tsIncorrectWords] = useState([]);
   //pareizie trešās daļas jēdzieni
-  const [tsCorrectWords, setTsCorrectWords] = useState([
-    {text: "remontē", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#9aca3c", fontSize: "3rem"},
-    {text: "salabo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#b4b413", fontSize: "1.6rem"},
-    {text: "sašuj", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#f02e2e", fontSize: "2.7rem"},
-    {text: "salāpi", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#74be12", fontSize: "1.5rem"},
-    {text: "šķiro", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#2c85a4", fontSize: "2rem"},
-    {text: "atdod", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#8d24ca", fontSize: "3rem"},
-    {text: "aizņemies", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#f02eb6", fontSize: "2.7rem"},
-    {text: "iestādi", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#4f0f0f", fontSize: "2.5rem"},
-    {text: "audzē", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#f02e2f", fontSize: "1.6rem"},
-    {text: "pārstrādā", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#2032d4", fontSize: "3rem"},
-    {text: "ēd vietējo", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#1fbcd8", fontSize: "1.4rem"},
-    {text: "samal", bottom: Math.floor((Math.random() * 70) + 20), right: Math.floor((Math.random() * 70) + 20), color: "#51ca20", fontSize: "2.5rem"},
-  ])
+  const [tsCorrectWords, setTsCorrectWords] = useState([])
   const [tsCountdownTimer, setTsCountdownTimer] = useState(7);
   const [startWordFlow, setStartWordFlow] = useState(false);
   const [finishCountDown, setFinishCountDown] = useState(15);
@@ -142,10 +115,36 @@ function App() {
         }
       }
     }).then(() => {
-      setRandomStop(wheelStops[Math.floor(Math.random() * 5)]);
-      setLoadingPopup(false);
+      axios.get("https://iegriez-pasauli-api.herokuapp.com/api/thirdstage/").then((res) => {
+        for(const thirdStageOp of res.data){
+          if(thirdStageOp.correct === false){
+            tsIncorrectWords.push(
+              {
+                text: thirdStageOp.q, 
+                color: thirdStageOp.color,
+                fontSize: thirdStageOp.fontsize,
+                top: Math.floor((Math.random() * 70) + 20), 
+                left: Math.floor((Math.random() * 70)+ 20),               
+              }
+            )
+          }else{
+            tsCorrectWords.push(
+              {
+                text: thirdStageOp.q, 
+                color: thirdStageOp.color,
+                fontSize: thirdStageOp.fontsize,
+                bottom: Math.floor((Math.random() * 70) + 20), 
+                right: Math.floor((Math.random() * 70) + 20)              
+              }
+            )
+          }
+        }
+      }).then(() => {
+        setRandomStop(wheelStops[Math.floor(Math.random() * 5)]);
+        setLoadingPopup(false);
+      })
     })
-  }, [indexGroupMap]);
+  }, [indexGroupMap, tsIncorrectWords, tsCorrectWords]);
 
   useEffect(() => {
     if(!hasFinished){

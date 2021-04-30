@@ -254,7 +254,7 @@ const StyledLandingPage = styled.div`
     font-size: 100px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 400px;
+    margin-top: 330px;
     font-weight: 800;
     text-align: center;
     opacity: 0.9;
@@ -301,7 +301,6 @@ const StyledLandingPage = styled.div`
     -webkit-transform: scale(1.1) rotate(7deg);
     transform: scale(1.1) rotate(7deg);
   }
-
   @media (max-width: 795px) {
     .earth {
       width: 300px;
@@ -337,14 +336,14 @@ const StyledLandingPage = styled.div`
     }
       h1 {
          font-size:80px;
-         margin-top: 350px;
+         margin-top: 270px;
        }
     }
   @media (max-width: 903px) {
     
     h1 {
       font-size: 75px;
-      margin-top: 350px;
+      margin-top: 270px;
       -webkit-text-stroke: 4px black;
     }
   }
@@ -363,6 +362,7 @@ const StyledLandingPage = styled.div`
       font-size:55px;
     }
   }
+
   @media (max-width: 565px) {
     .earth {
       width: 400px;
@@ -383,11 +383,11 @@ const StyledLandingPage = styled.div`
     }
     h1 {
       font-size: 50px;
-      margin-top: 300px;
+      margin-top: 230px;
       -webkit-text-stroke: 3px black;
     }
     .pogas{
-      margin-top: 50px;
+      margin-top:10px;
     }
   }
   @media(max-width:555px){
@@ -421,7 +421,7 @@ const StyledLandingPage = styled.div`
 
     h1 {
       font-size:40px;
-      margin-top: 280px;
+      margin-top: 210px;
     }
 
     .pogas {
@@ -434,7 +434,7 @@ const StyledLandingPage = styled.div`
       font-size:37px;
     }
     .pogas{
-      margin-top:25px;
+      margin-top:15px;
     }
   }
 
@@ -458,12 +458,12 @@ const StyledLandingPage = styled.div`
       }
     }
     h1 {
-      margin-top: 260px;
+      margin-top: 180px;
       font-size: 32px;
       -webkit-text-stroke: 2px black;
     }
     .pogas{
-      margin-top: 70px;
+      margin-top: 30px;
     }
   }
   @media(max-width: 340px){
@@ -486,7 +486,7 @@ const StyledLandingPage = styled.div`
 
     h1{
         font-size:30px;
-        margin-top: 250px;
+        margin-top: 170px;
       }
     .pogas{
       margin-top:50px;
@@ -518,7 +518,7 @@ const StyledLandingPage = styled.div`
     
     h1 {
       font-size:30px;
-      margin-top: 240px;
+      margin-top: 160px;
       -webkit-text-stroke: 2px black;
     }
 
