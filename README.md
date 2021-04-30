@@ -113,8 +113,9 @@
 <img src="src/screenshots/gameplay2.png" width="90%" />
 <img src="src/screenshots/gameplay3.png" width="90%" />
 <img src="src/screenshots/gameplay4.png" width="90%" />
-<img src="" width="90%" />
-<img src="" width="90%" />
-<img src="" width="90%" />
-<img src="" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779161359450182/unknown.png" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779287850352680/unknown.png" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779452900802600/unknown.png" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779716181196840/unknown.png" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779844036952136/unknown.png" width="90%" />
 
