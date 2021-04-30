@@ -70,6 +70,6 @@
   <img src="src/screenshots/answeredittut6.png" width="600px" />
   <hr />
   <li><span>!</span> Uzmanību šo lauciņu lūdzu nemainīt</li>
-  <img src="src/screenshots/answeredittut8.png" width="600px" />
+  <img src="src/screenshots/answeredittut8.png" width="800px" />
 </ul>
 
