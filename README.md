@@ -29,6 +29,6 @@
   <img src="src/screenshots/questioneditstep2.png" width="500px" />
   <li><span>3.</span> Kad uzklikšķinat uz kādu jautājumu, Jūs nonāksiet šajā lapā:</li>
   <img src="src/screenshots/questioneditstep3.png" width="600px" />
-  <li><span>3.</span> Sadaļā Q varat rediģēt pašu jautājumu</li>
+  <li><span>4.</span> Sadaļā Q varat rediģēt pašu jautājumu</li>
   <img src="src/screenshots/questioneditstep4.png" width="600px" />
 </ul>
