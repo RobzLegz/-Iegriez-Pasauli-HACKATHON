@@ -12,6 +12,7 @@
   <li><span>8.</span> Pēc trešās kārtas Jūs uzzināsiet cik punktus nopelnījāt un kāda ir jūsu loma.</li>
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
+<hr />
 <h2>Administrātora iespējas:</h2>
 <h4>Lai mainītu jautājumus un atbildes vajag pierakstīties <a href="https://iegriez-pasauli-api.herokuapp.com/admin/">šeit</a>.</h4>
 <img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
@@ -21,6 +22,7 @@
 <h5>Sadaļā "CORE/Questions" var rediģēt jautājumus un papildus informāciju.</h5>
 <h5>Sadaļā"CORE/Options" var rediģēt atbildes uz jautājumiem</h5>
 <br />
+<hr />
 <h4>Lai rediģētu jautājumus:</h4>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
@@ -39,6 +41,7 @@
   <img src="src/screenshots/questioneditstep7.png" width="600px" />
 </ul>
 <br />
+<hr />
 <h4>Lai rediģētu atbildes:</h4>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Options".</li>
