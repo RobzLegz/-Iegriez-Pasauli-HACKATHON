@@ -19,3 +19,4 @@
 <img src="src/screenshots/adminoptions.png" width="700px" height="auto" />
 <h4>Sadaļā "core/members" var redzēt spēlētāju topu un spēlētāju rezultātus.</h4>
 <h4>Sadaļā "core/questions" var rediģēt jautājumus un papildus informāciju.</h4>
+<h4>Sadaļā"core/options" var rediģēt atbildes uz jautājumiem</h4>
