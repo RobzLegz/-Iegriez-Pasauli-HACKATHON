@@ -69,7 +69,7 @@
   <p>!!!Uzmanību---> Katrā jautājumā obligāti jābūt vienai pareizai atbilžu opcijai</p>
   <img src="src/screenshots/answeredittut6.png" width="600px" />
   <hr />
-  <li><span>!</span> Uzmanību šos lauciņus lūdzu nemainīt</li>
-  <img src="src/screenshots/answeredittut7.png" width="600px" />
+  <li><span>!</span> Uzmanību šo lauciņu lūdzu nemainīt</li>
+  <img src="src/screenshots/answeredittut8.png" width="600px" />
 </ul>
 
