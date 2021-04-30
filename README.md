@@ -67,7 +67,7 @@
   <hr />
   <li><span>6.</span> Ar šo checkbox varat norādīt vai atbildes opcija ir pareiza</li>
   <p>!!!Uzmanību---> Katrā jautājumā obligāti jābūt vienai pareizai atbilžu opcijai</p>
-  <img src="src/screenshots/answeredittut6.png" width="300px" />
+  <img src="src/screenshots/answeredittut6.png" width="200px" />
   <hr />
   <li><span>7.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
     <img src="src/screenshots/questioneditstep6.png" width="600px" />
