@@ -224,7 +224,7 @@ function App() {
       //kad atbild uz visiem jautājumiem, sāk otro spēles daļu
       dispatch(startSecondStage());
       return;
-    }    
+    }
   };
 
   //atver jautājuma popupu
@@ -345,7 +345,7 @@ function App() {
     <BrowserRouter>
       <GlobalStyles />
       <audio autoPlay loop>
-        <source src="landingPageResources/iegriez_pasauli.mp3" type="audio/mpeg"/>
+        <source src="landingPageResources/iegriez_pasauli.mp3" type="audio/mp3"/>
       </audio>
       <Switch>
         <Route path="/game">
