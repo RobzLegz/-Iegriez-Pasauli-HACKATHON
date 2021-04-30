@@ -12,6 +12,13 @@
   <li><span>8.</span> Pēc trešās kārtas Jūs uzzināsiet cik punktus nopelnījāt un kāda ir jūsu loma.</li>
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
+<hr />
+<h2>Kā palaist aplikāciju?</h2>
+<ul>
+  <li>1. <code>npm install</code></li>
+  <li>2. <code>npm start</code></li>
+</ul>
+<hr />
 <h2>Administrātora iespējas:</h2>
 <h4>Lai mainītu jautājumus un atbildes vajag pierakstīties <a href="https://iegriez-pasauli-api.herokuapp.com/admin/">šeit</a>.</h4>
 <img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
@@ -21,39 +28,59 @@
 <h5>Sadaļā "CORE/Questions" var rediģēt jautājumus un papildus informāciju.</h5>
 <h5>Sadaļā"CORE/Options" var rediģēt atbildes uz jautājumiem</h5>
 <br />
+<hr />
 <h4>Lai rediģētu jautājumus:</h4>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
   <img src="src/screenshots/questioneditstep1.png" width="300px" />
+<hr />
   <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
   <img src="src/screenshots/questioneditstep2.png" width="500px" />
+<hr />
   <li><span>3.</span> Kad uzklikšķinat uz kādu jautājumu, Jūs nonāksiet šajā lapā:</li>
   <img src="src/screenshots/questioneditstep3.png" width="600px" />
+<hr />
   <li><span>4.</span> Sadaļā Q varat rediģēt pašu jautājumu</li>
   <img src="src/screenshots/questioneditstep4.png" width="600px" />
+<hr />
   <li><span>5.</span> Sadaļā xtraInfo varat rediģēt vai pievienot papildus informāciju saistībā ar jautājumu</li>
   <img src="src/screenshots/questioneditstep5.png" width="600px" />
+<hr />
   <li><span>6.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
   <img src="src/screenshots/questioneditstep6.png" width="600px" />
+<hr />
   <li><span>!</span> Uzmanību šos lauciņus lūdzu nemainīt</li>
   <img src="src/screenshots/questioneditstep7.png" width="600px" />
 </ul>
 <br />
-<h4>Lai rediģētu jautājumus:</h4>
+<hr />
+<br />
+<br />
+<h4>Lai rediģētu atbildes:</h4>
 <ul>
-  <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
+  <li><span>1.</span> Aizejiet uz sadaļu "CORE/Options".</li>
   <img src="src/screenshots/answeredittut1.png" width="300px" />
-  <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
+  <hr />
+  <li><span>2.</span> Atrodiet atbildi, kuru vēlaties rediģēt.</li>
   <img src="src/screenshots/answeredittut2.png" width="500px" />
-  <li><span>3.</span> Kad uzklikšķinat uz kādu jautājumu, Jūs nonāksiet šajā lapā:</li>
+  <hr />
+  <li><span>3.</span> Atbildei priekšā ir dots jautājums, uz kuru attiecas atbildes opcija.</li>
   <img src="src/screenshots/answeredittut3.png" width="600px" />
-  <li><span>4.</span> Sadaļā Q varat rediģēt pašu jautājumu</li>
+  <hr />
+  <li><span>4.</span> Kad noklikšķināsiet uz kādu atbildi, nonāksiet šajā lapā.</li>
   <img src="src/screenshots/answeredittut4.png" width="600px" />
-  <li><span>5.</span> Sadaļā xtraInfo varat rediģēt vai pievienot papildus informāciju saistībā ar jautājumu</li>
+  <hr />
+  <li><span>5.</span> Atbildes opciju varat rediģēt šeit:</li>
   <img src="src/screenshots/answeredittut5.png" width="600px" />
-  <li><span>6.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
-  <img src="src/screenshots/answeredittut6.png" width="600px" />
-  <li><span>!</span> Uzmanību šos lauciņus lūdzu nemainīt</li>
-  <img src="src/screenshots/answeredittut7.png" width="600px" />
+  <hr />
+  <li><span>6.</span> Ar šo checkbox varat norādīt vai atbildes opcija ir pareiza</li>
+  <p>!!!Uzmanību---> Katrā jautājumā obligāti jābūt vienai pareizai atbilžu opcijai</p>
+  <img src="src/screenshots/answeredittut6.png" width="200px" />
+  <hr />
+  <li><span>7.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
+    <img src="src/screenshots/questioneditstep6.png" width="600px" />
+  <hr />
+  <li><span>!</span> Uzmanību šo lauciņu lūdzu nemainīt</li>
+  <img src="src/screenshots/answeredittut8.png" width="800px" />
 </ul>
 
