@@ -49,8 +49,8 @@ function App() {
   const [finishedGame, setFinishedGame] = useState(false);
   const [correctAnswerState, setCorrectAnswerState] = useState({
     shown: false, 
-    correctAnswer: "", 
-    xtraInfo: "", 
+    correctAnswer: "",
+    xtraInfo: "",
     answeredCorrectly: false,
     activeQusetion: ""
   })
@@ -277,7 +277,7 @@ function App() {
   const clickWord = (foundWord) => {
     setFoundWordObject([foundWord.text, foundWord.bottom, foundWord.right, foundWord.id])
     setThirdStageFoundWords([...thirdStageFoundWords, foundWordObject]); //pieliek noklikšķināto vārdu atrasto vārdu masīvam
-    setTsCorrectWords(tsCorrectWords.filter(txt => txt !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
+    setTsCorrectWords(tsCorrectWords.filter((txt) => txt !== foundWord)); //noņem noklikšķināto vārdu no pareizo vārdu masīva
     dispatch(addPoint()); //palielina punktu skaitu
   }
 
@@ -287,11 +287,11 @@ function App() {
     window.location.reload();
   }
 
-  const addToLeaderboard = (e) => {
+  const addToLeaderboard = (e, role) => {
     e.preventDefault();
     if(leaderboardUsername !== ""){
       setLeaderboardPopup(true);
-      axios.post("https://iegriez-pasauli-api.herokuapp.com/api/members/", {"username": leaderboardUsername, "score": points}).then(() => {
+      axios.post("https://iegriez-pasauli-api.herokuapp.com/api/members/", {"username": leaderboardUsername, "score": points, "role": role}).then(() => {
         axios.get("https://iegriez-pasauli-api.herokuapp.com/api/members/").then((res) => {
           setLeaderboardUsers(res.data);
         })

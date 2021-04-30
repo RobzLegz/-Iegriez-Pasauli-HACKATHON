@@ -15,7 +15,7 @@ function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboar
             {leaderboardState ? (
                 <form>
                     <input type="text" value={leaderboardUsername} onChange={(e) => setLeaderboardUsername(e.target.value)} placeholder="Lietotājvārds:" />
-                    <button onClick={(e) => addToLeaderboard(e)} id="check">Pārbaudīt</button>
+                    <button onClick={(e) => addToLeaderboard(e, points < 35 ? "ŠVAKRITNIEKS" : points > 74 ? "APRITNIEKS" : "VIDRITNIEKS")} id="check">Pārbaudīt</button>
                     <button onClick={playAgain} id="again">Spēlēt vēlreiz</button>
                 </form>
             ) : (
@@ -25,7 +25,7 @@ function FinishPage({playAgain,addToLeaderboard, setLeaderboardState, leaderboar
                 </div>
             )}
             {points > 34 && (
-                <ReactConfetti/>
+                <ReactConfetti />
             )}          
         </StyledFinishPage>
     )

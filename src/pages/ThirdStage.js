@@ -6,43 +6,45 @@ import Header from '../header/Header';
 import WordFlow from "../thirdStage/WordFlow"
 import FinishPage from './FinishPage';
 
-function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup,setLeaderboardUsername, leaderboardUsername, addToLeaderboard,leaderboardState,setLeaderboardState, playAgain, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
+function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup, setLeaderboardUsername, leaderboardUsername, addToLeaderboard,leaderboardState,setLeaderboardState, playAgain, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
+  const hasFinished = useSelector(selecthasfinished);
 
-    const hasFinished = useSelector(selecthasfinished);
-    let i = 1;
-
-    return (
-        <StyledThirdStagePage>
-            <Header />
-            {hasFinished ? (
-                <>
-                    <div className={leaderboardPopup ? "active__leaderboard--popup" : "invisible__leaderboard--popup"}>
-                        {leaderboardUsers.map((leaderboardUser) => (
-                            <h3 key={i} className={`all__results ${leaderboardUsername === leaderboardUser.username ? "your__result" : ""}`}>{i++}. {leaderboardUser.username}</h3>
-                        ))}
-                        <button onClick={playAgain}>Spēlēt vēlreiz</button>
-                    </div>
-                    <FinishPage leaderboardUsername={leaderboardUsername} setLeaderboardUsername={setLeaderboardUsername} addToLeaderboard={addToLeaderboard} leaderboardState={leaderboardState} setLeaderboardState={setLeaderboardState} playAgain={playAgain} />
-                </>
-            ) : (
-                <>
-                    {startWordFlow ? (
-                        <WordFlow
-                            finishCountDown={finishCountDown}
-                            thirdStageFoundWords={thirdStageFoundWords}
-                            clickWord={clickWord}
-                            tsCorrectWords={tsCorrectWords} 
-                            tsIncorrectWords={tsIncorrectWords} 
-                        />
-                    ) : (
-                        <div className="wrapper">
-                            <h3>{tsCountdownTimer > 1 ? tsCountdownTimer > 4 ? "Uzklikšķini uz tiem vārdiem, kuri saistīti ar aprites ekonomiku" : tsCountdownTimer - 1 : "Aiziet!"}</h3>
-                        </div>  
-                    )}
-                </>
-            )}            
-        </StyledThirdStagePage>
-    )
+  return (
+    <StyledThirdStagePage>
+      <Header />
+      {hasFinished ? (
+        <>
+          <div className={leaderboardPopup ? "active__leaderboard--popup" : "invisible__leaderboard--popup"}>
+            {leaderboardUsers.map((leaderboardUser, i) => (
+              <div className="" key={i} className={`all__results ${leaderboardUsername === leaderboardUser.username ? "your__result" : ""}`}>
+                <h3>{i + 1}.</h3>
+                <h3>{leaderboardUser.username}</h3>
+                <h3>{leaderboardUser.role}</h3>
+              </div>
+            ))}
+            <button onClick={playAgain}>Spēlēt vēlreiz</button>
+          </div>
+          <FinishPage leaderboardUsername={leaderboardUsername} setLeaderboardUsername={setLeaderboardUsername} addToLeaderboard={addToLeaderboard} leaderboardState={leaderboardState} setLeaderboardState={setLeaderboardState} playAgain={playAgain} />
+        </>
+      ) : (
+          <>
+              {startWordFlow ? (
+                <WordFlow
+                  finishCountDown={finishCountDown}
+                  thirdStageFoundWords={thirdStageFoundWords}
+                  clickWord={clickWord}
+                  tsCorrectWords={tsCorrectWords} 
+                  tsIncorrectWords={tsIncorrectWords} 
+                />
+              ) : (
+                <div className="wrapper">
+                  <h3>{tsCountdownTimer > 1 ? tsCountdownTimer > 4 ? "Uzklikšķini uz tiem vārdiem, kuri saistīti ar aprites ekonomiku" : tsCountdownTimer - 1 : "Aiziet!"}</h3>
+                </div>  
+              )}
+          </>
+      )}            
+    </StyledThirdStagePage>
+  )
 }
 const StyledThirdStagePage = styled.div`
     background: linear-gradient(120deg, #efeae4, #ebe1d1);
@@ -82,9 +84,13 @@ const StyledThirdStagePage = styled.div`
         >h3{
             text-align: left;
         }
-        >.your__result{
-            background: yellow;
+        >.all__results{
+
         }
+        >.your__result{
+          background: yellow;
+        }
+        
     }
     >.invisible__leaderboard--popup{
         opacity: 0;
