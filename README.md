@@ -16,7 +16,7 @@
 <h2>Kā palaist aplikāciju?</h2>
 <ul>
   <li>0. Instalē nodeJS <a href="https://nodejs.org/en/">šeit</a></li>
-  <li>2. Atver kodu teksta rediģētājā</li>
+  <li>1. Atver kodu teksta rediģētājā</li>
   <li>2. Atver termināli(<code>Ctrl + `</code>)</li>
   <li>3. <code>npm install</code></li>
   <li>4. <code>npm start</code></li>
