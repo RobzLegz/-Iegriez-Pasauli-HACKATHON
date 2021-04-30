@@ -35,4 +35,6 @@
   <img src="src/screenshots/questioneditstep5.png" width="600px" />
   <li><span>6.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
   <img src="src/screenshots/questioneditstep6.png" width="600px" />
+  <li><span>!</span> Uzmanību šos lauciņus lūdzu nemainīt</li>
+  <img src="src/screenshots/questioneditstep7.png" width="600px" />
 </ul>
