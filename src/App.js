@@ -130,7 +130,7 @@ function App() {
         })
       })
     }
-  }, [indexGroupMap, tsIncorrectWords, tsCorrectWords]);
+  }, [indexGroupMap, tsIncorrectWords, tsCorrectWords, loadingPopup]);
 
   useEffect(() => {
     if(!hasFinished){
