@@ -13,6 +13,12 @@
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
 <hr />
+<h2>Kā palaist aplikāciju?</h2>
+<ul>
+  <li>1. <code>npm install</code></li>
+  <li>2. <code>npm start</code></li>
+</ul>
+<hr />
 <h2>Administrātora iespējas:</h2>
 <h4>Lai mainītu jautājumus un atbildes vajag pierakstīties <a href="https://iegriez-pasauli-api.herokuapp.com/admin/">šeit</a>.</h4>
 <img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
