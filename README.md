@@ -27,6 +27,6 @@
   <img src="src/screenshots/questioneditstep1.png" width="300px" />
   <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
   <img src="src/screenshots/questioneditstep2.png" width="500px" />
-  <li><span>3.</span> Varat sākt rediģēt</li>
+  <li><span>3.</span> Kad uzklikšķinat uz kādu jautājumu, Jūs nonāksiet šajā lapā:</li>
   <img src="src/screenshots/questioneditstep3.png" width="500px" />
 </ul>
