@@ -14,7 +14,7 @@ function Home({
   answerCounter,
   showTreasureChest,
   openTreasureChest,
-  loadingPopup
+  loadingPopup,
 }) {
   const ThemeName = useSelector(selectTheme);
 

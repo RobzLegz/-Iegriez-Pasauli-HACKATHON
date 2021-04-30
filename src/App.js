@@ -45,7 +45,7 @@ function App() {
   const [spinBtnCounter, setSpinBtnCounter] = useState(0);
   const [gameCountDownTimer, setGameCountDownTimer] = useState(900);
   const [leaderboardPopup, setLeaderboardPopup] = useState(false);
-  const [loadingPopup, setLoadingPopup] = useState(false);
+  const [loadingPopup, setLoadingPopup] = useState(true);
   const [finishedGame, setFinishedGame] = useState(false);
   const [correctAnswerState, setCorrectAnswerState] = useState({
     shown: false, 
@@ -72,63 +72,64 @@ function App() {
   const wheelRef = useRef();
 
   useEffect(() => {
-    setLoadingPopup(true);
-    axios.get("https://iegriez-pasauli-api.herokuapp.com/api/questions/").then((res) => {
-      for(const questionSelector of res.data){
-        if(questionSelector.sub_group === "N/A"){
-          //Atgriež pirmās daļas jautājumus
-          wheelStops[indexGroupMap[questionSelector.group.toLowerCase()]].questions.push(
-            {q: questionSelector.q, a: questionSelector.options[0].correct === true ? false : true}
-          )
-        }else{
-          //Atgriež otrās daļas jautājumus
-          wheelStops[indexGroupMap[questionSelector.group.toLowerCase()]].secondStageQuestions[questionSelector.sub_group].push(
-            {
-              image: questionSelector.image, 
-              q: questionSelector.q, 
-              xtraInfo: questionSelector.xtraInfo,
-              answerOptions: questionSelector.options.map((option) => 
-                option.choice_text
-              ),
-              correctAnswer: questionSelector.options.find((option) => {
-                return option.correct;
-              })?.choice_text,
-            }
-          )
-        }
-      }
-    }).then(() => {
-      axios.get("https://iegriez-pasauli-api.herokuapp.com/api/thirdstage/").then((res) => {
-        for(const thirdStageOp of res.data){
-          if(thirdStageOp.correct === false){
-            //Atrod trešās daļas nepareizo vārdu opcijas
-            tsIncorrectWords.push(
-              {
-                text: thirdStageOp.q, 
-                color: thirdStageOp.color,
-                fontSize: thirdStageOp.fontsize,
-                top: Math.floor((Math.random() * 70) + 20), 
-                left: Math.floor((Math.random() * 70) + 20),               
-              }
+    if(loadingPopup){
+      axios.get("https://iegriez-pasauli-api.herokuapp.com/api/questions/").then((res) => {
+        for(const questionSelector of res.data){
+          if(questionSelector.sub_group === "N/A"){
+            //Atgriež pirmās daļas jautājumus
+            wheelStops[indexGroupMap[questionSelector.group.toLowerCase()]].questions.push(
+              {q: questionSelector.q, a: questionSelector.options[0].correct === true ? false : true}
             )
           }else{
-            //Atrod trešās daļas pareizo vārdu opcijas
-            tsCorrectWords.push(
+            //Atgriež otrās daļas jautājumus
+            wheelStops[indexGroupMap[questionSelector.group.toLowerCase()]].secondStageQuestions[questionSelector.sub_group].push(
               {
-                text: thirdStageOp.q, 
-                color: thirdStageOp.color,
-                fontSize: thirdStageOp.fontsize,
-                bottom: Math.floor((Math.random() * 70) + 20), 
-                right: Math.floor((Math.random() * 70) + 20)              
+                image: questionSelector.image, 
+                q: questionSelector.q, 
+                xtraInfo: questionSelector.xtraInfo,
+                answerOptions: questionSelector.options.map((option) => 
+                  option.choice_text
+                ),
+                correctAnswer: questionSelector.options.find((option) => {
+                  return option.correct;
+                })?.choice_text,
               }
             )
           }
         }
       }).then(() => {
-        setRandomStop(wheelStops[Math.floor(Math.random() * 5)]);//Izvēlas nejaušu jautājumu daļu
-        setLoadingPopup(false);//Nolaiž spēles lādēšanās popupu
+        axios.get("https://iegriez-pasauli-api.herokuapp.com/api/thirdstage/").then((res) => {
+          for(const thirdStageOp of res.data){
+            if(thirdStageOp.correct === false){
+              //Atrod trešās daļas nepareizo vārdu opcijas
+              tsIncorrectWords.push(
+                {
+                  text: thirdStageOp.q, 
+                  color: thirdStageOp.color,
+                  fontSize: thirdStageOp.fontsize,
+                  top: Math.floor((Math.random() * 70) + 20), 
+                  left: Math.floor((Math.random() * 70) + 20),               
+                }
+              )
+            }else{
+              //Atrod trešās daļas pareizo vārdu opcijas
+              tsCorrectWords.push(
+                {
+                  text: thirdStageOp.q, 
+                  color: thirdStageOp.color,
+                  fontSize: thirdStageOp.fontsize,
+                  bottom: Math.floor((Math.random() * 70) + 20), 
+                  right: Math.floor((Math.random() * 70) + 20)              
+                }
+              )
+            }
+          }
+        }).then(() => {
+          setRandomStop(wheelStops[Math.floor(Math.random() * 5)]);//Izvēlas nejaušu jautājumu daļu
+          setLoadingPopup(false);//Nolaiž spēles lādēšanās popupu
+        })
       })
-    })
+    }
   }, [indexGroupMap, tsIncorrectWords, tsCorrectWords]);
 
   useEffect(() => {
