@@ -9,11 +9,6 @@ function LandingPage({instructionState, setInstructionState}) {
 
     return (
       <StyledLandingPage>
-        {/* <header>
-          <img className="infinity" src="landingPageResources/infinity.svg" alt="logo" />
-          <button className="login" onClick={() => history.push("/login")}>Login</button>
-        </header> */}
-
         <h1>Iegriez Pasauli</h1>
         <div className="earth"/>
         <div className="pogas">

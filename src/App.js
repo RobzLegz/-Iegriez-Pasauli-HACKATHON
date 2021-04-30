@@ -18,7 +18,6 @@ import ThirdStage from "./pages/ThirdStage";
 import { finish, selectGameEnded, selecthasfinished, stopGame } from "./features/finishSlice";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import Cookies from "universal-cookie";
 import axios from "axios";
 import GameOverPage from "./pages/GameOverPage";
 import { wheelStops } from "./data/wheelOptions";
@@ -75,8 +74,6 @@ function App() {
   const dispatch = useDispatch();
   const wheelRef = useRef();
 
-  const cookies = new Cookies();
-  
   useEffect(() => {
     if(themeImage !== ""){
       setTimeout(() => {
