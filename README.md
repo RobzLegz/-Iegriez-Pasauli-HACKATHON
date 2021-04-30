@@ -27,16 +27,22 @@
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
   <img src="src/screenshots/questioneditstep1.png" width="300px" />
+<hr />
   <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
   <img src="src/screenshots/questioneditstep2.png" width="500px" />
+<hr />
   <li><span>3.</span> Kad uzklikšķinat uz kādu jautājumu, Jūs nonāksiet šajā lapā:</li>
   <img src="src/screenshots/questioneditstep3.png" width="600px" />
+<hr />
   <li><span>4.</span> Sadaļā Q varat rediģēt pašu jautājumu</li>
   <img src="src/screenshots/questioneditstep4.png" width="600px" />
+<hr />
   <li><span>5.</span> Sadaļā xtraInfo varat rediģēt vai pievienot papildus informāciju saistībā ar jautājumu</li>
   <img src="src/screenshots/questioneditstep5.png" width="600px" />
+<hr />
   <li><span>6.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
   <img src="src/screenshots/questioneditstep6.png" width="600px" />
+<hr />
   <li><span>!</span> Uzmanību šos lauciņus lūdzu nemainīt</li>
   <img src="src/screenshots/questioneditstep7.png" width="600px" />
 </ul>
