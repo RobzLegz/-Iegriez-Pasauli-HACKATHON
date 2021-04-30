@@ -105,4 +105,9 @@
   <br />
   <li><a href="https://iegriez-pasauli-api.herokuapp.com/auth/">Autetifikācijas tokena iegūšana, tikai POST requests.</a></li>
 </ul>
+<hr />
+<br />
+<h2>Ekrānuzņēmumi:</h2>
+<br />
+<img src="" />
 
