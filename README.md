@@ -86,9 +86,23 @@
   <li><span>!</span> Uzmanību šo lauciņu lūdzu nemainīt</li>
   <img src="src/screenshots/answeredittut8.png" width="800px" />
 </ul>
+<hr />
 <br />
 <h2>Noderīgas saites:</h2>
 <br />
 <ul>
   <li>1. <code><a href="https://github.com/MareksNo/test-dir-api/tree/fixing-bugs">Backend repository</a></code></li>
 </ul>
+<hr />
+<br />
+<h2>API Routes</h2>
+<ul>
+  <li><a href="https://iegriez-pasauli-api.herokuapp.com/admin/">Admin Panelis</a></li>
+  <br />
+  <li><a href="https://iegriez-pasauli-api.herokuapp.com/api/questions/">Jautājumu viewsets</a></li>
+  <li><a href="https://iegriez-pasauli-api.herokuapp.com/api/thirdstage/">Trešās stadijas viewsets</a></li>
+  <li><a href="https://iegriez-pasauli-api.herokuapp.com/api/members/">Leaderboard dalībnieku viewsets</a></li>
+  <br />
+  <li><a href="https://iegriez-pasauli-api.herokuapp.com/auth/">Autetifikācijas tokena iegūšana, tikai POST requests.</a></li>
+</ul>
+
