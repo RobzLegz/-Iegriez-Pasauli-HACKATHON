@@ -110,4 +110,7 @@
 <h2>Ekrānuzņēmumi:</h2>
 <br />
 <img src="src/screenshots/gameplay1.png" width="90%" />
+<img src="src/screenshots/gameplay2.png" width="90%" />
+<img src="src/screenshots/gameplay3.png" width="90%" />
+<img src="src/screenshots/gameplay4.png" width="90%" />
 
