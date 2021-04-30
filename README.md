@@ -32,7 +32,7 @@
 <h5>Sadaļā"CORE/Options" var rediģēt atbildes uz jautājumiem</h5>
 <br />
 <hr />
-<h4>Lai rediģētu jautājumus:</h4>
+<h3>Lai rediģētu jautājumus:</h3>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
   <img src="src/screenshots/questioneditstep1.png" width="300px" />
@@ -59,7 +59,7 @@
 <hr />
 <br />
 <br />
-<h4>Lai rediģētu atbildes:</h4>
+<h3>Lai rediģētu atbildes:</h3>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Options".</li>
   <img src="src/screenshots/answeredittut1.png" width="300px" />
