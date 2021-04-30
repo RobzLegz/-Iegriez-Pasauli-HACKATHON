@@ -15,4 +15,4 @@
 </ul>
 <h2>Administrātora iespējas:</h2>
 <h4>Lai mainītu jautājumus un atbildes vajag pierakstīties.</h4>
-<img src="src/screenshots/adminlogin.png" />
+<img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
