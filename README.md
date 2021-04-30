@@ -69,6 +69,9 @@
   <p>!!!Uzmanību---> Katrā jautājumā obligāti jābūt vienai pareizai atbilžu opcijai</p>
   <img src="src/screenshots/answeredittut6.png" width="600px" />
   <hr />
+  <li><span>6.</span> Kad beidzat rediģēt, saglabājiet izmaiņas</li>
+    <img src="src/screenshots/questioneditstep6.png" width="600px" />
+  <hr />
   <li><span>!</span> Uzmanību šo lauciņu lūdzu nemainīt</li>
   <img src="src/screenshots/answeredittut8.png" width="800px" />
 </ul>
