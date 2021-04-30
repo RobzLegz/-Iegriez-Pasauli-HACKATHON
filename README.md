@@ -2,7 +2,6 @@
 <a href="https://iegriez-pasauli-hackathon-robzlegz.vercel.app/">Apmeklēt</a> (Ctrl + click)
 <br />
 ## Noteikumi:
-
 <ul>
   <li><span>1.</span> Spiediet pogu "Sākt spēli".</li>
   <li><span>2.</span> Lai iegrieztu ratu Jums ir jānospiež poga "Iegriezt".</li>
@@ -14,5 +13,6 @@
   <li><span>8.</span> Pēc trešās kārtas Jūs uzzināsiet cik punktus nopelnījāt un kāda ir jūsu loma.</li>
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
-<hr />
+
+<br />
 ## Administrātora iespējas:
