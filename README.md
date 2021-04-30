@@ -41,11 +41,11 @@
 <br />
 <h4>Lai rediģētu atbildes:</h4>
 <ul>
-  <li><span>1.</span> Aizejiet uz sadaļu "CORE/Options"</li>
+  <li><span>1.</span> Aizejiet uz sadaļu "CORE/Options".</li>
   <img src="src/screenshots/answeredittut1.png" width="300px" />
-  <li><span>2.</span> Atrodiet jautājumu, kuru vēlaties rediģēt</li>
+  <li><span>2.</span> Atrodiet atbildi, kuru vēlaties rediģēt.</li>
   <img src="src/screenshots/answeredittut2.png" width="500px" />
-  <li><span>3.</span> Kad uzklikšķinat uz kādu jautājumu, Jūs nonāksiet šajā lapā:</li>
+  <li><span>3.</span> Atbildei priekšā ir dots jautājums, uz kuru attiecas atbildes opcija.</li>
   <img src="src/screenshots/answeredittut3.png" width="600px" />
   <li><span>4.</span> Sadaļā Q varat rediģēt pašu jautājumu</li>
   <img src="src/screenshots/answeredittut4.png" width="600px" />
