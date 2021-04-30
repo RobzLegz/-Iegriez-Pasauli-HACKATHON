@@ -16,4 +16,4 @@
 
 <br />
 <br />
-## Administrātora iespējas:
+<h2>Administrātora iespējas:</h2>
