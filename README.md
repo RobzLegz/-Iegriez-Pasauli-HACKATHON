@@ -1,6 +1,5 @@
 # Iegriez Pasauli
 <h3><a href="https://iegriez-pasauli-hackathon-robzlegz.vercel.app/">Apmeklēt</a> (Ctrl + click)</h3>
-<br />
 <h2>Noteikumi:</h2>
 <ul>
   <li><span>1.</span> Spiediet pogu "Sākt spēli".</li>
