@@ -34,7 +34,8 @@ const StyledFinishPage = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
     -webkit-animation: animatezoom 2s;
     animation: animatezoom 2s;
     align-items: center;

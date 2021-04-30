@@ -16,14 +16,22 @@ function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup, setLead
         <>
           <div className={leaderboardPopup ? "active__leaderboard--popup" : "invisible__leaderboard--popup"}>
             <h2>Spēlētāju tops</h2>
-            {leaderboardUsers.map((leaderboardUser, i) => (
-              <div key={i} className={`all__results ${leaderboardUsername === leaderboardUser.username ? "your__result" : ""}`}>
-                <h3>{i + 1}.</h3>
-                <h3>{leaderboardUser.username}</h3>
-                <h3>{leaderboardUser.score}</h3>
-                <h3>{leaderboardUser.role}</h3>
-              </div>
-            ))}
+            <section className="player__container">
+              {/* <div className="all__results">
+                <h3>Vieta</h3>
+                <h3>Lietotājvārds</h3>
+                <h3>Punkti</h3>
+                <h3>Loma</h3>
+              </div> */}
+              {leaderboardUsers.map((leaderboardUser, i) => (
+                <div key={i} className={`all__results ${leaderboardUsername === leaderboardUser.username ? "your__result" : ""}`}>
+                  <h3 className={`place__index ${i + 1 === 1 ? "first__place" : i + 1 === 2 ? "second__place" : i + 1 === 3 ? "third__place" : ""}`}>{i + 1}.</h3>
+                  <h3>{leaderboardUser.username}</h3>
+                  <h3>{leaderboardUser.score}</h3>
+                  <h3>{leaderboardUser.role}</h3>
+                </div>
+              ))}
+            </section>
             <button onClick={playAgain}>Spēlēt vēlreiz</button>
           </div>
           <FinishPage leaderboardUsername={leaderboardUsername} setLeaderboardUsername={setLeaderboardUsername} addToLeaderboard={addToLeaderboard} leaderboardState={leaderboardState} setLeaderboardState={setLeaderboardState} playAgain={playAgain} />
@@ -69,29 +77,104 @@ const StyledThirdStagePage = styled.div`
         animation: animateTimer 5s ease infinite;
     }
     >.active__leaderboard--popup{
-        position: absolute;
-        z-index: 11;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        opacity: 1;
-        pointer-events: all;
-        background: linear-gradient(120deg, #efeae4, #ebe1d1);
-        text-align: left;
-        >h3{
-            text-align: left;
+      position: absolute;
+      z-index: 11;
+      width: 100%;
+      overflow: hidden;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 100px 0;
+      opacity: 1;
+      pointer-events: all;
+      background: linear-gradient(120deg, #efeae4, #ebe1d1);
+      text-align: left;
+      >button{
+        margin-top: 100px;
+        padding: 10px 20px;
+        outline: none;
+        border: none;
+        background: #9ACA3C;
+        color: #f6f5f5;
+      }
+      >h2{
+        color: #3c3c58;
+        margin-bottom: 20px;
+      }
+      >.player__container{
+        width: 80%;
+        max-width: 900px;
+        height: 500px;
+        overflow-y: scroll;
+        background: #ecebeb;
+        ::-webkit-scrollbar {
+          width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #c0c0b1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: #3c3c58;
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: #494970;
         }
         >.all__results{
-
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 30px;
+          border-top: 1px solid lightgray;
+          >h3{
+            text-align: left;
+            color: #3c3c58;
+          }
+          >.place__index{
+            border: 1px solid #3c3c58;
+            padding: 10px 15px;
+            border-radius: 50%;
+          }
+          >.first__place{
+            background: gold;
+          }
+          >.second__place{
+            background: silver;
+          }
+          >.third__place{
+            background: #c77a16;
+          }
         }
         >.your__result{
-          background: yellow;
+          background: #dada29;
         }
+        @media(max-width: 700px){
+          width: 95%;
+        }
+        @media(max-width: 376px){
+          width: 100%;
+        }
+        @media(max-width: 361px){
+          >.all__results{
+            >h3{
+              font-size: 15px;
+            } 
+            >.place__index{
+              border: 1px solid #3c3c58;
+              padding: 5px 10px;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+     
         
     }
     >.invisible__leaderboard--popup{
