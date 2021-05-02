@@ -11,18 +11,14 @@ function ThirdStage({tsCorrectWords,clickIncorrectWord, leaderboardUsers, leader
 
   return (
     <StyledThirdStagePage>
-      <Header />
+      {!hasFinished && (
+        <Header />
+      )}
       {hasFinished ? (
         <>
           <div className={leaderboardPopup ? "active__leaderboard--popup" : "invisible__leaderboard--popup"}>
             <h2>Spēlētāju tops</h2>
             <section className="player__container">
-              {/* <div className="all__results">
-                <h3>Vieta</h3>
-                <h3>Lietotājvārds</h3>
-                <h3>Punkti</h3>
-                <h3>Loma</h3>
-              </div> */}
               {leaderboardUsers.map((leaderboardUser, i) => (
                 <div key={i} className={`all__results ${leaderboardUsername === leaderboardUser.username ? "your__result" : ""}`}>
                   <h3 className={`place__index ${i + 1 === 1 ? "first__place" : i + 1 === 2 ? "second__place" : i + 1 === 3 ? "third__place" : ""}`}>{i + 1}.</h3>

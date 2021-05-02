@@ -32,7 +32,7 @@ function App() {
   const [instructionState, setInstructionState] = useState(false);
   const [tsIncorrectWords] = useState([]);//nepareizie trešās daļas jēdzieni
   const [tsCorrectWords, setTsCorrectWords] = useState([]);//pareizie trešās daļas jēdzieni
-  const [tsCountdownTimer, setTsCountdownTimer] = useState(7);
+  const [tsCountdownTimer, setTsCountdownTimer] = useState(10);
   const [startWordFlow, setStartWordFlow] = useState(false);
   const [finishCountDown, setFinishCountDown] = useState(15);
   const [foundWordObject, setFoundWordObject] = useState([]);
