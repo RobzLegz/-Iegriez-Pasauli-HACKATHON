@@ -118,7 +118,7 @@
 <ul>
   <li>1. <code><a href="https://github.com/MareksNo/test-dir-api/tree/fixing-bugs">Backend repository</a></code></li>
   <li>2. <code><a href="https://www.youtube.com/watch?v=XLu160j9yuE">Administratora apmācības video</a></code></li>
-  <li>3. <code><a href="https://www.youtube.com/watch?v=XLu160j9yuE">Administratora apmācības video</a></code></li>
+  <li>3. <code><a href="https://iegriez-pasauli-hackathon-pw1ftmhqf-robzlegz.vercel.app/">Spēles saite</a></code></li>
 </ul>
 <hr />
 <br />
