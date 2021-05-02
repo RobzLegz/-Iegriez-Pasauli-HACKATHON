@@ -29,6 +29,7 @@
   <li>ReactJS</li>
   <li>JavaScript</li>
   <li>Redux</li>
+  <li>Axios</li>
   <li>Styled-Components</li>
   <h3>Back end:</h3>
   <li>Python</li>
