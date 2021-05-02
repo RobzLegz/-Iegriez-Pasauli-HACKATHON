@@ -13,6 +13,13 @@
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
 <hr />
+<h2>Spēles papildinājums no Team-Datorium:</h2>
+<ul>
+  <li><span>1.</span> Administratora panelis</li>
+  <li><span>2.</span> "Responsive" dizains</li>
+  <li><span>3.</span> Spēlētāju tops</li>
+</ul>
+<hr />
 <h2>Kā palaist aplikāciju?</h2>
 <ul>
   <li>0. Instalē nodeJS <a href="https://nodejs.org/en/">šeit</a></li>
@@ -20,6 +27,15 @@
   <li>2. Atver termināli(<code>Ctrl + `</code>)</li>
   <li>3. Terminālī ieraksti: <code>npm install</code></li>
   <li>4. Terminālī ieraksti: <code>npm start</code></li>
+</ul>
+<hr />
+<h2>Izmantotās tehnoloģijas:</h2>
+<ul>
+  <li><span>*</span> ReactJS</li>
+  <li><span>*</span> JavaScript</li>
+  <li><span>*</span> Redux</li>
+  <li><span>*</span> Python-Django</li>
+  <li><span>*</span> Styled-Components</li>
 </ul>
 <hr />
 <h2>Administrātora iespējas:</h2>
