@@ -6,7 +6,7 @@ import Header from '../header/Header';
 import WordFlow from "../thirdStage/WordFlow"
 import FinishPage from './FinishPage';
 
-function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup, setLeaderboardUsername, leaderboardUsername, addToLeaderboard,leaderboardState,setLeaderboardState, playAgain, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
+function ThirdStage({tsCorrectWords,clickIncorrectWord, leaderboardUsers, leaderboardPopup, setLeaderboardUsername, leaderboardUsername, addToLeaderboard,leaderboardState,setLeaderboardState, playAgain, finishCountDown, clickWord, thirdStageFoundWords, tsIncorrectWords, startWordFlow, tsCountdownTimer}) {
   const hasFinished = useSelector(selecthasfinished);
 
   return (
@@ -40,6 +40,7 @@ function ThirdStage({tsCorrectWords, leaderboardUsers, leaderboardPopup, setLead
           <>
               {startWordFlow ? (
                 <WordFlow
+                  clickIncorrectWord={clickIncorrectWord}
                   finishCountDown={finishCountDown}
                   thirdStageFoundWords={thirdStageFoundWords}
                   clickWord={clickWord}

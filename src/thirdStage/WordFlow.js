@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectWords, finishCountDown}) {
+function WordFlow({tsCorrectWords,clickIncorrectWord, thirdStageFoundWords, clickWord, tsIncorrectWords, finishCountDown}) {
     return (
         <StyledWordFlowStage>
             <div className="time__counter">
@@ -23,15 +23,17 @@ function WordFlow({tsCorrectWords, thirdStageFoundWords, clickWord, tsIncorrectW
             </div>            
             <div className="incorrect__container">
                 {tsIncorrectWords.map((incorrect, i) => (
-                    <h3 
-                      key={`incorrect-${i}`}
-                      style={{
-                          top: `${incorrect.top}%`, 
-                          left: `${incorrect.left}%`,
-                          color: `${incorrect.color}`,
-                          fontSize: `${incorrect.fontSize}`
-                      }}
-                    >{incorrect.text}</h3>
+                  <h3 
+                    onClick={() => clickIncorrectWord(i)}
+                    key={`incorrect-${i}`}
+                    id={`incorrect__${i}`}
+                    style={{
+                      top: `${incorrect.top}%`, 
+                      left: `${incorrect.left}%`,
+                      color: `${incorrect.color}`,
+                      fontSize: `${incorrect.fontSize}`
+                    }}
+                  >{incorrect.text}</h3>
                 ))}
             </div>            
             <div className="answered__container">

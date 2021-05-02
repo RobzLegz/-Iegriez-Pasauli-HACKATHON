@@ -280,6 +280,10 @@ function App() {
     dispatch(addPoint()); //palielina punktu skaitu
   }
 
+  const clickIncorrectWord = (index) => {
+    document.getElementById(`incorrect__${index}`).style.color = "red";
+  }
+
   //Spēlēt vēlreiz
   const playAgain = () => {
     localStorage.setItem("lastTheme", randomStop.value);//Aizsūta iepriekšējo tēmu uz localstorage
@@ -312,6 +316,7 @@ function App() {
             <>
               {thirdStageStarted ? (
                 <ThirdStage
+                  clickIncorrectWord={clickIncorrectWord}
                   leaderboardUsers={leaderboardUsers}
                   leaderboardPopup={leaderboardPopup}
                   leaderboardUsername={leaderboardUsername}
