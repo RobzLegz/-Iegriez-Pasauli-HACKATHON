@@ -18,9 +18,8 @@
   <li>0. Instalē nodeJS <a href="https://nodejs.org/en/">šeit</a></li>
   <li>1. Atver kodu teksta rediģētājā</li>
   <li>2. Atver termināli(<code>Ctrl + `</code>)</li>
-  <p>Terminālī ieraksti:</p>
-  <li>3. <code>npm install</code></li>
-  <li>4. <code>npm start</code></li>
+  <li>3. Terminālī ieraksti: <code>npm install</code></li>
+  <li>4. Terminālī ieraksti: <code>npm start</code></li>
 </ul>
 <hr />
 <h2>Administrātora iespējas:</h2>
