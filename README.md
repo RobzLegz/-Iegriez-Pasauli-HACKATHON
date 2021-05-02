@@ -16,8 +16,11 @@
 <h2>Spēles papildinājums no Team-Datorium:</h2>
 <ul>
   <li><span>1.</span> Administratora panelis</li>
+  <img src="https://cdn.discordapp.com/attachments/749889849087098960/838520029263429682/unknown.png" />
   <li><span>2.</span> "Responsive" dizains</li>
+  <img src="https://cdn.discordapp.com/attachments/749889849087098960/838520029263429682/unknown.png" />
   <li><span>3.</span> Spēlētāju tops</li>
+  <img src="https://cdn.discordapp.com/attachments/749889849087098960/838520029263429682/unknown.png" />
 </ul>
 <hr />
 <h2>Kā palaist aplikāciju?</h2>
