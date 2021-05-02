@@ -15,11 +15,11 @@
 <hr />
 <h2>Spēles papildinājums no Team-Datorium:</h2>
 <ul>
-  <li><span>1.</span> Administratora panelis</li>
+  <li><span>1.</span> <h3>Administratora panelis</h3></li>
   <img src="https://cdn.discordapp.com/attachments/749889849087098960/838520029263429682/unknown.png" />
-  <li><span>2.</span> "Responsive" dizains</li>
+  <li><span>2.</span> <h3>"Responsive" dizains</h3></li>
   <img src="https://cdn.discordapp.com/attachments/749889849087098960/838521297394466828/unknown.png" />
-  <li><span>3.</span> Spēlētāju tops</li>
+  <li><span>3.</span> <h3>Spēlētāju tops</h3></li>
   <img src="https://cdn.discordapp.com/attachments/832216044772392980/837779844036952136/unknown.png" />
 </ul>
 <hr />
