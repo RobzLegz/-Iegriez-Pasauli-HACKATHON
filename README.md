@@ -23,15 +23,6 @@
   <img src="https://cdn.discordapp.com/attachments/832216044772392980/837779844036952136/unknown.png" width="400px" />
 </ul>
 <hr />
-<h2>Kā palaist aplikāciju?</h2>
-<ul>
-  <li>0. Instalē nodeJS <a href="https://nodejs.org/en/">šeit</a></li>
-  <li>1. Atver kodu teksta rediģētājā</li>
-  <li>2. Atver termināli(<code>Ctrl + `</code>)</li>
-  <li>3. Terminālī ieraksti: <code>npm install</code></li>
-  <li>4. Terminālī ieraksti: <code>npm start</code></li>
-</ul>
-<hr />
 <h2>Izmantotās tehnoloģijas:</h2>
 <ul>
   <h3>Front end:</h3>
@@ -43,6 +34,15 @@
   <li>Python</li>
   <li>Django</li>
   <li>Django-rest-framework</li>
+</ul>
+<hr />
+<h2>Kā palaist aplikāciju?</h2>
+<ul>
+  <li>0. Instalē nodeJS <a href="https://nodejs.org/en/">šeit</a></li>
+  <li>1. Atver kodu teksta rediģētājā</li>
+  <li>2. Atver termināli(<code>Ctrl + `</code>)</li>
+  <li>3. Terminālī ieraksti: <code>npm install</code></li>
+  <li>4. Terminālī ieraksti: <code>npm start</code></li>
 </ul>
 <hr />
 <h2>Administrātora iespējas:</h2>
