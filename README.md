@@ -42,6 +42,7 @@
   <h3>Back end:</h3>
   <li>Python</li>
   <li>Django</li>
+  <li>Django-rest-framework</li>
 </ul>
 <hr />
 <h2>Administrātora iespējas:</h2>
