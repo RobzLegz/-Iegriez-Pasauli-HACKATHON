@@ -23,6 +23,7 @@
 </ul>
 <hr />
 <h2>Administrātora iespējas:</h2>
+<h3>Adminstratora apmācības video: (<a href="https://www.youtube.com/watch?v=XLu160j9yuE">Apmācība</a>)</h3>
 <h4>Lai mainītu jautājumus un atbildes vajag pierakstīties <a href="https://iegriez-pasauli-api.herokuapp.com/admin/">šeit</a>.</h4>
 <img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
 <h4>Kad pierakstaties, varat rediģēt jautājumus un atbildes</h4>
