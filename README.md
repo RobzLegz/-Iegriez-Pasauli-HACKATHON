@@ -31,11 +31,14 @@
 <hr />
 <h2>Izmantotās tehnoloģijas:</h2>
 <ul>
+  <h3>Front end:</h3>
   <li>ReactJS</li>
   <li>JavaScript</li>
   <li>Redux</li>
-  <li>Python-Django</li>
   <li>Styled-Components</li>
+  <h3>Back end:</h3>
+  <li>Python</li>
+  <li>Django</li>
 </ul>
 <hr />
 <h2>Administrātora iespējas:</h2>
