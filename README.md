@@ -20,7 +20,7 @@
   <li><span>2.</span> "Responsive" dizains</li>
   <img src="https://cdn.discordapp.com/attachments/749889849087098960/838521297394466828/unknown.png" />
   <li><span>3.</span> Spēlētāju tops</li>
-  <img src="https://cdn.discordapp.com/attachments/749889849087098960/838520029263429682/unknown.png" />
+  <img src="https://cdn.discordapp.com/attachments/832216044772392980/837779844036952136/unknown.png" />
 </ul>
 <hr />
 <h2>Kā palaist aplikāciju?</h2>
