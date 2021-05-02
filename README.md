@@ -32,7 +32,7 @@
 <h5>Sadaļā"CORE/Options" var rediģēt atbildes uz jautājumiem</h5>
 <br />
 <hr />
-<h4>Lai rediģētu jautājumus:</h4>
+<h3>Lai rediģētu jautājumus:</h3>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Questions"</li>
   <img src="src/screenshots/questioneditstep1.png" width="300px" />
@@ -59,7 +59,7 @@
 <hr />
 <br />
 <br />
-<h4>Lai rediģētu atbildes:</h4>
+<h3>Lai rediģētu atbildes:</h3>
 <ul>
   <li><span>1.</span> Aizejiet uz sadaļu "CORE/Options".</li>
   <img src="src/screenshots/answeredittut1.png" width="300px" />
@@ -109,5 +109,13 @@
 <br />
 <h2>Ekrānuzņēmumi:</h2>
 <br />
-<img src="" />
+<img src="src/screenshots/gameplay1.png" width="90%" />
+<img src="src/screenshots/gameplay2.png" width="90%" />
+<img src="src/screenshots/gameplay3.png" width="90%" />
+<img src="src/screenshots/gameplay4.png" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779161359450182/unknown.png" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779287850352680/unknown.png" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779452900802600/unknown.png" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779716181196840/unknown.png" width="90%" />
+<img src="https://cdn.discordapp.com/attachments/832216044772392980/837779844036952136/unknown.png" width="90%" />
 
