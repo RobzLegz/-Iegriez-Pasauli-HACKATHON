@@ -1,6 +1,6 @@
 # Iegriez Pasauli
 <h3><a href="https://iegriez-pasauli-hackathon-robzlegz.vercel.app/">Apmeklēt</a> (Ctrl + click)</h3>
-<h2>Noteikumi:</h2>
+<h2>Spēles noteikumi:</h2>
 <ul>
   <li><span>1.</span> Spiediet pogu "Sākt spēli".</li>
   <li><span>2.</span> Lai iegrieztu ratu Jums ir jānospiež poga "Iegriezt".</li>
@@ -13,16 +13,41 @@
   <li><span>9.</span> Ja vēlēsieties, varēsiet pievienoties spēlētāju topam</li>
 </ul>
 <hr />
+<h2>Spēles papildinājums no Team-Datorium:</h2>
+<ul>
+  <li><h3><span>1.</span> Administratora panelis</h3></li>
+  <img src="https://cdn.discordapp.com/attachments/749889849087098960/838520029263429682/unknown.png" width="400px" />
+  <li><h3><span>2.</span> "Responsive" dizains</h3></li>
+  <img src="https://cdn.discordapp.com/attachments/749889849087098960/838521297394466828/unknown.png" width="400px" />
+  <li><h3><span>3.</span> Spēlētāju tops</h3></li>
+  <img src="https://cdn.discordapp.com/attachments/832216044772392980/837779844036952136/unknown.png" width="400px" />
+</ul>
+<hr />
+<h2>Izmantotās tehnoloģijas:</h2>
+<ul>
+  <h3>Front end:</h3>
+  <li>ReactJS</li>
+  <li>JavaScript</li>
+  <li>Redux</li>
+  <li>Axios</li>
+  <li>Styled-Components</li>
+  <h3>Back end:</h3>
+  <li>Python</li>
+  <li>Django</li>
+  <li>Django-rest-framework</li>
+</ul>
+<hr />
 <h2>Kā palaist aplikāciju?</h2>
 <ul>
   <li>0. Instalē nodeJS <a href="https://nodejs.org/en/">šeit</a></li>
   <li>1. Atver kodu teksta rediģētājā</li>
   <li>2. Atver termināli(<code>Ctrl + `</code>)</li>
-  <li>3. <code>npm install</code></li>
-  <li>4. <code>npm start</code></li>
+  <li>3. Terminālī ieraksti: <code>npm install</code></li>
+  <li>4. Terminālī ieraksti: <code>npm start</code></li>
 </ul>
 <hr />
 <h2>Administrātora iespējas:</h2>
+<h3>Adminstratora apmācības video: (<a href="https://www.youtube.com/watch?v=XLu160j9yuE">Apmācība</a>)</h3>
 <h4>Lai mainītu jautājumus un atbildes vajag pierakstīties <a href="https://iegriez-pasauli-api.herokuapp.com/admin/">šeit</a>.</h4>
 <img src="src/screenshots/adminlogin.png" width="400px" height="auto" />
 <h4>Kad pierakstaties, varat rediģēt jautājumus un atbildes</h4>
@@ -92,6 +117,8 @@
 <br />
 <ul>
   <li>1. <code><a href="https://github.com/MareksNo/test-dir-api/tree/fixing-bugs">Backend repository</a></code></li>
+  <li>2. <code><a href="https://www.youtube.com/watch?v=XLu160j9yuE">Administratora apmācības video</a></code></li>
+  <li>3. <code><a href="https://iegriez-pasauli-hackathon-pw1ftmhqf-robzlegz.vercel.app/">Spēles saite</a></code></li>
 </ul>
 <hr />
 <br />
