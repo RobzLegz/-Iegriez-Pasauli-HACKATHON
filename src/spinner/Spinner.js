@@ -164,7 +164,7 @@ const SpinnerOption = styled.li`
   transform-origin: 100% 100%;
   transform: rotate(0deg) skewy(18deg);
   box-shadow: 0 0 0 2px #7e7a7a, inset 0 0 0 2px #7e7a7a;
-  background: #D6C536;
+  background: #c4e0c0;
   transition: 0.8s ease-out;
 
   :nth-child(2) {
@@ -227,6 +227,12 @@ const SpinnerOptionInnerEl = styled.div`
     z-index:3000;
   }
   @media(max-width: 766px){
+    >img{
+      width: 70px;
+      height: 70px;
+    }
+  }
+  @media(max-height: 731px){
     >img{
       width: 70px;
       height: 70px;

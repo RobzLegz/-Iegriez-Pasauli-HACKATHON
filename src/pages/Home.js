@@ -44,12 +44,12 @@ function Home({
         />
       </div>
       <div className={`loading__popup ${loadingPopup && "loading__popup--active"}`}>
-          <div className="loading_animation">
-              <div/>
-              <div/>
-              <div/>
-              <div/>
-          </div>
+        <div className="loading_animation">
+          <div/>
+          <div/>
+          <div/>
+          <div/>
+        </div>
         <h3>Lādējas...</h3>
       </div>
     </HomePage>
@@ -157,7 +157,7 @@ const HomePage = styled.div`
     align-items: center;
     justify-content: center;
     >img{
-      width: 90%;
+      width: 100%;
       max-width: 500px;
     }
   }
@@ -166,7 +166,7 @@ const HomePage = styled.div`
     align-items: center;
     justify-content: center;
     >img{
-      width: 90%;
+      width: 100%;
       max-width: 500px;
     }
   }
@@ -193,6 +193,7 @@ const SpinnerContainer = styled.div`
     font-family: "Josefin Sans", sans-serif;
     height: 80px;
     width:80px;
+    font-size: 19px;
     margin-top: 210px;
     position: absolute;
     display: flex;
@@ -201,8 +202,6 @@ const SpinnerContainer = styled.div`
     padding: 10px;
     border-radius:50%;
     z-index: 5;
-    border: 5px solid lightgray;
-    box-shadow:rgba(0,0,0,0.1) 0px 3px 0px;
     -webkit-user-select: none;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
@@ -210,22 +209,40 @@ const SpinnerContainer = styled.div`
     transition-duration: 0.3s;
     -webkit-transition-property: transform;
     transition-property: transform;
-    :hover{
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1);
-    }
+    border:4px solid #2c85a4;
+    -webkit-animation-name: hvr-pulse;
+    animation-name: hvr-pulse;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    
     :active{
       border: 5px solid whitesmoke;
       background-color: lightgray;
     }
-    :disabled{
+    :disabled {
       border: 5px solid whitesmoke;
       background-color: #dbd4d4;
-      :hover{
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
     }
+    :hover{
+      animation: none;
+    }
+    ::after{
+      content: '';
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      border: 6px solid #2c85a4;
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: ring 1.5s infinite;
+  }
     > p {
       font-size: 18px;
       color: #2f2f2f;
@@ -233,16 +250,66 @@ const SpinnerContainer = styled.div`
       padding-top: 5px;
     }
   }
-  @media(max-width: 456px){
+    @keyframes ring {
+      0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+      }
+      100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+      }
+    }
+    @keyframes hvr-pulse {
+      25% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+      75% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+      }
+    }
+    @keyframes animating {
+      0% {
+        background-position: 0% 50%
+      }
+      50% {
+        background-position: 100% 50%
+      }
+      100% {
+        background-position: 0% 50%
+      }
+    }
+  @media(max-height: 731px){
     >button{
       height: 65px;
       width:65px;
-      border: 3px solid lightgray;
+      border: 3px solid #2c85a4;
+      font-size: 16px;
     }
   }
-  @media(max-height: 568px){
+    @media(max-width: 456px){
+      >button{
+        height: 65px;
+        width:65px;
+        border: 3px solid #2c85a4;
+        font-size: 16px;
+      }
+    }
+    @media(max-height: 568px){
+      >button{
+        margin-top: 155px;
+      }
+    }
+  @media(max-width: 350px){
     >button{
-      margin-top: 155px;
+      height: 55px;
+      width:55px;
+      border: 3px solid #2c85a4;
+      font-size: 12px;
     }
   }
 `;
@@ -275,6 +342,12 @@ const SpinnerArrow = styled.div`
     top: 33%;
   }
   @media(max-width: 750px){
+    top: 30%;
+  }
+  @media(max-height: 779px){
+    top: 27%;
+  }
+  @media(max-height: 707px){
     top: 30%;
   }
   @media(max-width: 664px){
