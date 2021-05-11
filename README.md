@@ -145,4 +145,13 @@
 <img src="https://cdn.discordapp.com/attachments/832216044772392980/837779452900802600/unknown.png" width="90%" />
 <img src="https://cdn.discordapp.com/attachments/832216044772392980/837779716181196840/unknown.png" width="90%" />
 <img src="https://cdn.discordapp.com/attachments/832216044772392980/837779844036952136/unknown.png" width="90%" />
-
+<hr />
+<br />
+<h2>Copyrights:</h2>
+<ul>
+  <li><p>Flaticon</p></li>
+  <br />
+  <li><p>OPENCLIPART</p></li>
+  <br />
+</ul>
+<h3>Viss spēles kods un jautājumi ir mūsu pašu rakstīti</h3>
