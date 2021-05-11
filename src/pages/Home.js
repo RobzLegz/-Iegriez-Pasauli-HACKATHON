@@ -157,7 +157,7 @@ const HomePage = styled.div`
     align-items: center;
     justify-content: center;
     >img{
-      width: 100%;
+      width: 90%;
       max-width: 500px;
     }
   }
@@ -166,7 +166,7 @@ const HomePage = styled.div`
     align-items: center;
     justify-content: center;
     >img{
-      width: 100%;
+      width: 90%;
       max-width: 500px;
     }
   }
@@ -218,14 +218,12 @@ const SpinnerContainer = styled.div`
     animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
+    background-color:white;
     
-    :active{
-      border: 5px solid whitesmoke;
-      background-color: lightgray;
-    }
     :disabled {
-      border: 5px solid whitesmoke;
-      background-color: #dbd4d4;
+      border: 5px solid #2c85a4;
+      background-color: whitesmoke;
+      animation:none;
     }
     :hover{
       animation: none;
@@ -242,7 +240,7 @@ const SpinnerContainer = styled.div`
       left: 50%;
       transform: translate(-50%, -50%);
       animation: ring 1.5s infinite;
-  }
+    }
     > p {
       font-size: 18px;
       color: #2f2f2f;
@@ -250,39 +248,39 @@ const SpinnerContainer = styled.div`
       padding-top: 5px;
     }
   }
-    @keyframes ring {
-      0% {
-        width: 30px;
-        height: 30px;
-        opacity: 1;
-      }
-      100% {
-        width: 100px;
-        height: 100px;
-        opacity: 0;
-      }
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
     }
-    @keyframes hvr-pulse {
-      25% {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-      }
-      75% {
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
-      }
+    100% {
+      width: 100px;
+      height: 100px;
+      opacity: 0;
     }
-    @keyframes animating {
-      0% {
-        background-position: 0% 50%
-      }
-      50% {
-        background-position: 100% 50%
-      }
-      100% {
-        background-position: 0% 50%
-      }
+  }
+  @keyframes hvr-pulse {
+    25% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
     }
+    75% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  @keyframes animating {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
   @media(max-height: 731px){
     >button{
       height: 65px;
@@ -291,19 +289,19 @@ const SpinnerContainer = styled.div`
       font-size: 16px;
     }
   }
-    @media(max-width: 456px){
-      >button{
-        height: 65px;
-        width:65px;
-        border: 3px solid #2c85a4;
-        font-size: 16px;
-      }
+  @media(max-width: 456px){
+    >button{
+      height: 65px;
+      width:65px;
+      border: 3px solid #2c85a4;
+      font-size: 16px;
     }
-    @media(max-height: 568px){
-      >button{
-        margin-top: 155px;
-      }
+  }
+  @media(max-height: 568px){
+    >button{
+      margin-top: 155px;
     }
+  }
   @media(max-width: 350px){
     >button{
       height: 55px;
